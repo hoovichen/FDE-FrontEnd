@@ -1,0 +1,109 @@
+/* ==============================
+   Section: Blogs
+============================== */
+
+.blogs {
+  width: min(1200px, 94%);
+  margin-inline: auto;
+  position: relative;
+  padding: clamp(36px, 6vw, 80px) 0;
+  color: #000;
+  overflow: hidden;
+}
+
+/* 背景：虚化灰白滤镜 */
+.blogs__overlay {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/background/bg-placeholder.jpg"); /* 临时背景图 */
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px) brightness(0.95);
+  transform: scale(1.1);
+  z-index: -2;
+}
+.blogs::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.7); /* 灰白半透明层 */
+  backdrop-filter: saturate(130%);
+  z-index: -1;
+}
+
+/* 标题区 */
+.blogs__header {
+  text-align: center;
+  margin-bottom: clamp(24px, 5vw, 48px);
+}
+.blogs__title {
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #000;
+}
+.blogs__desc {
+  margin-top: 8px;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: clamp(14px, 2vw, 18px);
+  line-height: 1.6;
+}
+
+/* 卡片区 */
+.blogs__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  width: min(1200px, 92%);
+  margin-inline: auto;
+}
+
+.blogs__card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 14px;
+  overflow: hidden;
+  text-align: left;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.blogs__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.blogs__card img {
+  width: 95%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 10px auto;
+}
+
+.blogs__card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: left;
+  margin: 8px 16px 4px;
+  color: #000;
+}
+.blogs__readmore {
+  margin: 0 16px 16px;
+  display: inline-block;
+  justify-self: left;
+  margin-bottom: 16px;
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.blogs__readmore:hover { color: var(--color-brand-red); }
+
+
+/* 响应式微调 */
+@media (max-width: 768px) {
+  .blogs__card img { height: 160px; }
+  .blogs__grid { gap: 14px; }
+  .blogs__more { font-size: 0.95rem; padding: 10px 22px; }
+}

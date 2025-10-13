@@ -1,0 +1,25 @@
+:root {
+    /* 品牌主色与中性色 */
+    --color-brand: #f30300;
+    --color-brand-red: #af1311;
+    --color-brand-600: hsla(0, 100%, 50%, 0.238);
+    --color-accent: #ff6b00;
+  
+    --color-text: #f30300;
+    --color-text-muted: #4b5563;
+    --color-bg: #faf7ef;
+    --color-bg-soft: #f8fafc;
+    --color-border: #e5e7eb;
+  
+
+    /* 状态色 */
+    --color-success: #16a34a;
+    --color-warning: #d97706;
+    --color-error: #dc2626;
+
+    /* HeroSection的色彩 */
+    --color-hero: #ec7717;
+    --color-hero-title: #000;
+    --color-hero-text: #faf6ef;
+  }
+  

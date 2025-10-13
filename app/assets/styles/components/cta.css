@@ -1,0 +1,25 @@
+/* ========= 通用 CTA Pill（Recipes / Blogs 共用） ========= */
+
+/* 中心按钮 */
+.cta {
+  display: grid; place-items: center;
+  margin-top: clamp(16px, 4vw, 24px);
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 4px 24px 4px 4px;
+  border-radius: 999px;
+  background: var(--color-brand);
+  color: #fff; font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;
+}
+.pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.16);
+}
+.pill-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  object-fit: cover; display: block;
+}

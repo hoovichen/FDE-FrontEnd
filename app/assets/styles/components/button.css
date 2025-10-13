@@ -1,0 +1,13 @@
+.btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 8px; height: 40px; padding: 0 16px;
+    border-radius: 999px; border: 1px solid transparent;
+    font-weight: 600; cursor: pointer; transition: background .2s ease, border-color .2s ease, transform .05s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn--primary { background: var(--color-brand); color: #fff; }
+  .btn--primary:hover { background: var(--color-brand-600); }
+  .btn--ghost { background: transparent; border-color: var(--color-border); color: var(--color-text); }
+  .btn--ghost:hover { border-color: var(--color-text-muted); }
+  .btn--link { background: transparent; color: var(--color-brand); padding: 0; height: auto; }
+  

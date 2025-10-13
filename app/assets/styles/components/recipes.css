@@ -1,0 +1,112 @@
+/* ==============================
+   Section: Recipes
+============================== */
+
+.recipes {
+  padding: clamp(24px, 6vw, 56px) 0;
+  background: var(--color-bg);
+}
+
+.recipes__header {
+  text-align: center;
+  margin-bottom: clamp(16px, 4vw, 28px);
+}
+.recipes__title {
+  font-size: clamp(28px, 5vw, 56px);
+  line-height: 1.2;
+  color: var(--color-brand);
+  font-weight: 500;
+  justify-self: center;
+}
+.recipes__desc {
+  margin-top: 8px;
+  color: var(--color-text-muted);
+  font-size: clamp(14px, 2.4vw, 18px);
+  justify-self: center;
+}
+
+/* 三图拼版区：最大宽度居中 */
+/* ====== Recipes Grid（桌面端）====== */
+.recipes__grid {
+  width: min(1120px, 92%);
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: 45% 55%;   /* 左 45% / 右 55% */
+  grid-template-rows: 38fr 55fr;    /* 右列上下 38 / 58；用 fr 比例最直观 */
+  gap: 16px;
+
+  /* 关键：给容器一个“可响应”的固定高度，百分比行才有意义 */
+  height: clamp(460px, 58vw, 720px);
+}
+
+/* 左侧大图：占第 1 列，贯穿所有行（两行） */
+.recipes__card--left {
+  grid-column: 1 / 2;
+  grid-row: 1 / -1;   /* 或 1 / span 2 */
+}
+
+/* 右侧上、下两块 */
+.recipes__card--top {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;    /* 上半 */
+}
+.recipes__card--bottom {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;    /* 下半 */
+}
+
+/* 卡片通用外观（保留你的圆角、阴影等）*/
+.recipes__card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--color-bg-soft);
+  box-shadow: 0 6px 24px rgba(0,0,0,.06);
+  display: block;
+}
+
+/* 重要：在“用网格定高”的方案里，不需要再给卡片写 aspect-ratio。
+   让图片铺满可用空间即可： */
+.recipes__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* 裁剪填充 */
+  object-position: 50% 50%;
+  display: block;
+  transform: scale(1);
+  transition: transform .35s ease;
+}
+
+/* 悬停微放大 */
+.recipes__card:hover img { transform: scale(1.04); }
+
+
+/* ========= 移动端（<=768px）：小小的长方形卡片，纵向堆叠 ========= */
+@media (max-width: 768px) {
+  .recipes__grid {
+    /* 单列网格，容器高度交给内容决定 */
+    grid-template-columns: 1fr;
+    grid-template-rows: none;   /* 取消桌面端定义的行 */
+    grid-template-areas: none;  /* 若桌面端用了命名区域，这里重置 */
+    grid-auto-rows: auto;
+    height: auto;               /* 关键：不要固定高度 */
+  }
+
+  /* 彻底清空桌面端对三张卡的定位与跨行规则 */
+  /* 用 !important 是为了强力覆盖桌面端的规则（否则它仍会贯穿所有行）； */
+  .recipes__card--left,
+  .recipes__card--top,
+  .recipes__card--bottom {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  /* 每张卡变成“小小的长方形”——用比例控制高度 */
+  .recipes__card {
+    aspect-ratio: 16 / 10;      /* 你想更扁可用 21/9，想更高用 4/3 */
+  }
+
+  /* 如需三张之间更紧凑，这里可以微调 gap */
+  .recipes__grid { gap: 12px; }
+}

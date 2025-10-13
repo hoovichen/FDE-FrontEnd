@@ -1,0 +1,26 @@
+{
+  "name": "fdg-front-end",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "type-check": "nuxt typecheck",
+    "lint": "eslint .",
+    "format": "prettier -w .",
+    "ci:verify": "pnpm lint && pnpm type-check && pnpm build",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "nuxt": "^4.1.2",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "devDependencies": {
+    "@types/node": "20",
+    "typescript": "~5.6.3",
+    "vercel": "^48.2.2",
+    "vue-tsc": "~3.1.1"
+  }
+}

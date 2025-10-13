@@ -1,0 +1,97 @@
+
+/* ==============================
+   Footer
+============================== */
+
+.footer {
+  background: #faf5ef; /* 轻米色背景，与全站调性统一 */
+  color: #000;
+  padding: clamp(40px, 6vw, 80px) 0 20px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: flex-start;
+  gap: 48px;
+  width: min(1200px, 92%);
+  margin-inline: auto;
+}
+
+/* LOGO */
+.footer__brand {
+  width: 500px;
+  min-width: 200px;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: #000;
+  text-decoration: none;
+}
+
+/* INFO、SOCIAL 标题 */
+.footer__title {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* 列表部分 */
+.footer__info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer__info li {
+  margin: 6px 0;
+}
+.footer__info a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+.footer__info a:hover {
+  color: var(--color-brand-red, #af1311);
+}
+
+/* 社交图标 */
+.footer__icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.footer__icons img {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.footer__icons img:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+
+/* COPYRIGHT */
+.footer__copyright {
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 40px;
+  padding-left: 4%;
+}
+
+/* 响应式：小屏幕堆叠 */
+@media (max-width: 768px) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+  .footer__copyright {
+    text-align: center;
+    padding-left: 0;
+  }
+  .footer__icons {
+    justify-self: center;
+  }
+}

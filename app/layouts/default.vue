@@ -1,0 +1,22 @@
+<script setup lang="ts">
+    /** 默认布局：含 Skip Link 与主容器 */
+</script>
+
+<template>
+  <header class="header">
+    <div class="header__inner">
+      <HeaderNav />
+    </div>
+  </header>
+
+  <main id="main">
+    <slot />
+  </main>
+
+  <footer class="footer">
+      <FooterBar />
+  </footer>
+
+  <button class="btn btn--primary back-to-top" id="backToTop" aria-label="返回顶部">↑</button>
+</template>
+    

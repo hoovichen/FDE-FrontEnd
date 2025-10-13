@@ -1,0 +1,173 @@
+/* —— Hero —— */
+
+/* 首屏高度占比：尽量占满；移动端自动拉伸 */
+:root {
+  --hero-min-h: calc(100svh - 96px); /* 96px 是你的 header 高度 */
+}
+
+.hero {
+  min-height: var(--hero-min-h);
+  display: grid;
+  place-items: center;
+  padding: var(--space-xl) 0;
+  background: var(--color-bg);
+}
+
+/* 轮播视口 */
+/* 容器与切换 */
+.hero__viewport {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.hero__slides {
+  height: 100%;
+  position: relative;
+}
+
+/* 单张 slide：Grid 两列（文案/图片）；通过自定义属性控制比例 */
+.hero__slide {
+  display: grid;
+  grid-template-columns: var(--text, 40%) var(--image, 60%);
+  height: var(--hero-min-h);
+  align-items: stretch;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.hero__slide.is-active {
+  opacity: 1;
+  transform: none;
+  position: relative;
+  z-index: 2;
+}
+
+/* 左右反转布局 */
+.hero__slide.text-right {
+  grid-template-columns: var(--image, 60%) var(--text, 40%);
+}
+.hero__slide.text-right .hero__text  { order: 2; }
+.hero__slide.text-right .hero__image { order: 1; }
+
+/* 左半卡 = 文案区域 */
+.hero__text {
+  background: var(--color-hero);
+  color: var(--color-hero-text);
+  padding: clamp(32px, 5vw, 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+.hero__title {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 800;
+  color: var(--color-hero-title);
+  line-height: 1.2;
+}
+.hero__main {
+  font-size: clamp(18px, 2vw, 24px);
+  color: var(--color-hero-text);
+  font-weight: 500;
+}
+.hero__sub {
+  font-size: clamp(14px, 1.5vw, 18px);
+  color: var(--color-hero-text);
+}
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* 右半卡 = 图片区域 */
+.hero__image {
+  position: relative;
+  overflow: hidden;
+}
+.hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 裁剪填充 */
+  object-position: center;
+  display: block;
+}
+
+/* 透明拖动条 */
+/* 重置默认样式 */
+.hero__scrubber input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 24px;
+  /* 居中 */
+  padding-left: 25%;
+  padding-right: 25%;
+  background: transparent;
+  outline: none;
+}
+/* 轨道（浅透明） */
+.hero__scrubber input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  background: rgba(255,255,255,0.45);
+  border-radius: 999px;
+}
+.hero__scrubber input[type="range"]::-moz-range-track {
+  height: 4px;
+  background: rgba(255,255,255,0.45);
+  border-radius: 999px;
+}
+/* 拇指（小圆点，默认半透明，聚焦更明显） */
+.hero__scrubber input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(0,0,0,0.1);
+  margin-top: -5px; /* 居中到轨道 */
+  transition: transform .15s ease, background .2s ease;
+}
+.hero__scrubber input[type="range"]:hover::-webkit-slider-thumb,
+.hero__scrubber input[type="range"]:focus-visible::-webkit-slider-thumb {
+  background: #fff;
+  transform: scale(1.1);
+}
+
+.hero__scrubber input[type="range"]::-moz-range-thumb {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(0,0,0,0.1);
+  transition: transform .15s ease, background .2s ease;
+}
+.hero__scrubber input[type="range"]:hover::-moz-range-thumb,
+.hero__scrubber input[type="range"]:focus-visible::-moz-range-thumb {
+  background: #fff;
+  transform: scale(1.1);
+}
+
+/* 悬停时让轨道稍微更清晰 */
+.hero__scrubber input[type="range"]:hover::-webkit-slider-runnable-track,
+.hero__scrubber input[type="range"]:focus-visible::-webkit-slider-runnable-track,
+.hero__scrubber input[type="range"]:hover::-moz-range-track,
+.hero__scrubber input[type="range"]:focus-visible::-moz-range-track {
+  background: rgba(255,255,255,0.65);
+}
+
+/* 移动端：单列（文案在上，图片在下） */
+@media (max-width: 768px) {
+  .hero__slide,
+  .hero__slide.text-right {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.footer { padding: var(--space-xl) 0; background: var(--color-bg-soft); }
+
+.back-to-top {
+  position: fixed; right: 16px; bottom: 16px; z-index: 40;
+  opacity: 0; visibility: hidden; transform: translateY(8px); transition: all .2s;
+}
+.back-to-top--visible { opacity: 1; visibility: visible; transform: none; }
+  

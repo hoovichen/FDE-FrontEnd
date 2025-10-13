@@ -1,0 +1,64 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Enable pnpm 10.18.1
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.18.1 --activate
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install
+        run: pnpm i --frozen-lockfile
+
+      # - name: Type Check
+        # run: pnpm type-check
+
+      # - name: Lint
+        # run: pnpm lint
+
+      - name: Build
+        run: pnpm build
+
+  lighthouse:
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # 获取 Vercel 预览链接（需要你在 repo 设置里加 secret: VERCEL_TOKEN）
+      - name: Get Vercel Preview URL
+        id: preview
+        uses: zentered/vercel-preview-url@v1
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Wait for Vercel Preview
+        uses: patrickedqvist/wait-for-vercel-preview@v1.3.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          max_timeout: 600
+
+      - name: Run Lighthouse (mobile)
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            ${{ steps.preview.outputs.preview_url }}
+          configPath: ./lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true

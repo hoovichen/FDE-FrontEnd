@@ -1,0 +1,27 @@
+.lang-switch {
+  display: flex;
+  gap: 6px;
+  margin-left: 12px;
+  justify-self: end;
+}
+
+.lang-switch button {
+  font-size: 13px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: var(--color-text-muted);
+  transition: background .2s, color .2s;
+}
+
+.lang-switch button:hover {
+  background: var(--color-bg-soft);
+}
+
+.lang-switch button.active {
+  color: var(--color-brand);
+  background: var(--color-bg-soft);
+  font-weight: 600;
+}
