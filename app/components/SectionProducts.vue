@@ -4,7 +4,22 @@ import { PRODUCTS_TEXT, type LangCode } from '~/locales/products'
 import { useLanguage } from '~/composables/useLanguage'
 
 const { lang } = useLanguage()
-const t = computed(() => PRODUCTS_TEXT[(lang.value as LangCode) || 'zh'])
+const t = computed(() => PRODUCTS_TEXT[(lang.value as LangCode) || 'en'])
+
+// —— 仅用于“手机端初次进来把第2张滚到中间”的体验优化 —— //
+const railRef = ref<HTMLDivElement | null>(null)
+const cardRefs = ref<HTMLDivElement[]>([])
+
+onMounted(() => {
+  const isMobile = window.matchMedia('(max-width: 600px)').matches
+  if (!isMobile) return
+
+  // 下一帧滚到第2张（索引1），滚动到居中位置
+  nextTick(() => {
+    const second = cardRefs.value[1]
+    second?.scrollIntoView({ behavior: 'instant' as ScrollBehavior, inline: 'center', block: 'nearest' })
+  })
+})
 </script>
 
 <template>
@@ -20,9 +35,14 @@ const t = computed(() => PRODUCTS_TEXT[(lang.value as LangCode) || 'zh'])
         </a>
       </div>
 
-      <!-- 右侧产品展示 -->
-      <div class="products__grid card-grid">
-        <div v-for="p in PRODUCTS" :key="p.key" class="card">
+      <!-- ② 产品展示 -->
+      <div class="products__grid card-grid" ref="railRef">
+        <div
+          v-for="(p, i) in PRODUCTS"
+          :key="p.key"
+          class="card"
+          :ref="(el: HTMLDivElement) => { if (el) cardRefs[i] = el as HTMLDivElement }"
+        >
           <img :src="p.image" :alt="p.name" loading="lazy" decoding="async" />
           <div class="card__title">{{ p.name }}</div>
         </div>

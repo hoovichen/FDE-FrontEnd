@@ -29,7 +29,6 @@ export default defineNuxtConfig({
     '~/assets/styles/components/cards.css',
     '~/assets/styles/components/button.css',
     '~/assets/styles/components/cta.css',
-    '~/assets/styles/components/langswitch.css',
     '~/assets/styles/components/header.css',
     '~/assets/styles/components/footer.css',
     '~/assets/styles/components/recipes.css',

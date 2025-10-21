@@ -4,7 +4,7 @@ import { BLOGS_TEXT, type LangCode } from '~/locales/blog'
 import { useLanguage } from '~/composables/useLanguage'
 
 const { lang } = useLanguage()
-const t = computed(() => BLOGS_TEXT[(lang.value as LangCode) || 'zh'])
+const t = computed(() => BLOGS_TEXT[(lang.value as LangCode) || 'en'])
 </script>
 
 <template>

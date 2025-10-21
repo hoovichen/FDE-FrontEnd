@@ -9,7 +9,7 @@
   min-height: var(--hero-min-h);
   display: grid;
   place-items: center;
-  padding: var(--space-xl) 0;
+  padding: var(--space--xxs) 0;
   background: var(--color-bg);
 }
 
@@ -19,21 +19,22 @@
   width: 100%;
   height: 100%;
   position: relative;
+  overflow: hidden;
 }
-.hero__slides {
+.hero__track {
+  display: flex;
+  width: 100%;
   height: 100%;
-  position: relative;
+  transition: transform .5s cubic-bezier(.22,.61,.36,1); /* 顺滑一点 */
 }
 
-/* 单张 slide：Grid 两列（文案/图片）；通过自定义属性控制比例 */
+/* 单张 slide：占 100% 宽度，内部仍是左右两列 Grid */
 .hero__slide {
+  flex: 0 0 100%;
   display: grid;
   grid-template-columns: var(--text, 40%) var(--image, 60%);
   height: var(--hero-min-h);
   align-items: stretch;
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  opacity: 0;
-  transform: translateY(20px);
 }
 .hero__slide.is-active {
   opacity: 1;
@@ -94,64 +95,56 @@
   display: block;
 }
 
-/* 透明拖动条 */
-/* 重置默认样式 */
-.hero__scrubber input[type="range"] {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 24px;
-  /* 居中 */
-  padding-left: 25%;
-  padding-right: 25%;
+/* —— 指示器（ol/li/button） —— */
+
+.hero__dots {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(12px, 4vw, 24px);
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  margin: 0; padding: 6px 8px;
+  list-style: none;
+  background: rgba(0,0,0,.25);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px;
+  backdrop-filter: blur(6px) saturate(120%);
+}
+
+.hero__dot { /* 容器项 */ }
+
+.hero__dot-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px; /* 每格宽度，可容纳图标/字母 */
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  color: #fff;
   background: transparent;
+  font-weight: 800;
+  letter-spacing: .3px;
+  transition: background .2s ease, transform .12s ease;
+}
+
+.hero__dot-btn:hover,
+.hero__dot-btn:focus-visible {
+  background: rgba(255,255,255,.18);
   outline: none;
 }
-/* 轨道（浅透明） */
-.hero__scrubber input[type="range"]::-webkit-slider-runnable-track {
-  height: 4px;
-  background: rgba(255,255,255,0.45);
-  border-radius: 999px;
-}
-.hero__scrubber input[type="range"]::-moz-range-track {
-  height: 4px;
-  background: rgba(255,255,255,0.45);
-  border-radius: 999px;
-}
-/* 拇指（小圆点，默认半透明，聚焦更明显） */
-.hero__scrubber input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 14px; height: 14px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.85);
-  border: 1px solid rgba(0,0,0,0.1);
-  margin-top: -5px; /* 居中到轨道 */
-  transition: transform .15s ease, background .2s ease;
-}
-.hero__scrubber input[type="range"]:hover::-webkit-slider-thumb,
-.hero__scrubber input[type="range"]:focus-visible::-webkit-slider-thumb {
-  background: #fff;
-  transform: scale(1.1);
+
+.hero__dot-btn[aria-selected="true"] {
+  background: rgba(255,255,255,.28);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.35);
 }
 
-.hero__scrubber input[type="range"]::-moz-range-thumb {
-  width: 14px; height: 14px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.85);
-  border: 1px solid rgba(0,0,0,0.1);
-  transition: transform .15s ease, background .2s ease;
-}
-.hero__scrubber input[type="range"]:hover::-moz-range-thumb,
-.hero__scrubber input[type="range"]:focus-visible::-moz-range-thumb {
-  background: #fff;
-  transform: scale(1.1);
-}
-
-/* 悬停时让轨道稍微更清晰 */
-.hero__scrubber input[type="range"]:hover::-webkit-slider-runnable-track,
-.hero__scrubber input[type="range"]:focus-visible::-webkit-slider-runnable-track,
-.hero__scrubber input[type="range"]:hover::-moz-range-track,
-.hero__scrubber input[type="range"]:focus-visible::-moz-range-track {
-  background: rgba(255,255,255,0.65);
+.hero__dot-icon {
+  display: inline-block;
+  line-height: 1;
 }
 
 /* 移动端：单列（文案在上，图片在下） */

@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <header class="header">
-    <div class="header__inner">
+  <header class="site-header">
+    <div class="site-header__inner">
       <HeaderNav />
     </div>
   </header>

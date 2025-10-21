@@ -53,7 +53,8 @@
 /* 卡片区 */
 .blogs__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  /* 需要修改 */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: min(1200px, 92%);
   margin-inline: auto;
@@ -103,7 +104,11 @@
 
 /* 响应式微调 */
 @media (max-width: 768px) {
+  
   .blogs__card img { height: 160px; }
-  .blogs__grid { gap: 14px; }
+  .blogs__grid { 
+    gap: 14px; 
+    grid-template-columns:auto;
+  }
   .blogs__more { font-size: 0.95rem; padding: 10px 22px; }
 }

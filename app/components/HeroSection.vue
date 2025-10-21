@@ -4,6 +4,7 @@ import { HERO_SLIDES_BASE } from '~/lib/hero.data'
 import { HERO_TEXT, type LangCode } from '~/locales/hero'
 import { useScrollToId } from '~/composables/useScrollToId'
 import { useCarousel } from '~/composables/useCarousel'
+import { useLanguage } from '~/composables/useLanguage'
 
 const SHOP_URL = 'https://shop.example.com'
 // 翻译状态
@@ -31,6 +32,33 @@ const onKey = (e: KeyboardEvent) => {
   else if (e.key === 'ArrowLeft') 
     prev()
 }
+// 指示器点击
+const onDotClick = (i: number) => {
+  stop()
+  goTo(i)
+}
+// 悬停暂停，离开继续（当前 @mouseleave="stop" ）
+const onEnter = () => stop()
+const onLeave = () => stop()
+
+// 生成占位“图标/字母”（也可换成真实图片的小缩略图）
+/** 指示器数据：key/label/缩略图（先用大图兜底） */
+const dots = computed(() => {
+  return slides.value.map(s => ({
+    key: s.key,
+    label: s.title ?? s.key,        // 无障碍与 tooltip 用
+    // thumb: s.image,                 // 未来可换成真正的缩略图
+  }))
+})
+/** 精细化：给特定 key 配专门 thumb */
+// const THUMB_MAP: Partial<Record<HeroSlideBase['key'], string>> = {
+//   'top-product': '/images/thumbs/top-product.png'
+// }
+// const dots = computed(() => slides.value.map(s => ({
+//   key: s.key,
+//   label: s.title ?? s.key,
+//   thumb: THUMB_MAP[s.key] ?? s.image,
+// })))
 </script>
 
 <template>
@@ -42,10 +70,12 @@ const onKey = (e: KeyboardEvent) => {
       role="region"
       aria-roledescription="carousel"
       aria-label="Banner 轮播"
-      @mouseenter="stop" @mouseleave="stop" @keydown="onKey"
+      @mouseenter="onEnter"
+      @mouseleave="onLeave"
+      @keydown="onKey"
     >
       <!-- Slides -->
-      <div class="hero__slides">
+      <div class="hero__track" :style="{ transform: `translateX(-${index * 100}%)` }">
         <article
           v-for="(s, i) in slides"
           :key="s.key"
@@ -61,7 +91,6 @@ const onKey = (e: KeyboardEvent) => {
           role="group"
           :aria-roledescription="'slide'"
           :aria-label="`${i+1} / ${slides.length}`"
-          v-show="index === i"
         >
           <div class="hero__text">
             <h1 class="hero__title">{{ s.title }}</h1>
@@ -84,19 +113,34 @@ const onKey = (e: KeyboardEvent) => {
           </div>
         </article>
       </div>
-      <!-- 透明可拖动条（scrubber） -->
-      <div class="hero__scrubber">
-        <input
-          type="range"
-          :min="0"
-          :max="slides.length - 1"
-          step="1"
-          :value="index"
-          @input="(e:any) => { stop(); goTo(parseInt(e.target.value)); }"
-          @change="start"
-          aria-label="切换 Banner"
-        />
-      </div>
+      <!-- 指示器：ol / li / button -->
+      <ol class="hero__dots" role="tablist" aria-label="切换产品">
+        <li v-for="(d, i) in dots" :key="`dot-${d.key}`" class="hero__dot">
+          <button
+            role="tab"
+            class="hero__dot-btn"
+            :aria-selected="String(index === i)"
+            :aria-controls="`slide-${d.key}`"
+            :tabindex="index === i ? 0 : -1"
+            @click="onDotClick(i)"
+            :title="d.label"
+          >
+            <!-- 有 thumb 用图；没有则用占位字母 -->
+            <img
+              v-if="d.thumb"
+              class="hero__dot-thumb"
+              :src="d.thumb"
+              :alt="d.label"
+              loading="lazy"
+              decoding="async"
+            />
+            <span v-else class="hero__dot-icon" aria-hidden="true">
+              {{ (d.label?.[0] ?? String(i+1)).toUpperCase() }}
+            </span>
+            <span class="visually-hidden">{{ d.label }}</span>
+          </button>
+        </li>
+      </ol>
     </div>
   </section>
 </template>

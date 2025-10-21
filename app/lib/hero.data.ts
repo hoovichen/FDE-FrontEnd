@@ -1,5 +1,5 @@
 // app/lib/hero.data.ts
-// 把“每张卡片的文案、图片、布局、CTA 目标”配成可维护的表。以后内容同学只改这儿就能换图换文案。
+// 把“每张卡片的文案、图片、布局、CTA 目标”配成可维护的表。以后内容只改这儿就能换图换文案。
 export type HeroAlign = 'text-left' | 'text-right'
 
 export interface HeroSlideBase {

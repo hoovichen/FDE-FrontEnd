@@ -23,13 +23,13 @@
         <h3 class="footer__title">STALK US</h3>
         <div class="footer__icons">
           <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-            <img src="" alt="" />
+            <img src="/facebook.ico" alt="Facebook" />
           </a>
           <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-            <img src="" alt="" />
+            <img src="/ins.ico" alt="Instragram" />
           </a>
           <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
-            <img src="" alt="" />
+            <img src="/tiktok.ico" alt="TikTok" />
           </a>
         </div>
       </div>
