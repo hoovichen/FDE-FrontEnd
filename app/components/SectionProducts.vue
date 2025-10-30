@@ -35,17 +35,18 @@ onMounted(() => {
         </a>
       </div>
 
-      <!-- ② 产品展示 -->
+      <!-- ② 产品展示: :to="products/${p.key}"  目前p.key不太行-->
       <div class="products__grid card-grid" ref="railRef">
-        <div
+        <NuxtLink
           v-for="(p, i) in PRODUCTS"
           :key="p.key"
           class="card"
+          :to="`/products/${p.key}`"
           :ref="(el: HTMLDivElement) => { if (el) cardRefs[i] = el as HTMLDivElement }"
         >
           <img :src="p.image" :alt="p.name" loading="lazy" decoding="async" />
           <div class="card__title">{{ p.name }}</div>
-        </div>
+        </NuxtLink>
       </div>
     </div>
   </section>

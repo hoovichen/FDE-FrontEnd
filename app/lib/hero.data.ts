@@ -3,7 +3,7 @@
 export type HeroAlign = 'text-left' | 'text-right'
 
 export interface HeroSlideBase {
-  key: 'slogan' | 'top-product' | 'recipes'
+  key: 'I' | 'II' | 'III'
   image: string
   align: HeroAlign
   ratio?: [number, number]
@@ -12,8 +12,8 @@ export interface HeroSlideBase {
 
 // 仅结构/图片/比例/目标
 export const HERO_SLIDES_BASE: HeroSlideBase[] = [
-  { key: 'slogan',      image: '/images/hero.jpg',            align: 'text-left',  ratio: [30, 70] },
-  { key: 'top-product', image: '/images/hero1.jpg',           align: 'text-right', ratio: [40, 60]},
-  { key: 'recipes',     image: '/images/interlude_halloween.png', align: 'text-left',  ratio: [45, 55] },
+  { key: 'I',      image: '/images/hero.jpg',            align: 'text-left',  ratio: [30, 70] },
+  { key: 'II', image: '/images/hero1.jpg',           align: 'text-right', ratio: [40, 60]},
+  { key: 'III',     image: '/images/hero3.jpg', align: 'text-left',  ratio: [45, 55] },
 ]
 

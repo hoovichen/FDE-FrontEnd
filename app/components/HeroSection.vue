@@ -46,7 +46,7 @@ const onLeave = () => stop()
 const dots = computed(() => {
   return slides.value.map(s => ({
     key: s.key,
-    label: s.title ?? s.key,        // 无障碍与 tooltip 用
+    label: s.key,        // 无障碍与 tooltip 用
     // thumb: s.image,                 // 未来可换成真正的缩略图
   }))
 })
@@ -135,7 +135,7 @@ const dots = computed(() => {
               decoding="async"
             />
             <span v-else class="hero__dot-icon" aria-hidden="true">
-              {{ (d.label?.[0] ?? String(i+1)).toUpperCase() }}
+              {{ d.label}}
             </span>
             <span class="visually-hidden">{{ d.label }}</span>
           </button>
