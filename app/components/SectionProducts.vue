@@ -1,14 +1,19 @@
 <script setup lang="ts">
-import { PRODUCTS } from '~/lib/products.data'
+import { useProductsList } from '~/composables/useProducts'
 import { PRODUCTS_TEXT, type LangCode } from '~/locales/products'
 import { useLanguage } from '~/composables/useLanguage'
 
 const { lang } = useLanguage()
 const t = computed(() => PRODUCTS_TEXT[(lang.value as LangCode) || 'en'])
 
+// 主要合并数据
+const { sorted: PRODUCTS } = useProductsList() // 或 list
+
 // —— 仅用于“手机端初次进来把第2张滚到中间”的体验优化 —— //
 const railRef = ref<HTMLDivElement | null>(null)
 const cardRefs = ref<HTMLDivElement[]>([])
+
+
 
 onMounted(() => {
   const isMobile = window.matchMedia('(max-width: 600px)').matches

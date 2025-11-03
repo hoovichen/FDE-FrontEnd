@@ -99,6 +99,14 @@
   font-weight: 600;
 }
 
+.modal-host {
+  /* 让子路由可以覆盖整个视口 */
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none; /* 默认不接收事件，等子组件打开时再启用 */
+}
+
 /* —— 手机优化：横向轮播 + scroll-snap —— */
 @media (max-width: 768px) {
     /* 把布局彻底变成竖向堆叠 */

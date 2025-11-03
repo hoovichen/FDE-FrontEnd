@@ -1,16 +1,79 @@
 <script setup lang="ts">
-    useHead({ title: 'Products - Coming soon' })
+import { useProductsList } from '~/composables/useProducts'
 
-    onMounted(() => {
-      document.documentElement.classList.add('js-ready')
-    })
+const { sorted: products, sortBy, ui } = useProductsList()
+
+useSeoMeta({
+  title: () => ui.value.pageTitle,
+  description: () => ui.value.pageDesc
+})
+
+// 移动端进入时，自动把第2张滚到中间（可选）
+const railRef = ref<HTMLDivElement | null>(null)
+onMounted(() => {
+  const isMobile = window.matchMedia('(max-width: 768px)').matches
+  if (!isMobile) return
+  const second = railRef.value?.querySelectorAll<HTMLAnchorElement>('.card')[1]
+  second?.scrollIntoView({ behavior: 'instant' as any, inline: 'center', block: 'nearest' })
+})
 </script>
 
 <template>
-  <section class="section">
-    <div class="container">
-      <h1>Products</h1>
-      <p class="muted">Coming soon…</p>
+  <section class="page-products">
+    <div class="page-products__header">
+      <h1 class="page-products__title">{{ ui.pageTitle }}</h1>
+
+      <label class="page-products__sort">
+        <span class="sr-only">Sort</span>
+        <select v-model="sortBy" class="page-products__select">
+          <option value="default">{{ ui.sort.default }}</option>
+          <option value="nameAsc">{{ ui.sort.nameAsc }}</option>
+          <option value="priceAsc">{{ ui.sort.priceAsc }}</option>
+          <option value="priceDesc">{{ ui.sort.priceDesc }}</option>
+        </select>
+      </label>
+    </div>
+
+    <!-- 桌面：网格；手机：横向轮播（可见左右半卡） -->
+    <div class="page-products__content">
+      <!-- Desktop Grid -->
+      <div class="grid" aria-hidden="false">
+        <NuxtLink
+          v-for="p in products"
+          :key="p.key"
+          :to="`/products/${p.key}`"
+          class="card"
+        >
+          <img :src="p.image" :alt="p.name" loading="lazy" decoding="async" />
+          <div class="card__body">
+            <h3 class="card__title">{{ p.name }}</h3>
+            <p v-if="p.summary" class="card__summary">{{ p.summary }}</p>
+            <p v-if="p.price" class="card__price">RM {{ p.price.toFixed(2) }}</p>
+          </div>
+        </NuxtLink>
+      </div>
+
+      <!-- Mobile Rail -->
+      <div class="rail" ref="railRef">
+        <NuxtLink
+          v-for="p in products"
+          :key="`m-${p.key}`"
+          :to="`/products/${p.key}`"
+          class="card"
+        >
+          <img :src="p.image" :alt="p.name" loading="lazy" decoding="async" />
+          <div class="card__body">
+            <h3 class="card__title">{{ p.name }}</h3>
+            <p v-if="p.summary" class="card__summary">{{ p.summary }}</p>
+            <p v-if="p.price" class="card__price">RM {{ p.price.toFixed(2) }}</p>
+          </div>
+        </NuxtLink>
+      </div>
+    </div>
+
+    <!-- 子路由承载位：用于弹窗 -->
+    <div class="modal-host">
+      <NuxtPage />
     </div>
   </section>
 </template>

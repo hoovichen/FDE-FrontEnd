@@ -1,81 +1,75 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from '#imports'
-import { PRODUCTS } from '~/lib/products.data'
-import { useLanguage } from '~/composables/useLanguage'
-import { PRODUCTS_TEXT, type LangCode } from '~/locales/products'
+import { useProductDetail } from '~/composables/useProducts'
 
-// 文案
-const { lang } = useLanguage()
-const t = computed(() => PRODUCTS_TEXT[(lang.value as LangCode) || 'en'])
-
-// 路由参数
 const route = useRoute()
 const router = useRouter()
-const key = computed(() => route.params.key as string)
+const key = route.params.key as string
+const { detail } = useProductDetail(key)
 
-// 简单的静态“详情字典”（现在临时，未来接 API）
-const PRODUCT_DETAILS: Record<string, {
-  name: string
-  image: string
-  msrp?: string
-  intro?: string
-  gallery?: string[]
-  // …后续再加 spec/ingredients 等
-}> = Object.fromEntries(
-  PRODUCTS.map(p => [p.key, {
-    name: p.name,
-    image: p.image,
-    msrp: undefined,
-    intro: 'Coming soon — product introduction placeholder.',
-    gallery: [p.image]
-  }])
-)
+if (!detail.value) router.replace('/products')
 
-const product = computed(() => PRODUCT_DETAILS[key.value])
+// 锁定滚动（可选）
+onMounted(() => { document.documentElement.style.overflow = 'hidden' })
+onBeforeUnmount(() => { document.documentElement.style.overflow = '' })
 
-if (!product.value) {
-  // 没有该产品：跳回 /products 或 404
-  router.replace('/products')
-}
-
-// SEO
-useSeoMeta({
-  title: () => product.value?.name || 'Product',
-  description: () => product.value?.intro || 'Product details',
-  ogTitle: () => product.value?.name || 'Product',
-  ogDescription: () => product.value?.intro || 'Product details',
-})
+const close = () => router.push('/products')
 </script>
 
 <template>
-  <section class="product-page">
-    <div class="product-hero">
-      <div class="product-image">
-        <img :src="product?.image" :alt="product?.name" />
-      </div>
-      <div class="product-info">
-        <h1 class="product-title">{{ product?.name }}</h1>
-        <p v-if="product?.intro" class="product-intro">{{ product?.intro }}</p>
-        <p v-if="product?.msrp" class="product-msrp">MSRP: {{ product?.msrp }}</p>
-        <NuxtLink to="/products" class="back-link">← {{ t.backToList || 'Back to Products' }}</NuxtLink>
-      </div>
-    </div>
+  <!-- 覆盖层（点击空白关闭） -->
+  <div class="product-modal is-open" @click.self="close">
+    <div class="modal-panel" role="dialog" aria-modal="true">
+      <button class="modal-close" aria-label="Close" @click="close">×</button>
 
-    <!-- 详情：放大卡片 + 暗背景的感觉 -->
-    <div class="product-focus">
-      <div class="focus-card">
-        <div class="focus-media">
-          <img :src="product?.image" :alt="product?.name" />
+      <div v-if="detail" class="modal-body">
+        <div class="modal-image">
+          <img :src="detail.image" :alt="detail.name" decoding="async" />
         </div>
-        <div class="focus-content">
-          <h2>{{ product?.name }}</h2>
-          <p>• Packaging history — coming soon</p>
-          <p>• Product intro — coming soon</p>
-          <p>• Regions ranking — coming soon</p>
-          <p>• Monthly sales — (内部数据，不对外展示)</p>
+        <div class="modal-info">
+          <h2 class="modal-title">{{ detail.name }}</h2>
+          <p v-if="detail.summary" class="modal-summary">{{ detail.summary }}</p>
+          <a v-if="detail.url" :href="detail.url" target="_blank" class="btn">Buy</a>
         </div>
       </div>
-      <div class="focus-backdrop"></div>
     </div>
-  </section>
+  </div>
 </template>
+
+<style scoped>
+.product-modal {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.55);
+  opacity: 0; pointer-events: none;
+  display: grid; place-items: center;
+  transition: opacity .2s ease;
+}
+.product-modal.is-open { opacity: 1; pointer-events: auto; }
+
+.modal-panel {
+  width: min(960px, 92vw);
+  background: #fff; border-radius: 16px;
+  box-shadow: 0 30px 60px rgba(0,0,0,.25);
+  overflow: hidden; position: relative;
+  transform: translateY(12px);
+  animation: rise .2s ease forwards;
+}
+@keyframes rise { to { transform: none; } }
+
+.modal-close {
+  position: absolute; right: 12px; top: 10px;
+  border: 0; background: transparent; font-size: 28px; cursor: pointer;
+}
+
+.modal-body { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.modal-image { padding: 18px; background: #fafafa; display: grid; place-items: center; }
+.modal-image img { width: 100%; height: 100%; object-fit: contain; }
+
+.modal-info { padding: 22px; }
+.modal-title { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+.modal-summary { color: #555; line-height: 1.6; }
+
+@media (max-width: 768px) {
+  .modal-body { grid-template-columns: 1fr; }
+}
+</style>

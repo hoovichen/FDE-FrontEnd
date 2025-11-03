@@ -1,0 +1,127 @@
+/* ===== Products Page (pages/products.vue) ===== */
+
+.page-products {
+  width: min(1200px, 94%);
+  margin-inline: auto;
+  padding: 32px 0 64px;
+}
+
+.page-products__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.page-products__title {
+  font-size: clamp(24px, 3.4vw, 36px);
+  font-weight: 800;
+}
+
+.page-products__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-products__select {
+  border: 1px solid var(--color-border, #e6e6e6);
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-weight: 600;
+}
+
+/* ---- Desktop Grid ---- */
+.page-products__content .grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .page-products__content .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---- Mobile Rail (horizontal carousel showing half cards) ---- */
+.page-products__content .rail {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .page-products__content .grid { display: none; }
+
+  .page-products__content .rail {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+
+    /* 让左右各露出半卡：左右留内边距 */
+    padding: 0 12%;
+    margin: 6px 0 8px;
+  }
+
+  .page-products__content .rail::-webkit-scrollbar { height: 0; }
+
+  .page-products__content .rail .card {
+    flex: 0 0 76%;                /* 可见 1 主卡 + 两边各半卡 */
+    scroll-snap-align: center;
+  }
+}
+
+/* ---- Card ---- */
+.page-products .card {
+  display: block;
+  background: #fff;
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--color-border, #eee);
+  box-shadow: 0 2px 10px rgba(0,0,0,.05);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.page-products .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+
+.page-products .card img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  padding-top: 10px;
+}
+
+.page-products .card__body {
+  padding: 14px 14px 16px;
+}
+
+.page-products .card__title {
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.page-products .card__summary {
+  margin-top: 6px;
+  color: var(--color-muted, #666);
+  font-size: 0.95rem;
+}
+
+.page-products .card__price {
+  margin-top: 10px;
+  font-weight: 800;
+  color: var(--color-brand, #af1311);
+}
+
+/* 图片在手机上稍微压缩高度 */
+@media (max-width: 768px) {
+  .page-products .card img {
+    height: 190px;
+  }
+}

@@ -26,6 +26,7 @@ export default defineNuxtConfig({
     '~/assets/styles/base/reset.css',
     '~/assets/styles/base/typography.css',
     '~/assets/styles/pages/home.css',
+    '~/assets/styles/pages/products.css',
     '~/assets/styles/components/cards.css',
     '~/assets/styles/components/button.css',
     '~/assets/styles/components/cta.css',
