@@ -52,11 +52,7 @@
 .site-header .nav--logo {
   display: inline-block;
 }
-.site-header .nav--logo:hover {
-  margin-right: 2px;
-  margin-left: 2px;
-  transition: all .2s ease;
-}
+
 .site-header .nav--left,
 .site-header .nav--right,
 .site-header .logo {

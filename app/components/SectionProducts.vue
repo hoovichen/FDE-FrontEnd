@@ -1,18 +1,17 @@
 <script setup lang="ts">
-import { useProductsList } from '~/composables/useProducts'
+import { useFeaturedProducts } from '~/composables/useProducts'
 import { PRODUCTS_TEXT, type LangCode } from '~/locales/products'
 import { useLanguage } from '~/composables/useLanguage'
 
 const { lang } = useLanguage()
 const t = computed(() => PRODUCTS_TEXT[(lang.value as LangCode) || 'en'])
 
-// 主要合并数据
-const { sorted: PRODUCTS } = useProductsList() // 或 list
-
 // —— 仅用于“手机端初次进来把第2张滚到中间”的体验优化 —— //
 const railRef = ref<HTMLDivElement | null>(null)
 const cardRefs = ref<HTMLDivElement[]>([])
 
+// 产品选择
+const { featured } = useFeaturedProducts()
 
 
 onMounted(() => {
@@ -43,7 +42,7 @@ onMounted(() => {
       <!-- ② 产品展示: :to="products/${p.key}"  目前p.key不太行-->
       <div class="products__grid card-grid" ref="railRef">
         <NuxtLink
-          v-for="(p, i) in PRODUCTS"
+          v-for="(p, i) in featured"
           :key="p.key"
           class="card"
           :to="`/products/${p.key}`"

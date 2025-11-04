@@ -10,6 +10,12 @@ export interface ProductBase {
   categoryId?: number            // 可选：分类（将来用）
   subcategoryId?: number         // 可选：子分类（将来用）
   gallery?: string[]             // 可选：更多图片
+  /** 首页是否展示 */
+  featuredHome?: boolean          // 默认 false
+  /** 首页展示排序（数字越小越靠前） */
+  featuredOrder?: number
+  /** 可扩展：通用标签 */
+  tags?: string[]                 // 例如 ['popular', 'new', 'bestseller']
 }
 
 /** 仅存放不可翻译字段（name 等放到 i18n） */
@@ -25,10 +31,12 @@ export const PRODUCTS_BASE: ProductBase[] = [
     key: 'garlic-sauce',
     image: '/images/products/redcap.png',
     price: 4,
+    featuredHome: true,
+    featuredOrder: 3
   },
   {
     key: 'extra-hot',
-    image: '/images/products/redcap.png',
+    image: '/images/products/yellowcap.png',
     price: 4,
   },
   {
@@ -38,23 +46,27 @@ export const PRODUCTS_BASE: ProductBase[] = [
   },
   {
     key: 'ginger-garlic',
-    image: '/images/products/redcap.png',
+    image: '/images/products/suanrong.png',
     price: 17.8,
   },
   {
     key: 'sambal-shrimp',
-    image: '/images/products/redcap.png',
+    image: '/images/products/sambal_new.png',
     price: 8,
+    featuredHome: true,
+    featuredOrder: 2
   },
   {
     key: 'cripy-anchovy',
     image: '/images/products/redcap.png',
     price: 12,
   },
-{
+  {
     key: 'cripy-prawn',
-    image: '/images/products/redcap.png',
+    image: '/images/products/xiami_new.png',
     price: 11,
+    featuredHome: true,
+    featuredOrder: 1
   },
 ]
 

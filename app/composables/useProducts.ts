@@ -64,6 +64,25 @@ export function useProductDetail(key: string) {
 
   return { detail }
 }
+// 首页的Section展示产品方法
+export function useFeaturedProducts() {
+  const { lang } = useLanguage()
+  const l = computed<LangCode>(() => (lang.value as LangCode) || 'en')
+
+  const featured = computed<ProductView[]>(() => {
+    const dict = PRODUCTS_I18N[l.value] || {}
+    return PRODUCTS_BASE
+      .filter(b => b.featuredHome)                // 只挑首页精选
+      .sort((a, b) => (a.featuredOrder ?? 999) - (b.featuredOrder ?? 999))
+      .map(base => ({
+        ...base,
+        name: dict[base.key]?.name ?? base.key,
+        summary: dict[base.key]?.summary
+      }))
+  })
+
+  return { featured }
+}
 
 /** 用于 nitro.prerender 等 */
 export function useProductKeys() {
