@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useFeaturedProducts } from '~/composables/useProducts'
-import { PRODUCTS_TEXT, type LangCode } from '~/locales/products'
+import { PRODUCTS_TEXT, type LangCode } from '~/locales/products.section'
 import { useLanguage } from '~/composables/useLanguage'
 
 const { lang } = useLanguage()

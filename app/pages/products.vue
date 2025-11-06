@@ -1,14 +1,38 @@
 <script setup lang="ts">
 import { useProductsList } from '~/composables/useProducts'
+import { useSeoPage } from '~/composables/useSeoPage'
+import { PRODUCTS_PAGE_TEXT } from '~/locales/seo.products'
+import { PRODUCT_KEYS } from '~/lib/products.data' // 你已有
 
 const { sorted: products, sortBy, ui } = useProductsList()
 
-useSeoMeta({
-  title: () => ui.value.pageTitle,
-  description: () => ui.value.pageDesc
+// SEO
+const { apply } = useSeoPage(PRODUCTS_PAGE_TEXT, {
+  ogImage: '/og/products-1200x630.jpg',
+  path: '/products'
 })
+apply()
 
-// 移动端进入时，自动把第2张滚到中间（可选）
+// 结构化数据：ItemList（帮助搜索引擎理解这是一个产品列表页）
+const itemListJsonLd = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: products.value.map((p, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    url: `https://example.com/products/${p.key}`, // TODO: 上线换域名
+    name: p.name
+  }))
+}))
+useHead(() => ({
+  script: [{
+    key: 'products-itemlist',
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify(itemListJsonLd.value)
+  }]
+}))
+
+// —— 手机“第2张居中”体验优化（保留你的逻辑）
 const railRef = ref<HTMLDivElement | null>(null)
 onMounted(() => {
   const isMobile = window.matchMedia('(max-width: 768px)').matches
@@ -17,6 +41,7 @@ onMounted(() => {
   second?.scrollIntoView({ behavior: 'instant' as any, inline: 'center', block: 'nearest' })
 })
 </script>
+
 
 <template>
   <section class="page-products">
