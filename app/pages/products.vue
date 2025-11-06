@@ -2,7 +2,6 @@
 import { useProductsList } from '~/composables/useProducts'
 import { useSeoPage } from '~/composables/useSeoPage'
 import { PRODUCTS_PAGE_TEXT } from '~/locales/seo.products'
-import { PRODUCT_KEYS } from '~/lib/products.data' // 你已有
 
 const { sorted: products, sortBy, ui } = useProductsList()
 
@@ -63,13 +62,19 @@ onMounted(() => {
     <div class="page-products__content">
       <!-- Desktop Grid -->
       <div class="grid" aria-hidden="false">
-        <NuxtLink
-          v-for="p in products"
-          :key="p.key"
-          :to="`/products/${p.key}`"
-          class="card"
-        >
-          <img :src="p.image" :alt="p.name" loading="lazy" decoding="async" />
+        <NuxtLink v-for="p in products" :key="p.key" :to="`/products/${p.key}`" class="product-card">
+          <div class="card__image-wrapper">
+            <!-- 只裁主图 -->
+            <div class="card__image-clip">
+              <img :src="p.image" :alt="p.name" class="card__main-img" loading="lazy" decoding="async" />
+            </div>
+
+            <!-- 右下角预览（旧站风格） -->
+            <div v-if="p.imageOld" class="old-version-preview">
+              <img :src="p.imageOld" :alt="`${p.name} - ${ui.oldPackage || 'Old Packaging'}`" />
+              <span class="old-version-label">{{ ui.oldPackage || 'Old Packaging' }}</span>
+            </div>
+          </div>
           <div class="card__body">
             <h3 class="card__title">{{ p.name }}</h3>
             <p v-if="p.summary" class="card__summary">{{ p.summary }}</p>
@@ -80,13 +85,20 @@ onMounted(() => {
 
       <!-- Mobile Rail -->
       <div class="rail" ref="railRef">
-        <NuxtLink
-          v-for="p in products"
-          :key="`m-${p.key}`"
-          :to="`/products/${p.key}`"
-          class="card"
-        >
-          <img :src="p.image" :alt="p.name" loading="lazy" decoding="async" />
+        <NuxtLink v-for="p in products" :key="`m-${p.key}`" :to="`/products/${p.key}`" class="product-card">
+          <div class="card__image-wrapper">
+            <!-- 只裁主图 -->
+            <div class="card__image-clip">
+              <img :src="p.image" :alt="p.name" class="card__main-img" loading="lazy" decoding="async" />
+            </div>
+
+            <!-- 右下角预览（旧站风格） -->
+            <div v-if="p.imageOld" class="old-version-preview">
+              <img :src="p.imageOld" :alt="`${p.name} - ${ui.oldPackage || 'Old Packaging'}`" />
+              <span class="old-version-label">{{ ui.oldPackage || 'Old Packaging' }}</span>
+            </div>
+          </div>
+
           <div class="card__body">
             <h3 class="card__title">{{ p.name }}</h3>
             <p v-if="p.summary" class="card__summary">{{ p.summary }}</p>

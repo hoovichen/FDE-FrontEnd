@@ -44,7 +44,7 @@ onMounted(() => {
         <NuxtLink
           v-for="(p, i) in featured"
           :key="p.key"
-          class="card"
+          class="psec-card"
           :to="`/products/${p.key}`"
           :ref="(el: HTMLDivElement) => { if (el) cardRefs[i] = el as HTMLDivElement }"
         >

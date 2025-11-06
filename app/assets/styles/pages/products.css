@@ -52,7 +52,9 @@
 }
 
 @media (max-width: 768px) {
-  .page-products__content .grid { display: none; }
+  .page-products__content .grid {
+    display: none;
+  }
 
   .page-products__content .rail {
     display: flex;
@@ -66,36 +68,39 @@
     margin: 6px 0 8px;
   }
 
-  .page-products__content .rail::-webkit-scrollbar { height: 0; }
+  .page-products__content .rail::-webkit-scrollbar {
+    height: 0;
+  }
 
-  .page-products__content .rail .card {
-    flex: 0 0 76%;                /* 可见 1 主卡 + 两边各半卡 */
+  .page-products__content .rail .product-card {
+    flex: 0 0 76%;
+    /* 可见 1 主卡 + 两边各半卡 */
     scroll-snap-align: center;
   }
 }
 
 /* ---- Card ---- */
-.page-products .card {
+.page-products .product-card {
   display: block;
   background: #fff;
   border-radius: 16px;
   text-decoration: none;
   color: inherit;
   border: 1px solid var(--color-border, #eee);
-  box-shadow: 0 2px 10px rgba(0,0,0,.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .05);
   transition: transform .18s ease, box-shadow .18s ease;
 }
 
-.page-products .card:hover {
+.page-products .product-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .08);
 }
 
-.page-products .card img {
+.page-products .product-card img {
+  max-height: 240px;
   width: 100%;
-  height: 240px;
   object-fit: contain;
-  padding-top: 10px;
+  padding-top: 1%;
 }
 
 .page-products .card__body {
@@ -103,25 +108,106 @@
 }
 
 .page-products .card__title {
+  text-align: center;
   font-weight: 700;
   line-height: 1.3;
 }
 
 .page-products .card__summary {
+  text-align: center;
   margin-top: 6px;
   color: var(--color-muted, #666);
   font-size: 0.95rem;
 }
 
 .page-products .card__price {
+  text-align: center;
   margin-top: 10px;
   font-weight: 800;
   color: var(--color-brand, #af1311);
 }
 
-/* 图片在手机上稍微压缩高度 */
+/* 1) 外层：允许浮层超出主图裁剪区域 */
+.page-products .card__image-wrapper {
+  position: relative;
+  /* 允许旧包装浮层在主图外延伸 */
+  overflow: visible;
+  border-radius: 12px;
+  /* 与卡片圆角和谐 */
+}
+
+/* 2) 只裁主图的容器（把 overflow 放在内层） */
+.page-products .card__image-clip {
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+/* 主图维持原来的写法 */
+.page-products .card__main-img {
+  margin-top: 10px;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* 3) ——“旧站风格”的右下角小预览 + 标签 —— */
+/* 小盒子（白底、有阴影） */
+.page-products .old-version-preview {
+  position: absolute;
+  right: 30px;
+  bottom: 15px;
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.181);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.page-products .old-version-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 文字标签：位于小盒子下方，向外“探出”一点 */
+.page-products .old-version-label {
+  position: absolute;
+  bottom: -20px;
+  /* 关键：往外探出，不会被裁 */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.219);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7em;
+  white-space: nowrap;
+  line-height: 1.2;
+  pointer-events: none;
+  /* 同上，不拦截点击 */
+}
+
+/* 4) 交互细节：悬停轻微放大小图（桌面端） */
+@media (hover: hover) {
+  .page-products .card:hover .old-version-preview {
+    transform: translateY(-1px);
+    transition: transform .18s ease;
+  }
+}
+
+/* 5) 移动端调整尺寸，防止拥挤 */
 @media (max-width: 768px) {
-  .page-products .card img {
-    height: 190px;
+  .page-products .old-version-preview {
+    bottom: 8px;
+    right: 25px;
+  }
+
+  .page-products .old-version-label {
+    bottom: -18px;
+    font-size: 0.66rem;
   }
 }

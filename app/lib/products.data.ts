@@ -5,6 +5,7 @@ export type LangCode = 'zh' | 'en' | 'bm'
 export interface ProductBase {
   key: string
   image: string                  // 建议使用 CDN URL
+  imageOld?: string               // 旧版图片 URL（兼容旧站）
   url?: string                   // 外部商城链接（Shopee/Lazada/Shopify等）
   price?: number                 // 可选：建议零售价（数字，不带货币）
   categoryId?: number            // 可选：分类（将来用）
@@ -21,15 +22,17 @@ export interface ProductBase {
 /** 仅存放不可翻译字段（name 等放到 i18n） */
 export const PRODUCTS_BASE: ProductBase[] = [
   {
-    key: 'red-cap',
-    image: '/images/products/redcap.png',
+    key: 'green-cap',
+    image: '/images/products/greencap.jpg',
+    imageOld:'/images/products/old-products/greencap.png',
     url: undefined,
     price: 4,
-    gallery: ['/images/products/redcap.png'],
+    gallery: ['/images/products/greencap.jpg'],
   },
   {
     key: 'garlic-sauce',
     image: '/images/products/redcap.png',
+    imageOld:'/images/products/old-products/redcap.jpg',
     price: 4,
     featuredHome: true,
     featuredOrder: 3
@@ -37,33 +40,37 @@ export const PRODUCTS_BASE: ProductBase[] = [
   {
     key: 'extra-hot',
     image: '/images/products/yellowcap.png',
+    imageOld:'/images/products/old-products/yellowcap.png',
     price: 4,
   },
   {
     key: 'sky-pepper',
-    image: '/images/products/redcap.png',
+    image: '/images/products/spe_chili.jpg',
     price: 9,
   },
   {
     key: 'ginger-garlic',
     image: '/images/products/suanrong.png',
+    imageOld:'/images/products/old-products/suanrong.jpg',
     price: 17.8,
   },
   {
     key: 'sambal-shrimp',
-    image: '/images/products/sambal_new.png',
+    image: '/images/products/sambal.png',
+    imageOld:'/images/products/old-products/sambal.jpg',
     price: 8,
     featuredHome: true,
     featuredOrder: 2
   },
   {
     key: 'cripy-anchovy',
-    image: '/images/products/redcap.png',
+    image: '/images/products/yinyu.jpg',
     price: 12,
   },
   {
     key: 'cripy-prawn',
-    image: '/images/products/xiami_new.png',
+    image: '/images/products/xiami.png',
+    imageOld:'/images/products/old-products/xiami.jpg',
     price: 11,
     featuredHome: true,
     featuredOrder: 1

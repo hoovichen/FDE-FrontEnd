@@ -35,7 +35,7 @@ export default defineNuxtConfig({
     '~/assets/styles/components/header.css',
     '~/assets/styles/components/footer.css',
     '~/assets/styles/components/recipes.css',
-    '~/assets/styles/components/products.css',
+    '~/assets/styles/components/products-section.css',
     '~/assets/styles/components/blog.css'
   ],
   runtimeConfig: {

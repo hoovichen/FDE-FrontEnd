@@ -11,6 +11,7 @@ export interface ProductsUiText {
     priceDesc: string
   }
   viewDetail?: string
+  oldPackage?: string
 }
 
 export const PRODUCTS_UI_TEXT: Record<LangCode, ProductsUiText> = {
@@ -24,7 +25,8 @@ export const PRODUCTS_UI_TEXT: Record<LangCode, ProductsUiText> = {
       priceAsc: 'Price: Low to High',
       priceDesc: 'Price: High to Low'
     },
-    viewDetail: 'View Details'
+    viewDetail: 'View Details',
+    oldPackage: 'Old Packaging'
   },
   zh: {
     pageTitle: '我们的产品',
@@ -36,7 +38,8 @@ export const PRODUCTS_UI_TEXT: Record<LangCode, ProductsUiText> = {
       priceAsc: '价格从低到高',
       priceDesc: '价格从高到低'
     },
-    viewDetail: '查看详情'
+    viewDetail: '查看详情',
+    oldPackage: '旧包装'
   },
   bm: {
     pageTitle: 'Produk Kami',
@@ -48,6 +51,7 @@ export const PRODUCTS_UI_TEXT: Record<LangCode, ProductsUiText> = {
       priceAsc: 'Harga: Rendah ke Tinggi',
       priceDesc: 'Harga: Tinggi ke Rendah'
     },
-    viewDetail: 'Lihat Butiran'
+    viewDetail: 'Lihat Butiran',
+    oldPackage: 'Bungkusan Lama'
   }
 }

@@ -7,7 +7,7 @@ export interface ProductI18n {
 
 export const PRODUCTS_I18N: Record<LangCode, Record<string, ProductI18n>> = {
   en: {
-    'red-cap': {
+    'green-cap': {
       name: 'Classic Mild Pantai Remis Chili Sauce – Green Cap',
       summary: 'Mildly spicy with a balanced flavor and signature aroma.'
     },
@@ -42,7 +42,7 @@ export const PRODUCTS_I18N: Record<LangCode, Record<string, ProductI18n>> = {
   },
 
   zh: {
-    'red-cap': {
+    'green-cap': {
       name: '经典微辣班台辣椒酱 · 绿盖',
       summary: '辣度平衡，标志性香气。'
     },
@@ -77,7 +77,7 @@ export const PRODUCTS_I18N: Record<LangCode, Record<string, ProductI18n>> = {
   },
 
   bm: {
-    'red-cap': {
+    'green-cap': {
       name: 'Sos Cili Pantai Remis Pedas Ringan – Penutup Hijau',
       summary: 'Kepedasan ringan dengan rasa seimbang dan aroma tersendiri.'
     },
