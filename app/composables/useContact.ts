@@ -54,7 +54,7 @@ export function useContactPage() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: CONTACT_SEO_BASE.siteName,
-    url: 'https://your-domain.com',
+    url: 'https://firedragonmy.com',
     logo: CONTACT_SEO_BASE.logo,
     contactPoint: [{
       '@type': 'ContactPoint',
@@ -74,7 +74,7 @@ export function useContactPage() {
     submitError.value = null
     submitting.value = true
     try {
-      console.log('Submitting via API...')
+      // console.log('Submitting via API...')
       await $fetch('/api/contact', {
         method: 'POST',
         body: { name: name.value, email: email.value, message: message.value, honey: honey.value }

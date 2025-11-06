@@ -2,7 +2,6 @@
 import { Resend } from 'resend'
 import { z } from 'zod'
 
-console.log('[API] contact.post.ts loaded')
 
 const BodySchema = z.object({
   name: z.string().max(120).optional().default(''),
@@ -49,7 +48,7 @@ export default defineEventHandler(async (event) => {
   // 4) 发送邮件
   const resend = new Resend(apiKey)
   await resend.emails.send({
-    from,           // 需是已验证域名邮箱
+    from: 'Fire Dragon <no-reply@firedragonmy.com>',           // 需是已验证域名邮箱
     to,
     subject,
     html,

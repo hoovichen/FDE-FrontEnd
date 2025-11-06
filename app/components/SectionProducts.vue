@@ -34,7 +34,7 @@ onMounted(() => {
         <!-- 背景由 CSS ::before 渲染；这里仅放文本内容 -->
         <h2 class="products__title">{{ t.title }}</h2>
         <p class="products__desc">{{ t.desc }}</p>
-        <a href="https://shop.example.com" target="_blank" class="products__btn">
+        <a href="https://shopee.com.my/sosbaby12396" target="_blank" class="products__btn">
           {{ t.shopNow }}
         </a>
       </div>
