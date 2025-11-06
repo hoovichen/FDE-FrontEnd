@@ -1,0 +1,192 @@
+.contact-page {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+  padding: 48px 0 72px;
+}
+
+.contact-head {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.contact-title {
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 800;
+  color: #d61414;
+}
+
+.contact-desc {
+  color: #666;
+  margin-top: 8px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 24px;
+}
+
+.contact-form {
+  background: #fff;
+  border: 1px solid var(--color-border, #eee);
+  border-radius: 14px;
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, .03);
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field span {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: 1px solid #e4e4e4;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font: inherit;
+  outline: none;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: #ff7a1a;
+  box-shadow: 0 0 0 3px rgba(255, 122, 26, .12);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.btn-primary {
+  background: #ff7a1a;
+  color: #fff;
+  font-weight: 800;
+  border: 0;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #ffd3b1;
+  color: #ff7a1a;
+  text-decoration: none;
+  font-weight: 700;
+  background: #fff7f0;
+}
+
+.sent-tip {
+  color: #28a745;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.contact-aside {
+  background: #fff;
+  border: 1px solid var(--color-border, #eee);
+  border-radius: 14px;
+  padding: 18px;
+  display: grid;
+  gap: 14px;
+}
+
+.info-title {
+  font-weight: 800;
+  margin-bottom: 4px;
+  color: #d61414;
+}
+
+.info-text {
+  color: #333;
+  line-height: 1.6;
+}
+
+.info-list {
+  color: #333;
+  display: grid;
+  gap: 4px;
+  padding-left: 18px;
+}
+
+/* —— Contact: Map Card —— */
+.contact-map {
+  position: relative;
+  border: 1px solid var(--color-border, #eee);
+  border-radius: 14px;
+  overflow: hidden;
+  /* 统一外观阴影，与表单/侧栏一致 */
+  box-shadow: 0 6px 22px rgba(0,0,0,.03);
+}
+
+/* 16:9 比例容器 */
+.contact-map__link {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+/* 截图图像铺满裁切 */
+.contact-map__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.0001); /* 解决部分浏览器 1px 缝隙 */
+  transition: transform .3s ease, filter .3s ease;
+}
+
+/* 右下角“Open in Google Maps”角标 */
+.contact-map__badge {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 800;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 10px;
+  color: #111;
+  backdrop-filter: saturate(140%) blur(4px);
+  transition: transform .2s ease, background .2s ease;
+}
+
+/* 悬停微交互 */
+.contact-map__link:hover .contact-map__img {
+  transform: scale(1.03);
+  filter: saturate(1.05);
+}
+.contact-map__link:hover .contact-map__badge {
+  transform: translateY(-1px);
+}
+
+/* 可选：图注（若启用 figcaption） */
+.contact-map__cap {
+  padding: 10px 12px 12px;
+  font-size: 0.9rem;
+  color: #333;
+}
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-map { margin-bottom: 6px; }
+}

@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import { FOOTER_SOCIALS } from '~/lib/footer.socials'
+const socials = [...FOOTER_SOCIALS].sort((a, b) => (a.order ?? 999) - (b.order ?? 999))
+</script>
+
 <template>
   <footer class="footer">
     <div class="footer__inner container">
@@ -12,9 +17,15 @@
       <div class="footer__info">
         <h3 class="footer__title">INFO</h3>
         <ul>
-          <li><NuxtLink to="/faq">FAQ</NuxtLink></li>
-          <li><NuxtLink to="/privacy-policy">PRIVACY POLICY</NuxtLink></li>
-          <li><NuxtLink to="/terms">TERMS & CONDITIONS</NuxtLink></li>
+          <li>
+            <NuxtLink to="/faq">FAQ</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/privacy-policy">PRIVACY POLICY</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/terms">TERMS & CONDITIONS</NuxtLink>
+          </li>
         </ul>
       </div>
 
@@ -22,14 +33,8 @@
       <div class="footer__social">
         <h3 class="footer__title">STALK US</h3>
         <div class="footer__icons">
-          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-            <img src="/facebook.ico" alt="Facebook" />
-          </a>
-          <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-            <img src="/ins.ico" alt="Instragram" />
-          </a>
-          <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
-            <img src="/tiktok.ico" alt="TikTok" />
+          <a v-for="s in socials" :key="s.key" :href="s.href" target="_blank" rel="noopener" :aria-label="s.key">
+            <img :src="s.icon" :alt="s.key" />
           </a>
         </div>
       </div>

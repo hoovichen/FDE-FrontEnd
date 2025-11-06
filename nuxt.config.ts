@@ -28,6 +28,7 @@ export default defineNuxtConfig({
     '~/assets/styles/pages/home.css',
     '~/assets/styles/pages/products.css',
     '~/assets/styles/pages/keyproducts.css',
+    '~/assets/styles/pages/contact.css',
     '~/assets/styles/components/cards.css',
     '~/assets/styles/components/button.css',
     '~/assets/styles/components/cta.css',
@@ -37,6 +38,11 @@ export default defineNuxtConfig({
     '~/assets/styles/components/products.css',
     '~/assets/styles/components/blog.css'
   ],
+  runtimeConfig: {
+    resendApiKey: process.env.RESEND_API_KEY,
+    contactToEmail: process.env.CONTACT_TO_EMAIL,
+    contactFromEmail: process.env.CONTACT_FROM_EMAIL,
+  },
   // Nitro 站点 URL，供 sitemap/robots 使用（后续可安装 @nuxtjs/sitemap）
   // runtimeConfig: {
   //   public: {
