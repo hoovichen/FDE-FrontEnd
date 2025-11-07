@@ -102,7 +102,7 @@ export default defineNuxtConfig({
     // 与新路径相同的可以不写；若你想显式声明也可以：
     '/about': { redirect: { to: '/about', statusCode: 301 } },
     '/contact': { redirect: { to: '/contact', statusCode: 301 } },
-    '/products': { redirect: { to: '/products', statusCode: 301 } },
+    '/product': { redirect: { to: '/products', statusCode: 301 } },
     '/faq': { redirect: { to: '/faq', statusCode: 301 } },
 
     // （可选）把非 www 全部 301 到 www（建议在 Vercel 域名设置做，更可靠）
