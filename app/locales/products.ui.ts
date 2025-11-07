@@ -11,6 +11,12 @@ export interface ProductsUiText {
     priceDesc: string
   }
   viewDetail?: string
+  cta?: {
+    shopNow: string
+    onShopee: string
+    backToList: string
+    soldViaPartners: string   // 给 B2B 的措辞
+  }
   oldPackage?: string
 }
 
@@ -26,6 +32,12 @@ export const PRODUCTS_UI_TEXT: Record<LangCode, ProductsUiText> = {
       priceDesc: 'Price: High to Low'
     },
     viewDetail: 'View Details',
+    cta: {
+      shopNow: 'Shop now',
+      onShopee: 'Shop on Shopee',
+      backToList: 'Back to products',
+      soldViaPartners: 'Available via official retail partners'
+    },
     oldPackage: 'Old Packaging'
   },
   zh: {
@@ -39,6 +51,12 @@ export const PRODUCTS_UI_TEXT: Record<LangCode, ProductsUiText> = {
       priceDesc: '价格从高到低'
     },
     viewDetail: '查看详情',
+    cta: {
+      shopNow: '立即购买',
+      onShopee: '前往 Shopee 购买',
+      backToList: '返回产品列表',
+      soldViaPartners: '由官方零售合作伙伴提供'
+    },
     oldPackage: '旧包装'
   },
   bm: {
@@ -52,6 +70,12 @@ export const PRODUCTS_UI_TEXT: Record<LangCode, ProductsUiText> = {
       priceDesc: 'Harga: Tinggi ke Rendah'
     },
     viewDetail: 'Lihat Butiran',
+    cta: {
+      shopNow: 'Beli sekarang',
+      onShopee: 'Beli di Shopee',
+      backToList: 'Kembali ke produk',
+      soldViaPartners: 'Dijual melalui rakan runcit rasmi',
+    },
     oldPackage: 'Bungkusan Lama'
   }
 }

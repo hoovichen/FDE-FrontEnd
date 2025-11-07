@@ -1,0 +1,132 @@
+/* assets/styles/pages/about.css */
+
+.about__hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  /* 可按你的主视觉比例改 */
+  max-height: 560px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.about__hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about__hero-text {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: linear-gradient(to top, rgba(0, 0, 0, .35), rgba(0, 0, 0, .05));
+  color: #fff;
+  padding: 0 4%;
+}
+
+.about__title {
+  font-size: clamp(28px, 5vw, 46px);
+  font-weight: 900;
+  margin: 0 0 8px;
+}
+
+.about__subtitle {
+  font-size: clamp(16px, 2.4vw, 22px);
+  font-weight: 700;
+  opacity: .95;
+  margin: 0;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
+
+.about__content {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 24px;
+  padding: 32px 0 64px;
+}
+
+@media (max-width: 900px) {
+  .about__content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about__text {
+  display: grid;
+  gap: 14px;
+  align-content: space-between;
+}
+
+.about__desc {
+  color: #333;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.about__btn {
+  display: inline-block;
+  background: #ff7a1a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  padding: 12px 18px;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+/* 画廊基础：两列网格 + 统一行高，靠 CSS span 做拼贴 */
+.about__gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 160px;
+  /* 每行高度基准，可按需微调为 150~200 */
+  gap: 12px;
+}
+
+/* 通用图片样式 */
+.about__gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+/* ============ 三张图布局（默认） ============
+   左侧第一张变“高卡”跨两行；右侧两张上下排 */
+.about__gallery--layout-3 img:nth-child(1) {
+  grid-row: span 2;
+}
+
+/* ============ 两张图布局 ============
+   上下堆叠，保持比例统一（无需额外 span） */
+.about__gallery--layout-2 {
+  grid-auto-rows: 200px;
+  /* 两张时略增行高更大气 */
+}
+
+/* ============ 一张图（兜底） ============ */
+.about__gallery--layout-1 {
+  grid-template-columns: 1fr;
+  grid-auto-rows: 260px;
+}
+
+@media (max-width: 600px) {
+  .about__gallery {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 220px;
+  }
+
+  .about__gallery--layout-3 img:nth-child(1) {
+    /* 移动端不拉高，统一高度即可 */
+    grid-row: span 1;
+  }
+}
+/* End of about.css */

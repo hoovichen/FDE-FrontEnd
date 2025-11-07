@@ -28,14 +28,12 @@ export const HERO_TEXT: Record<LangCode, Record<HeroSlideBase['key'], HeroI18nTe
     },
     'II': {
       title: 'Today’s Must-Try',
-      subContent: 'Natural ingredients, crafted with care.',
-      ctaLabel: 'Browse Products',
-      shopLabel: 'Shop Now'
+      mainContent: 'Your Everyday Meal, Instantly Better.',
+      subContent: 'Locally crafted with care and passion. Explore our products and taste the difference.',
     },
     'III': {
       title: 'Everyday Cooking Inspiration',
-      subContent: 'From breakfast to supper, endless inspirations.',
-      ctaLabel: 'See Recipes',
+      subContent: 'From breakfast to supper, discover how our sauces make every meal special.',
     }
   },
   zh: {
@@ -46,15 +44,15 @@ export const HERO_TEXT: Record<LangCode, Record<HeroSlideBase['key'], HeroI18nTe
     },
     'II': {
       title: '明星产品 · 今日必试',
-      subContent: '自然原料，工艺加持',
-      ctaLabel: '浏览产品',
-      shopLabel: '去购买'
+      mainContent: '让您的每一餐，瞬间都变得更美味',
+      subContent: ' 探索我们的产品系列，品味那份与众不同的用心',
     },
     'III': {
-      title: '三步上桌 · 100+ 食谱',
-      subContent: '从早餐到宵夜，灵感不断',
-      ctaLabel: '查看食谱'
+      title: ' 您的每日烹饪灵感',
+      mainContent: '每日烹饪灵感',
+      subContent: '三步搞定一餐，美味轻松上桌。搭配我们的酱料，让每一餐都充满家的味道'
     }
+
   },
   bm: {
     'I': {
@@ -63,15 +61,13 @@ export const HERO_TEXT: Record<LangCode, Record<HeroSlideBase['key'], HeroI18nTe
       subContent: 'Penuh dengan kerangupan dan rasa yang memikat. Sos serbaguna ini sesuai digandingkan dengan masakan goreng, mi kering, atau sekadar sebagai pencicah.'
     },
     'II': {
-      title: 'Produk Pilihan Hari Ini',
-      subContent: 'Bahan semula jadi, hasil kraf yang teliti.',
-      ctaLabel: 'Lihat Produk',
-      shopLabel: 'Beli Sekarang'
+      title: 'Produk Pilihan · Wajib Cuba Hari Ini',
+      mainContent: 'Setiap hidangan jadi lebih enak dengan sentuhan kami.',
+      subContent: 'Jom terokai rangkaian sos kami — rasa keaslian yang dibuat dengan penuh kasih sayang.'
     },
     'III': {
-      title: '3 Langkah ke Meja · 100+ Resipi',
-      subContent: 'Dari sarapan hingga lewat malam, inspirasi tanpa henti.',
-      ctaLabel: 'Lihat Resipi'
+      title: 'Inspirasi Masakan Harian Anda',
+      subContent: 'Masak sedap dalam tiga langkah mudah! Dengan sos kami, setiap hidangan penuh dengan rasa rumah.'
     }
   }
 }

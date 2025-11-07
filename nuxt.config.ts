@@ -29,6 +29,7 @@ export default defineNuxtConfig({
     '~/assets/styles/pages/products.css',
     '~/assets/styles/pages/keyproducts.css',
     '~/assets/styles/pages/contact.css',
+    '~/assets/styles/pages/about.css',
     '~/assets/styles/components/cards.css',
     '~/assets/styles/components/button.css',
     '~/assets/styles/components/cta.css',
