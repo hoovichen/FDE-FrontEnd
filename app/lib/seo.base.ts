@@ -3,7 +3,7 @@ export const SEO_BASE = {
     siteName: 'Fire Dragon Enterprise',
     siteUrl: 'https://firedragonmy.com',
     twitter: '@firedragon',
-    defaultOgImage: '',
+    defaultOgImage: '/logo-3-topic.png',
     logo: '/logo-3-topic.png',
     company: 'Fire Dragon Enterprise',
     brand: 'Fire Dragon',
