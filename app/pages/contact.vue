@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useContactPage } from '~/composables/useContact'
-
+import { Analytics } from '@vercel/analytics/nuxt'
+import { SpeedInsights } from "@vercel/speed-insights/nuxt"
 const { ui, seo, jsonLd, name, email, message, sent, buildWaHref, onSubmit, base, honey, submitViaApi, submitting, submitOk, submitError, } = useContactPage()
 
 useSeoMeta({
@@ -25,6 +26,8 @@ useHead(() => ({
 
 
 <template>
+  <Analytics />
+  <SpeedInsights />
   <section class="contact-page">
     <header class="contact-head">
       <h1 class="contact-title">{{ ui.title }}</h1>
@@ -92,7 +95,7 @@ useHead(() => ({
             <li v-for="(h, i) in ui.hours" :key="i">{{ h }}</li>
           </ul>
         </div>
-      </aside> 
+      </aside>
     </div>
   </section>
 </template>

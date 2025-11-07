@@ -2,7 +2,8 @@
 import { useProductsList } from '~/composables/useProducts'
 import { useSeoPage } from '~/composables/useSeoPage'
 import { PRODUCTS_PAGE_TEXT } from '~/locales/seo.products'
-
+import { Analytics } from '@vercel/analytics/nuxt'
+import { SpeedInsights } from "@vercel/speed-insights/nuxt"
 const { sorted: products, sortBy, ui } = useProductsList()
 
 // SEO
@@ -43,6 +44,8 @@ onMounted(() => {
 
 
 <template>
+  <SpeedInsights />
+  <Analytics />
   <section class="page-products">
     <div class="page-products__header">
       <h1 class="page-products__title">{{ ui.pageTitle }}</h1>

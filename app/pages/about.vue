@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useAboutPage } from '~/composables/useAbout'
-
+import { Analytics } from '@vercel/analytics/nuxt'
+import { SpeedInsights } from "@vercel/speed-insights/nuxt"
 const { ui, seo, base, jsonLd } = useAboutPage()
 
 useSeoMeta({
@@ -28,6 +29,8 @@ const galleryClass = computed(() => `about__gallery about__gallery--layout-${gal
 </script>
 
 <template>
+  <Analytics />
+  <SpeedInsights />
   <section class="about">
     <!-- Hero -->
     <div class="about__hero">
