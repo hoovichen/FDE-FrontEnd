@@ -91,20 +91,20 @@ export default defineNuxtConfig({
     sitemap: ['https://www.firedragonmy.com/sitemap.xml']
   },
 
-  // 可顺便加上旧路径 301（如果你旧站是 /sitemap_index.xml）
-  routeRules: {
-    // 旧路径 → 新路径（永久 301）
-    '/stories': { redirect: { to: '/blog', statusCode: 301 } },
+  // // 可顺便加上旧路径 301（如果你旧站是 /sitemap_index.xml）
+  // routeRules: {
+  //   // 旧路径 → 新路径（永久 301）
+  //   '/stories': { redirect: { to: '/blog', statusCode: 301 } },
 
-    // 如果旧站曾有 sitemap_index.xml，统一到新 sitemap.xml
-    '/sitemap_index.xml': { redirect: { to: '/sitemap.xml', statusCode: 301 } },
+  //   // 如果旧站曾有 sitemap_index.xml，统一到新 sitemap.xml
+  //   '/sitemap_index.xml': { redirect: { to: '/sitemap.xml', statusCode: 301 } },
 
-    // 与新路径相同的可以不写；若你想显式声明也可以：
-    '/about': { redirect: { to: '/about', statusCode: 301 } },
-    '/contact': { redirect: { to: '/contact', statusCode: 301 } },
-    '/product': { redirect: { to: '/products', statusCode: 301 } },
-    '/faq': { redirect: { to: '/faq', statusCode: 301 } },
+  //   // 与新路径相同的可以不写；若你想显式声明也可以：
+  //   '/about': { redirect: { to: '/about', statusCode: 301 } },
+  //   '/contact': { redirect: { to: '/contact', statusCode: 301 } },
+  //   '/product': { redirect: { to: '/products', statusCode: 301 } },
+  //   '/faq': { redirect: { to: '/faq', statusCode: 301 } },
 
-    // （可选）把非 www 全部 301 到 www（建议在 Vercel 域名设置做，更可靠）
-  },
+  //   // （可选）把非 www 全部 301 到 www（建议在 Vercel 域名设置做，更可靠）
+  // },
 })
