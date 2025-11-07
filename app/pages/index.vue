@@ -3,7 +3,7 @@ import { useSeoPage } from '~/composables/useSeoPage'
 import { HOME_TEXT } from '~/locales/seo.home'
 
 const { apply } = useSeoPage(HOME_TEXT, {
-  ogImage: '/og/home-1200x630.jpg', // 可复用默认图也行
+  ogImage: '/logo-3-topic.png', // 可复用默认图也行
   path: '/'                          // 用于 canonical
 })
 apply()

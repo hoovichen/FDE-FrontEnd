@@ -1,8 +1,10 @@
 <script setup lang="ts">
     /** 默认布局：含 Skip Link 与主容器 */
+    import { SpeedInsights } from "@vercel/speed-insights/nuxt"
 </script>
 
 <template>
+  <SpeedInsights/>
   <header class="site-header">
     <div class="site-header__inner">
       <HeaderNav />

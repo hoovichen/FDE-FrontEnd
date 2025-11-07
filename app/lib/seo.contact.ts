@@ -1,6 +1,6 @@
 export const CONTACT_SEO_BASE = {
   siteName: 'Fire Dragon Enterprise',
-  ogImage: '/og/contact-og.jpg',
+  ogImage: '/logo-3-topic.png',
   twitter: '@firedragon',
   logo: '/logo-3-topic.png',
   emailTo: 'firedragonco2010@gmail.com',   // 表单 mailto 目标地址

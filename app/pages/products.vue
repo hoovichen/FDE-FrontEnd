@@ -7,7 +7,7 @@ const { sorted: products, sortBy, ui } = useProductsList()
 
 // SEO
 const { apply } = useSeoPage(PRODUCTS_PAGE_TEXT, {
-  ogImage: '/og/products-1200x630.jpg',
+  ogImage: '/logo-3-topic.png',
   path: '/products'
 })
 apply()
