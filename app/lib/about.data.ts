@@ -5,7 +5,7 @@ export interface AboutBase {
 }
 
 export const ABOUT_BASE: AboutBase = {
-  heroImage: '/images/about/hero.jpeg',
+  heroImage: '/images/about/hero.jpg',
   gallery: [
     '/images/about/food1.jpeg',
     '/images/about/food2.jpeg',

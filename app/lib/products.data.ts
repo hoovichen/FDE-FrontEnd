@@ -23,11 +23,11 @@ export interface ProductBase {
 export const PRODUCTS_BASE: ProductBase[] = [
   {
     key: 'green-cap',
-    image: '/images/products/greencap.jpg',
+    image: '/images/products/greencap.png',
     imageOld: '/images/products/old-products/greencap.png',
     url: 'https://shopee.com.my/%E2%AD%90%E7%81%AB%E9%BE%99(%E7%94%98%E6%96%87%E9%98%81)%E8%92%9C%E5%A4%B4%E8%BE%A3%E6%A4%92%E9%85%B1*FIRE-DRAGON~GARLIC-CHILI-SAUCE*-i.196672147.3189722290',
     price: 4,
-    gallery: ['/images/products/greencap.jpg'],
+    gallery: ['/images/products/greencap.png'],
   },
   {
     key: 'garlic-sauce',
@@ -45,7 +45,7 @@ export const PRODUCTS_BASE: ProductBase[] = [
   },
   {
     key: 'sky-pepper',
-    image: '/images/products/spe_chili.jpg',
+    image: '/images/products/cann.png',
     price: 9,
     url: 'https://shopee.com.my/Chili-Pepper-Sauce*%E5%A4%A9%E4%B9%8B%E9%AA%84%E5%AD%90*%E6%8C%87%E5%A4%A9%E6%A4%92%E8%BE%A3%E6%A4%92%E9%85%B1-Sos-Cili-Padi-i.196672147.5944608998',
     featuredHome: true,
@@ -69,13 +69,13 @@ export const PRODUCTS_BASE: ProductBase[] = [
   },
   {
     key: 'cripy-anchovy',
-    image: '/images/products/yinyu.jpg',
+    image: '/images/products/yinyu.png',
     url: 'https://shopee.com.my/Crispy-Anchovy-Chili%EF%BC%83%E9%A6%99%E8%84%86%E9%93%B6%E9%B1%BC%E4%BB%94-Bilis-Goreng-Ragup-Cili--i.196672147.6044641090',
     price: 12,
   },
   {
     key: 'cripy-prawn',
-    image: '/images/products/xiami.png',
+    image: '/images/products/shrimps.png',
     imageOld: '/images/products/old-products/xiami.jpg',
     url: 'https://shopee.com.my/Crispy-Prawn-Chili*%E9%A6%99%E8%84%86%E8%99%BE%E7%B1%B3%E8%BE%A3%E6%A4%92-*Cili-Udang-Kering-i.196672147.6444635197',
     price: 11,
