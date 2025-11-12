@@ -13,6 +13,6 @@ export const FOOTER_SOCIALS: SocialLink[] = [
   { key: 'tiktok',     href: 'https://tiktok.com/@hot.and.hot24',   icon: '/tiktok.ico',    order: 3 },
   { key: 'xiaohongshu',href: 'https://xhslink.com/m/2eIo9Wk4Q1Z', icon: '/xhs.png', order: 4 },
   // 如需在页脚也放电话/WhatsApp，开启：
-  { key: 'whatsapp', href: 'https://wa.me/60189501638', icon: '/whatsapp.ico', order: 5 },
+  { key: 'whatsapp', href: 'https://wa.me/601139387226', icon: '/whatsapp.ico', order: 5 },
   { key: 'phone',    href: 'tel:+60189501638', icon: '/phone-call.png', order: 6 },
 ]
