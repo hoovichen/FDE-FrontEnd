@@ -8,27 +8,27 @@ export interface ProductI18n {
 export const PRODUCTS_I18N: Record<LangCode, Record<string, ProductI18n>> = {
   en: {
     'green-cap': {
-      name: 'Classic Mild Pantai Remis Chili Sauce – Green Cap',
+      name: 'Pantai Remis Chili Sauce – Mild',
       summary: 'Mildly spicy with a balanced flavor and signature aroma.'
     },
     'garlic-sauce': {
-      name: 'Classic Medium Pantai Remis Chili Sauce – Red Cap',
+      name: 'Pantai Remis Chili Sauce – Original',
       summary: 'Medium heat with rich garlic aroma — perfect for everyday meals.'
     },
     'extra-hot': {
-      name: 'Classic Hot Pantai Remis Chili Sauce – Yellow Cap',
+      name: 'Pantai Remis Chili Sauce – Hot',
       summary: 'Made from premium chilies for strong, flavorful heat.'
     },
     'sky-pepper': {
-      name: 'Special Sky Pepper Chili Sauce',
-      summary: 'Bright and fragrant flavor from sky peppers — aromatic and appetizing.'
+      name: 'FDG\'s Sky Pepper Chili Sauce - Extra Hot',
+      summary: 'Bright and fragrant flavor from sky peppers — appetizing and delicious.'
     },
     'ginger-garlic': {
       name: 'Ginger Garlic Paste',
       summary: 'A smooth blend of fresh ginger and garlic — warm, aromatic, and mildly spicy.'
     },
     'sambal-shrimp': {
-      name: 'Sambal Shrimp Paste',
+      name: 'FDG\'s Sambal Shrimp Paste',
       summary: 'Authentic sambal with real dried shrimp — moderately spicy and full of umami.'
     },
     'cripy-anchovy': {
@@ -36,22 +36,22 @@ export const PRODUCTS_I18N: Record<LangCode, Record<string, ProductI18n>> = {
       summary: 'Made with freshly fried anchovies and spicy sambal — crunchy and addictive.'
     },
     'cripy-prawn': {
-      name: 'Crispy Dried Shrimp Chili',
+      name: 'FDG\'s Crispy Shrimp Chili',
       summary: 'Crispy dried shrimp coated with flavorful sambal — perfect with rice or noodles.'
     },
   },
 
   zh: {
     'green-cap': {
-      name: '经典微辣班台辣椒酱 · 绿盖',
+      name: '火龍辣椒酱 · 青盖',
       summary: '辣度平衡，标志性香气。'
     },
     'garlic-sauce': {
-      name: '经典中辣班台辣椒酱 · 红盖',
+      name: '火龍辣椒酱 · 红盖',
       summary: '蒜香浓郁，多场景适配。'
     },
     'extra-hot': {
-      name: '经典特辣班台辣椒酱 · 黄盖',
+      name: '火龍辣椒酱 · 黄盖',
       summary: '使用优质辣椒，辣度更强，风味浓郁。'
     },
     'sky-pepper': {
@@ -78,19 +78,19 @@ export const PRODUCTS_I18N: Record<LangCode, Record<string, ProductI18n>> = {
 
   bm: {
     'green-cap': {
-      name: 'Sos Cili Pantai Remis Pedas Ringan – Penutup Hijau',
+      name: 'Sos Cili Pantai Remis – Hijau',
       summary: 'Kepedasan ringan dengan rasa seimbang dan aroma tersendiri.'
     },
     'garlic-sauce': {
-      name: 'Sos Cili Pantai Remis Pedas Sederhana – Penutup Merah',
+      name: 'Sos Cili Pantai Remis – Merah',
       summary: 'Rasa bawang putih yang kaya dan kepedasan sederhana — sesuai untuk hidangan harian.'
     },
     'extra-hot': {
-      name: 'Sos Cili Pantai Remis Pedas Kuat – Penutup Kuning',
+      name: 'Sos Cili Pantai Remis – Kuning',
       summary: 'Diperbuat daripada cili berkualiti tinggi untuk rasa pedas yang kuat dan beraroma.'
     },
     'sky-pepper': {
-      name: 'Sos Cili Lada Langit Istimewa',
+      name: 'Sos Cili Padi',
       summary: 'Rasa cili yang segar dan wangi — membuka selera dan lazat.'
     },
     'ginger-garlic': {
@@ -98,15 +98,15 @@ export const PRODUCTS_I18N: Record<LangCode, Record<string, ProductI18n>> = {
       summary: 'Gabungan halia dan bawang putih segar — rasa hangat, beraroma dan sedikit pedas.'
     },
     'sambal-shrimp': {
-      name: 'Sambal Udang Kering Asli',
+      name: 'Sambal Udang Kering',
       summary: 'Sambal tradisional dengan rasa udang sebenar — pedas sederhana dan penuh rasa umami.'
     },
     'cripy-anchovy': {
-      name: 'Cili Ikan Bilis Rangup',
+      name: 'Bilis Goreng Ragup Cili',
       summary: 'Ikan bilis goreng rangup dengan sambal pedas — rangup dan menyelerakan.'
     },
     'cripy-prawn': {
-      name: 'Cili Udang Kering Rangup',
+      name: 'Undang Kering Rangup Chili',
       summary: 'Udang kering rangup disalut sambal berperisa — sesuai dimakan dengan nasi atau mi.'
     },
   }
