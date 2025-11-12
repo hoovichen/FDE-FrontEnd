@@ -103,7 +103,7 @@ const dots = computed(() => {
               >{{ s.ctaLabel }}</button>
           </div>
           <div class="hero__image">
-            <img
+            <NuxtImg preload preset
               :src="s.image"
               alt=""
               :loading="i === 0 ? 'eager' : 'lazy'"
@@ -126,7 +126,7 @@ const dots = computed(() => {
             :title="d.label"
           >
             <!-- 有 thumb 用图；没有则用占位字母 -->
-            <img
+            <NuxtImg
               v-if="d.thumb"
               class="hero__dot-thumb"
               :src="d.thumb"

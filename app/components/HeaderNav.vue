@@ -61,7 +61,7 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onEsc))
 
     <!-- 中：Logo -->
     <NuxtLink to="/" aria-label="品牌主页" class="nav--logo">
-      <img class="logo" src="/logo-3-topic.png" alt="Fire Dragon Enterprise Logo" />
+      <NuxtImg class="logo" src="/logo-3-topic.png" alt="Fire Dragon Enterprise Logo" />
     </NuxtLink>
 
     <!-- 右 -->

@@ -21,7 +21,7 @@ const t = computed(() => BLOGS_TEXT[(lang.value as LangCode) || 'en'])
       <!-- 博客卡片区 -->
       <div class="blogs__grid">
         <div v-for="b in BLOGS" :key="b.key" class="blogs__card">
-          <img :src="b.image" :alt="b.title" loading="lazy" decoding="async" />
+          <NuxtImg :src="b.image" :alt="b.title" loading="lazy" decoding="async" />
           <h3 class="blogs__card-title">{{ b.title }}</h3>
           <NuxtLink :to="b.to" class="blogs__readmore">READ MORE</NuxtLink>
         </div>
@@ -30,7 +30,7 @@ const t = computed(() => BLOGS_TEXT[(lang.value as LangCode) || 'en'])
       <!-- 底部按钮 -->
       <div class="cta">
         <NuxtLink to="/blog" class="pill">
-          <img src="/images/recipes/icon.png" alt="" class="pill-icon" />
+          <NuxtImg src="/images/recipes/icon.png" alt="" class="pill-icon" />
           {{ t.more }}
         </NuxtLink>
       </div>

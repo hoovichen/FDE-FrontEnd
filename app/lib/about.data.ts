@@ -10,6 +10,5 @@ export const ABOUT_BASE: AboutBase = {
     '/images/about/food1.jpeg',
     '/images/about/food2.jpeg',
     '/images/about/food3.jpeg',
-
   ]
 }

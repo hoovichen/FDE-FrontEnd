@@ -48,7 +48,7 @@ onMounted(() => {
           :to="`/products/${p.key}`"
           :ref="(el: HTMLDivElement) => { if (el) cardRefs[i] = el as HTMLDivElement }"
         >
-          <img :src="p.image" :alt="p.name" loading="lazy" decoding="async" />
+          <NuxtImg :src="p.image" :alt="p.name" loading="lazy" decoding="async" />
           <div class="card__title">{{ p.name }}</div>
         </NuxtLink>
       </div>

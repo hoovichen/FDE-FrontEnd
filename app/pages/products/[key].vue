@@ -76,7 +76,7 @@ const showPartnerNote = computed(() => true) // 如需开关可用环境变量�
 
       <div v-if="detail" class="pdetail-body">
         <div class="pdetail-image">
-          <img :src="detail.image" :alt="detail.name" decoding="async" />
+          <NuxtImg :src="detail.image" :alt="detail.name" decoding="async" />
         </div>
 
         <div class="pdetail-info">

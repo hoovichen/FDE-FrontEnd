@@ -9,7 +9,7 @@ const socials = [...FOOTER_SOCIALS].sort((a, b) => (a.order ?? 999) - (b.order ?
       <!-- 左侧 LOGO -->
       <div class="footer__logo">
         <NuxtLink to="/">
-          <img class="footer__brand" src="/logo-3-topic.png" alt="火龙企业标志 | Fire Dragon Enterprise Logo">
+          <NuxtImg class="footer__brand" src="/logo-3-topic.png" alt="火龙企业标志 | Fire Dragon Enterprise Logo" />
         </NuxtLink>
       </div>
 
@@ -34,7 +34,7 @@ const socials = [...FOOTER_SOCIALS].sort((a, b) => (a.order ?? 999) - (b.order ?
         <h3 class="footer__title">STALK US</h3>
         <div class="footer__icons">
           <a v-for="s in socials" :key="s.key" :href="s.href" target="_blank" rel="noopener" :aria-label="s.key">
-            <img :src="s.icon" :alt="s.key" />
+            <NuxtImg :src="s.icon" :alt="s.key" />
           </a>
         </div>
       </div>

@@ -69,14 +69,14 @@ onMounted(() => {
           <div class="card__image-wrapper">
             <!-- 只裁主图 -->
             <div class="card__image-clip">
-              <img :src="p.image" :alt="p.name" class="card__main-img" loading="lazy" decoding="async" />
-            </div>
-
+              <NuxtImg :src="p.image" :alt="p.name" class="card__main-NuxtImg" loading="lazy" decoding="async" />
             <!-- 右下角预览（旧站风格） -->
             <div v-if="p.imageOld" class="old-version-preview">
-              <img :src="p.imageOld" :alt="`${p.name} - ${ui.oldPackage || 'Old Packaging'}`" />
+              <NuxtImg :src="p.imageOld" :alt="`${p.name} - ${ui.oldPackage || 'Old Packaging'}`" />
               <span class="old-version-label">{{ ui.oldPackage || 'Old Packaging' }}</span>
             </div>
+            </div>
+
           </div>
           <div class="card__body">
             <h3 class="card__title">{{ p.name }}</h3>
@@ -92,12 +92,12 @@ onMounted(() => {
           <div class="card__image-wrapper">
             <!-- 只裁主图 -->
             <div class="card__image-clip">
-              <img :src="p.image" :alt="p.name" class="card__main-img" loading="lazy" decoding="async" />
+              <NuxtImg :src="p.image" :alt="p.name" class="card__main-NuxtImg" loading="lazy" decoding="async" />
             </div>
 
             <!-- 右下角预览（旧站风格） -->
             <div v-if="p.imageOld" class="old-version-preview">
-              <img :src="p.imageOld" :alt="`${p.name} - ${ui.oldPackage || 'Old Packaging'}`" />
+              <NuxtImg :src="p.imageOld" :alt="`${p.name} - ${ui.oldPackage || 'Old Packaging'}`" />
               <span class="old-version-label">{{ ui.oldPackage || 'Old Packaging' }}</span>
             </div>
           </div>

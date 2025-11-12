@@ -34,7 +34,7 @@ const galleryClass = computed(() => `about__gallery about__gallery--layout-${gal
   <section class="about">
     <!-- Hero -->
     <div class="about__hero">
-      <img :src="base.heroImage" alt="Fire Dragon — About Us" />
+      <NuxtImg :src="base.heroImage" alt="Fire Dragon — About Us" />
       <div class="about__hero-text">
         <h1 class="about__title">{{ ui.title }}</h1>
         <h2 class="about__subtitle">{{ ui.h2 }}</h2>
@@ -54,7 +54,7 @@ const galleryClass = computed(() => `about__gallery about__gallery--layout-${gal
 
       <!-- 改造后的拼贴画廊 -->
       <div :class="galleryClass">
-        <img v-for="(g, i) in gallery" :key="i" :src="g" :alt="`About image ${i+1}`" loading="lazy" />
+        <NuxtImg v-for="(g, i) in gallery" :key="i" :src="g" :alt="`About image ${i+1}`" loading="lazy" />
       </div>
     </div>
   </section>
