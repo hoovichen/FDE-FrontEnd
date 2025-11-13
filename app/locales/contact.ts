@@ -32,7 +32,7 @@ export const CONTACT_TEXT: Record<LangCode, ContactUiText> = {
     addressLabel: 'Address',
     address: 'No. 175, Batu 11, Jalan Segari, 34900, Perak, Malaysia',
     hoursLabel: 'Business Hours',
-    hours: ['Mon–Fri: 9:30–18:00', 'Sat: 10:00–16:00', 'Sun & PH: Closed'],
+    hours: ['Mon–Fri: 10:00–18:00', 'Sat: 10:00–15:00', 'Sun & PH: Closed'],
   },
   zh: {
     title: '联系我们',
@@ -48,7 +48,7 @@ export const CONTACT_TEXT: Record<LangCode, ContactUiText> = {
     addressLabel: '地址',
     address: 'No. 175, Batu 11, Jalan Segari, 34900, Perak, Malaysia',
     hoursLabel: '营业时间',
-    hours: ['周一至周五：9:30–18:00', '周六：10:00–16:00', '周日及公共假期：休息'],
+    hours: ['周一至周五：10:00–18:00', '周六：10:00–15:00', '周日及公共假期：休息'],
   },
   bm: {
     title: 'Hubungi Kami',
@@ -64,6 +64,6 @@ export const CONTACT_TEXT: Record<LangCode, ContactUiText> = {
     addressLabel: 'Alamat',
     address: 'No. 175, Batu 11, Jalan Segari, 34900, Perak, Malaysia',
     hoursLabel: 'Waktu Operasi',
-    hours: ['Isn–Jum: 9:30–18:00', 'Sab: 10:00–16:00', 'Ahad & Cuti Umum: Tutup'],
+    hours: ['Isn–Jum: 10:00–18:00', 'Sab: 10:00–15:00', 'Ahad & Cuti Umum: Tutup'],
   },
 }

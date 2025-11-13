@@ -38,7 +38,7 @@ export const HERO_TEXT: Record<LangCode, Record<HeroSlideBase['key'], HeroI18nTe
   },
   zh: {
     'I': {
-      title: '香脆虾米辣椒酱',
+      title: '香脆虾米辣',
       mainContent: '让家乡的醇厚滋味，走进每一个马来西亚人的日常餐桌',
       subContent: '脆感十足，香气浓郁，这是一瓶 “万能适配” 的酱料：炒热菜时加一勺，鲜香瞬间升级；拌凉面时拌一拌，风味即刻拉满；日常佐餐配一勺，简单饭菜也能吃得有滋有味，轻松满足不同吃法需求'
     },
