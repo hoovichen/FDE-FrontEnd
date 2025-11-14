@@ -27,9 +27,9 @@ const { index, next, prev, goTo, start, stop } = useCarousel(
 const scrollToId = useScrollToId()
 // 键盘支持：左右切换
 const onKey = (e: KeyboardEvent) => {
-  if (e.key === 'ArrowRight') 
+  if (e.key === 'ArrowRight')
     next()
-  else if (e.key === 'ArrowLeft') 
+  else if (e.key === 'ArrowLeft')
     prev()
 }
 // 指示器点击
@@ -64,78 +64,40 @@ const dots = computed(() => {
 <template>
   <section id="hero" class="section hero" aria-label="品牌主视觉">
     <!-- ViewPort -->
-    <div
-      class="hero__viewport"
-      tabindex="0"
-      role="region"
-      aria-roledescription="carousel"
-      aria-label="Banner 轮播"
-      @mouseenter="onEnter"
-      @mouseleave="onLeave"
-      @keydown="onKey"
-    >
+    <div class="hero__viewport" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Banner 轮播"
+      @mouseenter="onEnter" @mouseleave="onLeave" @keydown="onKey">
       <!-- Slides -->
       <div class="hero__track" :style="{ transform: `translateX(-${index * 100}%)` }">
-        <article
-          v-for="(s, i) in slides"
-          :key="s.key"
-          class="hero__slide"
-          :class="[
-            s.align,          // 'text-left' | 'text-right'
-            { 'is-active': index === i }
-          ]"
-          :style="{
+        <article v-for="(s, i) in slides" :key="s.key" class="hero__slide" :class="[
+          s.align,          // 'text-left' | 'text-right'
+          { 'is-active': index === i }
+        ]" :style="{
             '--text': (s.ratio?.[0] ?? 40) + '%',
             '--image': (s.ratio?.[1] ?? 60) + '%'
-          }"
-          role="group"
-          :aria-roledescription="'slide'"
-          :aria-label="`${i+1} / ${slides.length}`"
-        >
+          }" role="group" :aria-roledescription="'slide'" :aria-label="`${i + 1} / ${slides.length}`">
           <div class="hero__text">
             <h1 class="hero__title">{{ s.title }}</h1>
             <h4 v-if="s.mainContent" class="hero__main">{{ s.mainContent }}</h4>
             <p v-if="s.subContent" class="hero__sub">{{ s.subContent }}</p>
-            <button
-                v-if="s.cta && s.ctaLabel"
-                class="btn btn--ghost"
-                @click="scrollToId(s.cta.targetId)"
-              >{{ s.ctaLabel }}</button>
+            <button v-if="s.cta && s.ctaLabel" class="btn btn--ghost" @click="scrollToId(s.cta.targetId)">{{ s.ctaLabel
+              }}</button>
           </div>
           <div class="hero__image">
-            <NuxtImg preload preset
-              :src="s.image"
-              alt=""
-              :loading="i === 0 ? 'eager' : 'lazy'"
-              :fetchpriority="i === 0 ? 'high' : 'low'"
-              decoding="async"
-            />
+            <NuxtImg preload preset :src="s.image" alt="" :loading="i === 0 ? 'eager' : 'lazy'"
+              :fetchpriority="i === 0 ? 'high' : 'low'" decoding="async" />
           </div>
         </article>
       </div>
       <!-- 指示器：ol / li / button -->
       <ol class="hero__dots" role="tablist" aria-label="切换产品">
         <li v-for="(d, i) in dots" :key="`dot-${d.key}`" class="hero__dot">
-          <button
-            role="tab"
-            class="hero__dot-btn"
-            :aria-selected="String(index === i)"
-            :aria-controls="`slide-${d.key}`"
-            :tabindex="index === i ? 0 : -1"
-            @click="onDotClick(i)"
-            :title="d.label"
-          >
+          <button role="tab" class="hero__dot-btn" :aria-selected="String(index === i)"
+            :aria-controls="`slide-${d.key}`" :tabindex="index === i ? 0 : -1" @click="onDotClick(i)" :title="d.label">
             <!-- 有 thumb 用图；没有则用占位字母 -->
-            <NuxtImg
-              v-if="d.thumb"
-              class="hero__dot-thumb"
-              :src="d.thumb"
-              :alt="d.label"
-              loading="lazy"
-              decoding="async"
-            />
+            <NuxtImg v-if="d.thumb" class="hero__dot-thumb" :src="d.thumb" :alt="d.label" loading="lazy"
+              decoding="async" fit="cover" format="webp" />
             <span v-else class="hero__dot-icon" aria-hidden="true">
-              {{ d.label}}
+              {{ d.label }}
             </span>
             <span class="visually-hidden">{{ d.label }}</span>
           </button>

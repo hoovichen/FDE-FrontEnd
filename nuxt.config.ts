@@ -100,32 +100,22 @@ export default defineNuxtConfig({
   },
   // 图片优化模块
   image: {
-    // 本地 /public 用内置 IPX 处理；部署在 Vercel 没问题
-    // 统一几档屏宽，便于自动生成 srcset
     screens: { xs: 360, sm: 640, md: 768, lg: 1024, xl: 1280 },
-    format: ['webp', 'avif'], // 自动协商，失败再回退原图
-    quality: 60,              // 默认压缩质量（可被 preset 覆盖）
+    quality: 60, // 默认质量
     presets: {
       productCard: {
-        modifiers: {
-          fit: 'cover',        // 居中裁切
-          format: 'webp',      // 首选
-          quality: 55
-        },
-        // 列表卡片的实际显示宽度：
-        // - 手机横滑 ≈ 80vw
-        // - 桌面 4 列卡片 ≈ 280~320px
+        // 只能放允许的 modifiers（width/height/blur等），不要放 fit/format/background
+        modifiers: { width: 320, height: 320, quality: 55 },
         sizes: '(max-width: 640px) 80vw, (max-width: 1024px) 45vw, 320px'
       },
       productThumb: {
-        modifiers: { fit: 'cover', format: 'webp', quality: 50 },
-        sizes: '(max-width: 640px) 24vw, 96px' // 右下角旧包装角标
+        modifiers: { width: 96, height: 96, quality: 50 },
+        sizes: '(max-width: 640px) 24vw, 96px'
       },
       productDetail: {
-        modifiers: { fit: 'contain', format: 'avif', quality: 60 },
+        modifiers: { width: 960, height: 960, quality: 60 },
         sizes: '(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 960px'
       }
     }
   }
-
 })
