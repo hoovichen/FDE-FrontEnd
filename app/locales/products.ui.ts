@@ -14,6 +14,7 @@ export interface ProductsUiText {
   cta?: {
     shopNow: string
     onShopee: string
+    onLazada?: string
     backToList: string
     soldViaPartners: string   // 给 B2B 的措辞
   }
@@ -35,6 +36,7 @@ export const PRODUCTS_UI_TEXT: Record<LangCode, ProductsUiText> = {
     cta: {
       shopNow: 'Shop now',
       onShopee: 'Shop on Shopee',
+      onLazada: 'Shop on Lazada',
       backToList: 'Back to products',
       soldViaPartners: 'Available via official retail partners'
     },
@@ -54,6 +56,7 @@ export const PRODUCTS_UI_TEXT: Record<LangCode, ProductsUiText> = {
     cta: {
       shopNow: '立即购买',
       onShopee: '前往 Shopee 购买',
+      onLazada: '前往 Lazada 购买',
       backToList: '返回产品列表',
       soldViaPartners: '由官方零售合作伙伴提供'
     },
@@ -73,6 +76,7 @@ export const PRODUCTS_UI_TEXT: Record<LangCode, ProductsUiText> = {
     cta: {
       shopNow: 'Beli sekarang',
       onShopee: 'Beli di Shopee',
+      onLazada: 'Beli di Lazada',
       backToList: 'Kembali ke produk',
       soldViaPartners: 'Dijual melalui rakan runcit rasmi',
     },

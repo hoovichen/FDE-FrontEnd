@@ -66,6 +66,7 @@ const close = () => router.push('/products')
 
 // 为 B2B 友好：不暴露店铺名，只显示“官方零售合作伙伴”
 const outboundLabel = computed(() => ui.value.cta?.onShopee || ui.value.cta?.shopNow || 'Shop')
+const outboundLabel2 = computed(() => ui.value.cta?.onLazada || ui.value.cta?.shopNow || 'Shop')
 const showPartnerNote = computed(() => true) // 如需开关可用环境变量控制
 </script>
 
@@ -89,6 +90,11 @@ const showPartnerNote = computed(() => true) // 如需开关可用环境变量�
             <div class="pdetail-cta">
               <a v-if="detail.url" class="btn-primary" :href="detail.url" target="_blank" rel="noopener nofollow">
                 {{ outboundLabel }}
+              </a>
+            </div>
+            <div class="pdetail-cta">
+              <a v-if="detail.url2" class="btn-primary-2" :href="detail.url2" target="_blank" rel="noopener nofollow">
+                {{ outboundLabel2 }} 
               </a>
             </div>
             <p v-if="showPartnerNote" class="pdetail-note">

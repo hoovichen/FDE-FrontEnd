@@ -7,6 +7,7 @@ export interface ProductBase {
   image: string                  // 建议使用 CDN URL
   imageOld?: string               // 旧版图片 URL（兼容旧站）
   url?: string                   // 外部商城链接（Shopee/Lazada/Shopify等）
+  url2?: string                  // 可选第二外部链接
   price?: number                 // 可选：建议零售价（数字，不带货币）
   categoryId?: number            // 可选：分类（将来用）
   subcategoryId?: number         // 可选：子分类（将来用）
@@ -26,6 +27,7 @@ export const PRODUCTS_BASE: ProductBase[] = [
     image: '/images/products/greencap.png',
     imageOld: '/images/products/old-products/greencap.png',
     url: 'https://shopee.com.my/%E2%AD%90%E7%81%AB%E9%BE%99(%E7%94%98%E6%96%87%E9%98%81)%E8%92%9C%E5%A4%B4%E8%BE%A3%E6%A4%92%E9%85%B1*FIRE-DRAGON~GARLIC-CHILI-SAUCE*-i.196672147.3189722290',
+    url2: 'https://www.lazada.com.my/products/fgds-pantai-remis-chilli-sauce-i4773014319-s26912325715.html',
     price: 4,
     gallery: ['/images/products/greencap.png'],
   },
@@ -34,6 +36,7 @@ export const PRODUCTS_BASE: ProductBase[] = [
     image: '/images/products/redcap.png',
     imageOld: '/images/products/old-products/redcap.jpg',
     url: 'https://shopee.com.my/%E2%AD%90%E7%81%AB%E9%BE%99(%E7%94%98%E6%96%87%E9%98%81)%E8%92%9C%E5%A4%B4%E8%BE%A3%E6%A4%92%E9%85%B1*FIRE-DRAGON~GARLIC-CHILI-SAUCE*-i.196672147.3189722290',
+    url2: 'https://www.lazada.com.my/products/fgds-pantai-remis-chilli-sauce-i4773014319-s26906175539.html',
     price: 4,
   },
   {
@@ -41,6 +44,7 @@ export const PRODUCTS_BASE: ProductBase[] = [
     image: '/images/products/yellowcap.png',
     imageOld: '/images/products/old-products/yellowcap.png',
     url: 'https://shopee.com.my/%E2%AD%90%E7%81%AB%E9%BE%99(%E7%94%98%E6%96%87%E9%98%81)%E8%92%9C%E5%A4%B4%E8%BE%A3%E6%A4%92%E9%85%B1*FIRE-DRAGON~GARLIC-CHILI-SAUCE*-i.196672147.3189722290',
+    url2: 'https://www.lazada.com.my/products/fgds-pantai-remis-chilli-sauce-i4773014319-s26912325714.html',
     price: 4,
   },
   {
@@ -48,6 +52,7 @@ export const PRODUCTS_BASE: ProductBase[] = [
     image: '/images/products/cann.png',
     price: 9,
     url: 'https://shopee.com.my/Chili-Pepper-Sauce*%E5%A4%A9%E4%B9%8B%E9%AA%84%E5%AD%90*%E6%8C%87%E5%A4%A9%E6%A4%92%E8%BE%A3%E6%A4%92%E9%85%B1-Sos-Cili-Padi-i.196672147.5944608998',
+    url2: 'https://www.lazada.com.my/products/pdp-i4772897649-s26913424201.html',
     featuredHome: true,
     featuredOrder: 3
   },
@@ -56,6 +61,7 @@ export const PRODUCTS_BASE: ProductBase[] = [
     image: '/images/products/suanrong.png',
     imageOld: '/images/products/old-products/suanrong.jpg',
     url: 'https://shopee.com.my/%E7%94%9F%E5%A7%9C%E8%92%9C%E8%93%89-*Ginger-Garlic-Paste-500gm*Halia-Bawang-Putih-i.196672147.10137959217',
+    url2: 'https://www.lazada.com.my/products/pdp-i4772701971-s26907680134.html',
     price: 17.8,
   },
   {
@@ -63,6 +69,7 @@ export const PRODUCTS_BASE: ProductBase[] = [
     image: '/images/products/sambal.png',
     imageOld: '/images/products/old-products/sambal.jpg',
     url: 'https://shopee.com.my/Sambal-Udang-Kering-%E4%B8%89%E5%B7%B4%E8%99%BE%E7%B1%B3%E8%BE%A3%E6%A4%92-Dried-shrimp-paste-i.196672147.6644635930',
+    url2: 'https://www.lazada.com.my/products/pdp-i4772309686-s26898423098.html',
     price: 8,
     featuredHome: true,
     featuredOrder: 2
@@ -71,6 +78,7 @@ export const PRODUCTS_BASE: ProductBase[] = [
     key: 'cripy-anchovy',
     image: '/images/products/yinyu.png',
     url: 'https://shopee.com.my/Crispy-Anchovy-Chili%EF%BC%83%E9%A6%99%E8%84%86%E9%93%B6%E9%B1%BC%E4%BB%94-Bilis-Goreng-Ragup-Cili--i.196672147.6044641090',
+    url2: 'https://www.lazada.com.my/products/pdp-i4772699037-s26898098441.html',
     price: 12,
   },
   {
@@ -78,6 +86,7 @@ export const PRODUCTS_BASE: ProductBase[] = [
     image: '/images/products/shrimps.png',
     imageOld: '/images/products/old-products/xiami.jpg',
     url: 'https://shopee.com.my/Crispy-Prawn-Chili*%E9%A6%99%E8%84%86%E8%99%BE%E7%B1%B3%E8%BE%A3%E6%A4%92-*Cili-Udang-Kering-i.196672147.6444635197',
+    url2: 'https://www.lazada.com.my/products/pdp-i4772531076-s26897567604.html',
     price: 11,
     featuredHome: true,
     featuredOrder: 1
