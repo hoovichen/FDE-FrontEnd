@@ -8,7 +8,7 @@ export interface SocialLink {
 }
 
 export const FOOTER_SOCIALS: SocialLink[] = [
-  { key: 'facebook',   href: 'https://facebook.com/yourpage',  icon: '/facebook.ico',  order: 1 },
+  { key: 'facebook',   href: 'https://www.facebook.com/profile.php?id=61584448677417',  icon: '/facebook.ico',  order: 1 },
   { key: 'instagram',  href: 'https://instagram.com/firedragonmy', icon: '/ins.ico',       order: 2 },
   { key: 'tiktok',     href: 'https://tiktok.com/@hot.and.hot24',   icon: '/tiktok.ico',    order: 3 },
   { key: 'xiaohongshu',href: 'https://xhslink.com/m/2eIo9Wk4Q1Z', icon: '/xhs.png', order: 4 },
