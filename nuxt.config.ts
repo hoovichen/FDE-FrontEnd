@@ -20,15 +20,21 @@ export default defineNuxtConfig({
 
   // 你的全局样式保持不变
   css: [
+    // token and base
     '~/assets/styles/tokens/_color.css',
     '~/assets/styles/tokens/_spacing.css',
     '~/assets/styles/base/reset.css',
     '~/assets/styles/base/typography.css',
+
+    // pages 
     '~/assets/styles/pages/home.css',
     '~/assets/styles/pages/products.css',
     '~/assets/styles/pages/keyproducts.css',
     '~/assets/styles/pages/contact.css',
     '~/assets/styles/pages/about.css',
+    '~/assets/styles/pages/recipes.css',
+    '~/assets/styles/pages/recipe-detail.css',
+    // components
     '~/assets/styles/components/cards.css',
     '~/assets/styles/components/button.css',
     '~/assets/styles/components/cta.css',
@@ -36,7 +42,7 @@ export default defineNuxtConfig({
     '~/assets/styles/components/footer.css',
     '~/assets/styles/components/recipes.css',
     '~/assets/styles/components/products-section.css',
-    '~/assets/styles/components/blog.css'
+    '~/assets/styles/components/blog.css',
   ],
 
   runtimeConfig: {

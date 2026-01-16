@@ -1,47 +1,85 @@
 <script setup lang="ts">
-import { RECIPES_TEXT, type LangCode } from '~/locales/recipes'
-import { RECIPES_CARDS } from '~/lib/recipes.data'
 import { useLanguage } from '~/composables/useLanguage'
+import { RECIPES_UI, type LangCode } from '~/locales/recipes/recipes.ui'
+import { getHomeFeaturedRecipes } from '~/lib/recipes/recipes.helpers'
 
 const { lang } = useLanguage()
-const t = computed(() => RECIPES_TEXT[(lang.value as LangCode) || 'en'])
+const ui = computed(() => RECIPES_UI[(lang.value as LangCode) || 'en'])
 
-// 拆出三张图，便于布局
-const left  = computed(() => RECIPES_CARDS.find(c => c.key === 'left')!)
-const top   = computed(() => RECIPES_CARDS.find(c => c.key === 'top')!)
-const bottom= computed(() => RECIPES_CARDS.find(c => c.key === 'bottom')!)
+const featured = computed(() =>
+  getHomeFeaturedRecipes((lang.value as LangCode) || 'en', 3)
+)
+
+// 安全取值：避免 featured 少于 3 条时报错
+const left = computed(() => featured.value[0] ?? null)
+const top = computed(() => featured.value[1] ?? null)
+const bottom = computed(() => featured.value[2] ?? null)
+
+// 统一生成链接
+const recipeLink = (slug: string) => `/recipes/${slug}`
+
 </script>
 
 <template>
   <section id="recipes" class="recipes" aria-labelledby="recipes-title">
     <div class="recipes__header">
-      <h2 id="recipes-title" class="recipes__title">{{ t.title }}</h2>
-      <p class="recipes__desc">{{ t.desc }}</p>
+      <h2 id="recipes-title" class="recipes__title">{{ ui.sectionTitle }}</h2>
+      <p class="recipes__desc">{{ ui.sectionDesc }}</p>
     </div>
 
     <!-- 三图拼版：左大右上下 -->
     <div class="recipes__grid">
       <!-- 左侧大图 -->
-      <NuxtLink :to="left.to" class="recipes__card recipes__card--left">
-        <NuxtImg :src="left.image" :alt="left.alt || ''" loading="lazy" decoding="async" />
+      <NuxtLink
+        v-if="left"
+        :to="recipeLink(left.slug)"
+        class="recipes__card recipes__card--left"
+        :aria-label="left.title"
+      >
+        <NuxtImg
+          :src="left.thumbnail"
+          :alt="left.title || left.slug"
+          loading="lazy"
+          decoding="async"
+        />
       </NuxtLink>
 
-      <!-- 右侧上部（约 38%） -->
-      <NuxtLink :to="top.to" class="recipes__card recipes__card--top">
-        <NuxtImg :src="top.image" :alt="top.alt || ''" loading="lazy" decoding="async" />
+      <!-- 右侧上部 -->
+      <NuxtLink
+        v-if="top"
+        :to="recipeLink(top.slug)"
+        class="recipes__card recipes__card--top"
+        :aria-label="top.title"
+      >
+        <NuxtImg
+          :src="top.thumbnail"
+          :alt="top.title"
+          loading="lazy"
+          decoding="async"
+        />
       </NuxtLink>
 
-      <!-- 右侧下部（约 58%） -->
-      <NuxtLink :to="bottom.to" class="recipes__card recipes__card--bottom">
-        <NuxtImg :src="bottom.image" :alt="bottom.alt || ''" loading="lazy" decoding="async" />
+      <!-- 右侧下部 -->
+      <NuxtLink
+        v-if="bottom"
+        :to="recipeLink(bottom.slug)"
+        class="recipes__card recipes__card--bottom"
+        :aria-label="bottom.title"
+      >
+        <NuxtImg
+          :src="bottom.thumbnail"
+          :alt="bottom.title"
+          loading="lazy"
+          decoding="async"
+        />
       </NuxtLink>
     </div>
 
     <!-- 中心按钮（椭圆长条） -->
     <div class="cta">
-      <NuxtLink to="/recipes" class="pill" aria-label="View all recipes">
+      <NuxtLink to="/recipes" class="pill" :aria-label="ui.viewAll">
         <NuxtImg class="pill-icon" src="/images/recipes/icon.png" alt="" />
-        <span>{{ t.viewAll }}</span>
+        <span>{{ ui.viewAll }}</span>
       </NuxtLink>
     </div>
   </section>

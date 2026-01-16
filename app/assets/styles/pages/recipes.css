@@ -1,0 +1,83 @@
+/* ==============================
+   Page: Recipes (List)
+============================== */
+
+.recipes-page {
+  padding: clamp(24px, 6vw, 56px) 0;
+}
+
+.recipes-page__header {
+  text-align: center;
+  margin-bottom: clamp(24px, 5vw, 40px);
+}
+
+.recipes-page__header h1 {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 600;
+  color: var(--color-brand);
+}
+
+.recipes-page__header p {
+  margin-top: 8px;
+  color: var(--color-text-muted);
+}
+
+/* Recipes 卡片网格 */
+.recipes-list {
+  width: min(1120px, 92%);
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* Recipe Card */
+.recipe-card {
+  display: block;
+  background: var(--color-bg-soft);
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,.06);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+}
+
+/* 视频封面 */
+.recipe-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+/* 视频封面内容 Recipe Card Content */
+.recipe-card__body {
+  padding: 14px 16px 18px;
+}
+
+.recipe-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.recipe-card__summary {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.recipe-card__meta {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
