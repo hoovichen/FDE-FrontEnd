@@ -5,7 +5,14 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-10-07',
   devtools: { enabled: true },
   typescript: { typeCheck: true, strict: true },
-
+  nitro: {
+    publicAssets: [
+      {
+        dir: 'content-static',
+        maxAge: 0
+      }
+    ]
+  },
   app: {
     head: {
       htmlAttrs: { lang: 'zh-CN' },

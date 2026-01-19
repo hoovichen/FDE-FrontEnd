@@ -5,9 +5,9 @@ import type { LangCode, BlogListItem } from '~/lib/blog/blog.types'
 
 function baseDir() {
   // ✅ 如果你 md 在 app/content-static，就用这行
-  return join(process.cwd(), 'app', 'content-static', 'blog')
-  // ✅ 如果你把目录移到根目录 content-static，就改成：
-  // return join(process.cwd(), 'content-static', 'blog')
+  return join(process.cwd(), 'content-static', 'blog')
+  // ✅ 如果你把目录移到根目录 app，就改成：
+  // return join(process.cwd(), 'app', 'content-static', 'blog')
 }
 
 export default defineEventHandler(async (event) => {

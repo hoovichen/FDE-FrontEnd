@@ -80,6 +80,14 @@
   padding-left: 4%;
 }
 
+.footer__soon{
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  opacity: .65;
+}
+
+
 /* 响应式：小屏幕堆叠 */
 @media (max-width: 768px) {
   .footer__inner {

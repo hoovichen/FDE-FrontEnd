@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
   }
 
   // ✅ 你当前实际路径：app/content-static/blog/<lang>/<slug>.md
-  const baseDir = join(process.cwd(), 'app', 'content-static', 'blog')
+  const baseDir = join(process.cwd(), 'content-static', 'blog')
 
   let raw = ''
   try {
