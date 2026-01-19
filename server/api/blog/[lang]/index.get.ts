@@ -5,16 +5,12 @@ import matter from 'gray-matter'
 import type { LangCode, BlogListItem } from '~/lib/blog/blog.types'
 
 function baseDir() {
-  return join(process.cwd(), 'content-static', 'blog')
+  return join(process.cwd(), 'public', 'content-static', 'blog')
 }
 
 export default defineEventHandler(async (event) => {
   const lang = (getRouterParam(event, 'lang') || 'en') as LangCode
   const dir = join(baseDir(), lang)
-
-  console.log('[blog index] cwd=', process.cwd())
-  console.log('[blog index] baseDir=', baseDir(), 'exists=', existsSync(baseDir()))
-  console.log('[blog index] dir=', dir, 'exists=', existsSync(dir))
 
   let files: string[] = []
   try {
