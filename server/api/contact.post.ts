@@ -2,6 +2,7 @@
 import { Resend } from 'resend'
 import { z } from 'zod'
 
+
 const BodySchema = z.object({
   name: z.string().max(120).optional().default(''),
   email: z.string().email(),
@@ -15,7 +16,12 @@ export default defineEventHandler(async (event) => {
   const raw = await readBody(event).catch(() => ({}))
   const parsed = BodySchema.safeParse(raw)
   if (!parsed.success) {
-    throw createError({ statusCode: 400, statusMessage: 'Invalid input' })
+    const issues = parsed.error.flatten().fieldErrors
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Invalid input',
+      data: issues,  // ⬅ 把字段级错误返回给前端 { email: ['invalid_email'], ... }
+    })
   }
   const { name, email, message, honey } = parsed.data
   if (honey) {
@@ -47,18 +53,31 @@ export default defineEventHandler(async (event) => {
   // 4) 发送邮件
   const resend = new Resend(apiKey)
   await resend.emails.send({
-    from,           // 需是已验证域名邮箱
+    from: 'Fire Dragon <no-reply@firedragonmy.com>',           // 需是已验证域名邮箱
     to,
     subject,
     html,
     replyTo: email, // ✅ 直接“回复”会回到用户邮箱
   })
 
+  // 4.1) 再发送一封回执给用户（可选）
+  // await resend.emails.send({
+  //   from: 'Fire Dragon <no-reply@firedragonmy.com>',
+  //   to: email, // 用户的邮箱
+  //   subject: 'We received your message',
+  //   html: `
+  //   <p>Hi ${escapeHtml(name) || 'there'},</p>
+  //   <p>Thanks for reaching out to Fire Dragon Enterprise. We’ve received your message and will reply soon.</p>
+  //   <hr/>
+  //   <p><strong>Your message:</strong></p>
+  //   <div>${escapeHtml(message).replace(/\n/g, '<br/>')}</div>
+  // `,
+  // })
   // 5) 返回
   return { ok: true }
 })
 
 // 简单转义
 function escapeHtml(s = '') {
-  return s.replace(/[&<>"']/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]!))
+  return s.replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]!))
 }

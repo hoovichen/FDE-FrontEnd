@@ -1,0 +1,209 @@
+/* ==============================
+   Page: Blog Detail
+============================== */
+
+.blog-detail {
+  padding: clamp(24px, 6vw, 56px) 0;
+
+  /* ✅ Blog 专属色系：暖棕 / 米白，隔离全局红色 */
+  --blog-ink: rgba(52, 34, 18, 0.95);
+  --blog-muted: rgba(52, 34, 18, 0.70);
+  --blog-soft: rgba(52, 34, 18, 0.06);
+  --blog-soft-2: rgba(52, 34, 18, 0.10);
+  --blog-link: rgba(124, 76, 40, 1);
+  --blog-card: rgba(255, 255, 255, 0.70);
+  --blog-border: rgba(52, 34, 18, 0.12);
+}
+
+/* 返回按钮 */
+.blog-back {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--blog-ink);
+  background: var(--blog-card);
+  border: 1px solid var(--blog-border);
+  box-shadow: 0 10px 26px rgba(0,0,0,.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.blog-back:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 34px rgba(0,0,0,.10);
+}
+
+.blog-back__icon { font-size: 14px; opacity: .85; }
+.blog-back__text { font-weight: 650; letter-spacing: .2px; }
+
+/* 页头 */
+.blog-hero {
+  width: min(900px, 100%);
+  margin: 18px auto 0;
+  text-align: left;
+}
+
+.blog-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  align-items: center;
+  font-size: 13px;
+  color: var(--blog-muted);
+  margin: 14px 0 8px;
+}
+
+/* tags */
+.blog-tags { display: inline-flex; gap: 8px; flex-wrap: wrap; }
+.blog-tag {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--blog-soft);
+  border: 1px solid var(--blog-border);
+  color: var(--blog-muted);
+  font-size: 12px;
+}
+
+/* 标题/摘要 */
+.blog-title {
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.12;
+  font-weight: 760;
+  color: var(--blog-ink);
+  margin: 8px 0 10px;
+}
+
+.blog-summary {
+  color: var(--blog-muted);
+  font-size: 16px;
+  line-height: 1.75;
+  margin: 0 0 18px;
+}
+
+/* 封面 */
+.blog-cover {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  margin-top: 16px;
+  border: 1px solid var(--blog-border);
+  box-shadow: 0 16px 42px rgba(0,0,0,.10);
+}
+
+/* ==============================
+   Markdown Prose
+============================== */
+.blog-prose {
+  width: min(900px, 100%);
+  margin: 26px auto 0;
+  font-size: 16px;
+  line-height: 1.95;
+  color: var(--blog-ink);
+}
+
+/* 段落 */
+.blog-prose p {
+  margin: 12px 0;
+  color: var(--blog-ink);
+}
+
+/* 标题层级 */
+.blog-prose h2,
+.blog-prose h3,
+.blog-prose h4 {
+  color: var(--blog-ink);
+  line-height: 1.25;
+  margin: 28px 0 10px;
+}
+
+.blog-prose h2 {
+  font-size: 24px;
+  font-weight: 760;
+  padding-top: 8px;
+}
+
+.blog-prose h3 {
+  font-size: 18px;
+  font-weight: 740;
+}
+
+.blog-prose h4 {
+  font-size: 16px;
+  font-weight: 720;
+}
+
+/* 分割线 */
+.blog-prose hr {
+  border: 0;
+  height: 1px;
+  background: var(--blog-border);
+  margin: 22px 0;
+}
+
+/* 列表 */
+.blog-prose ul,
+.blog-prose ol {
+  padding-left: 22px;
+  margin: 10px 0 14px;
+}
+
+.blog-prose li {
+  margin: 7px 0;
+  color: var(--blog-ink);
+}
+
+/* 引用块 */
+.blog-prose blockquote {
+  margin: 18px 0;
+  padding: 14px 16px;
+  border-left: 4px solid var(--blog-border);
+  background: var(--blog-soft);
+  border-radius: 14px;
+  color: var(--blog-ink);
+}
+
+/* 链接 */
+.blog-prose a {
+  color: var(--blog-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* 图片 */
+.blog-prose img {
+  max-width: 100%;
+  border-radius: 14px;
+  display: block;
+  margin: 16px auto;
+  border: 1px solid var(--blog-border);
+  box-shadow: 0 12px 28px rgba(0,0,0,.08);
+}
+
+/* 代码块 */
+.blog-prose pre {
+  padding: 14px 16px;
+  border-radius: 14px;
+  overflow: auto;
+  background: rgba(52, 34, 18, 0.08);
+  border: 1px solid var(--blog-border);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.blog-prose code {
+  padding: 2px 6px;
+  border-radius: 8px;
+  background: rgba(52, 34, 18, 0.08);
+  font-size: 0.95em;
+}
+
+/* 移动端微调 */
+@media (max-width: 768px) {
+  .blog-title { letter-spacing: -0.2px; }
+  .blog-prose { font-size: 15.5px; }
+}

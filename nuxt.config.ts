@@ -34,6 +34,8 @@ export default defineNuxtConfig({
     '~/assets/styles/pages/about.css',
     '~/assets/styles/pages/recipes.css',
     '~/assets/styles/pages/recipe-detail.css',
+    '~/assets/styles/pages/blog.css',
+    '~/assets/styles/pages/blog-detail.css',
     // components
     '~/assets/styles/components/cards.css',
     '~/assets/styles/components/button.css',
@@ -52,12 +54,6 @@ export default defineNuxtConfig({
     public: {
       siteUrl: process.env.SITE_URL || 'https://www.firedragonmy.com'
     }
-  },
-
-  // ✅ 顶层声明站点 URL（v6 新写法）
-  site: {
-    url: process.env.SITE_URL || 'https://www.firedragonmy.com',
-    name: 'Fire Dragon Enterprise',
   },
 
   modules: ['@nuxtjs/sitemap', '@nuxtjs/robots', '@nuxt/image'],
