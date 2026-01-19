@@ -5,7 +5,7 @@ import matter from 'gray-matter'
 import type { LangCode, BlogListItem } from '~/lib/blog/blog.types'
 
 function baseDir() {
-  return join(process.cwd(), 'public', 'content-static', 'blog')
+  return join(process.cwd(), 'server', 'asset', 'content', 'blog')
 }
 
 export default defineEventHandler(async (event) => {

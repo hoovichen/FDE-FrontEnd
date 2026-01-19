@@ -23,8 +23,8 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'Missing slug' })
   }
 
-  // ✅ 你当前实际路径：public/content-static/blog/<lang>/<slug>.md
-  const baseDir = join(process.cwd(), 'public', 'content-static', 'blog')
+  // ✅ 你当前实际路径：public/content/blog/<lang>/<slug>.md
+  const baseDir = join(process.cwd(), 'server', 'asset', 'content', 'blog')
   console.log('[blog slug] cwd=', process.cwd())
   console.log('[blog slug] baseDir=', baseDir, 'exists=', existsSync(baseDir))
   console.log('[blog slug] file=', join(baseDir, lang, `${slug}.md`), 'exists=', existsSync(join(baseDir, lang, `${slug}.md`)))
