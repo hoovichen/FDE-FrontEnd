@@ -6,15 +6,13 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   typescript: { typeCheck: true, strict: true },
   nitro: {
-    publicAssets: [
+    serverAssets: [
       {
-        dir: 'content-static',
-        baseURL: '/content-static',
-        maxAge: 0
+        baseName: 'blog',
+        dir: './server/assets/content/blog'
       }
     ]
-  }
-  ,
+  },
   app: {
     head: {
       htmlAttrs: { lang: 'zh-CN' },

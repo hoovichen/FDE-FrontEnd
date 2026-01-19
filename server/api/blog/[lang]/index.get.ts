@@ -1,33 +1,41 @@
-import { existsSync } from 'node:fs'
-import { readdir, readFile } from 'node:fs/promises'
-import { join } from 'node:path'
 import matter from 'gray-matter'
 import type { LangCode, BlogListItem } from '~/lib/blog/blog.types'
 
-function baseDir() {
-  return join(process.cwd(), 'server', 'asset', 'content', 'blog')
+async function readTextFromAssets(key: string) {
+  const assets = useStorage('assets:server')
+  const buf = await assets.getItemRaw<Buffer>(key)
+  if (!buf) return null
+  return Buffer.from(buf).toString('utf-8')
+}
+
+async function readManifest(lang: LangCode) {
+  // key 对应：server/assets/content/blog/manifest.xx.json
+  const raw = await readTextFromAssets(`content/blog/manifest.${lang}.json`)
+  if (!raw) return null
+  return JSON.parse(raw) as { slugs: string[] }
 }
 
 export default defineEventHandler(async (event) => {
   const lang = (getRouterParam(event, 'lang') || 'en') as LangCode
-  const dir = join(baseDir(), lang)
 
-  let files: string[] = []
-  try {
-    files = await readdir(dir)
-  } catch {
-    // fallback: en
-    files = await readdir(join(baseDir(), 'en'))
+  // 先读对应语言 manifest，失败再 fallback en
+  const manifest =
+    (await readManifest(lang)) ||
+    (await readManifest('en'))
+
+  if (!manifest) {
+    throw createError({ statusCode: 500, statusMessage: 'Missing blog manifest' })
   }
 
-  const mdFiles = files.filter(f => f.endsWith('.md'))
-
   const items: BlogListItem[] = []
-  for (const f of mdFiles) {
-    const slug = f.replace(/\.md$/, '')
-    const raw = await readFile(join(dir, f), 'utf-8').catch(async () => {
-      return await readFile(join(baseDir(), 'en', f), 'utf-8')
-    })
+
+  for (const slug of manifest.slugs || []) {
+    // md key：server/assets/content/blog/<lang>/<slug>.md
+    const raw =
+      (await readTextFromAssets(`content/blog/${lang}/${slug}.md`)) ||
+      (await readTextFromAssets(`content/blog/en/${slug}.md`))
+
+    if (!raw) continue
 
     const parsed = matter(raw)
     const fm = parsed.data as any
@@ -44,8 +52,6 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  // 按日期倒序
   items.sort((a, b) => String(b.date).localeCompare(String(a.date)))
-
   return { items }
 })
