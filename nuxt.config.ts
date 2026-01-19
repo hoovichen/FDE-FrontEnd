@@ -9,10 +9,12 @@ export default defineNuxtConfig({
     publicAssets: [
       {
         dir: 'content-static',
+        baseURL: '/content-static',
         maxAge: 0
       }
     ]
-  },
+  }
+  ,
   app: {
     head: {
       htmlAttrs: { lang: 'zh-CN' },

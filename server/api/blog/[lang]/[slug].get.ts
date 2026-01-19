@@ -3,6 +3,7 @@ import { join } from 'node:path'
 import matter from 'gray-matter'
 import MarkdownIt from 'markdown-it'
 import type { LangCode } from '~/lib/blog/blog.types'
+import { existsSync } from 'node:fs'
 
 const md = new MarkdownIt({
   html: false,
@@ -24,6 +25,9 @@ export default defineEventHandler(async (event) => {
 
   // ✅ 你当前实际路径：app/content-static/blog/<lang>/<slug>.md
   const baseDir = join(process.cwd(), 'content-static', 'blog')
+  console.log('[blog slug] cwd=', process.cwd())
+  console.log('[blog slug] baseDir=', baseDir, 'exists=', existsSync(baseDir))
+  console.log('[blog slug] file=', join(baseDir, lang, `${slug}.md`), 'exists=', existsSync(join(baseDir, lang, `${slug}.md`)))
 
   let raw = ''
   try {

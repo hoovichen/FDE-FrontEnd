@@ -1,18 +1,20 @@
+import { existsSync } from 'node:fs'
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import matter from 'gray-matter'
 import type { LangCode, BlogListItem } from '~/lib/blog/blog.types'
 
 function baseDir() {
-  // ✅ 如果你 md 在 app/content-static，就用这行
   return join(process.cwd(), 'content-static', 'blog')
-  // ✅ 如果你把目录移到根目录 app，就改成：
-  // return join(process.cwd(), 'app', 'content-static', 'blog')
 }
 
 export default defineEventHandler(async (event) => {
   const lang = (getRouterParam(event, 'lang') || 'en') as LangCode
   const dir = join(baseDir(), lang)
+
+  console.log('[blog index] cwd=', process.cwd())
+  console.log('[blog index] baseDir=', baseDir(), 'exists=', existsSync(baseDir()))
+  console.log('[blog index] dir=', dir, 'exists=', existsSync(dir))
 
   let files: string[] = []
   try {
