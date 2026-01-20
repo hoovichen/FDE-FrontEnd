@@ -42,10 +42,21 @@ useSeoMeta({
 
 
       <!-- ✅ Loading -->
-      <div v-if="pending" class="blog-empty">
+      <!-- <div v-if="pending" class="blog-empty">
         <h2>Loading…</h2>
         <p class="muted">Fetching posts.</p>
+      </div> -->
+      <div v-if="pending" class="blog-list">
+        <div v-for="i in 6" :key="i" class="blog-card blog-card--skeleton">
+          <div class="blog-card__cover blog-card__cover--skeleton" />
+          <div class="blog-card__body">
+            <div class="sk-line sk-line--sm" />
+            <div class="sk-line" />
+            <div class="sk-line" />
+          </div>
+        </div>
       </div>
+
 
       <!-- ✅ Error -->
       <div v-else-if="error" class="blog-empty">

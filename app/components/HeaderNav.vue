@@ -61,7 +61,7 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onEsc))
 
     <!-- 中：Logo -->
     <NuxtLink to="/" aria-label="品牌主页" class="nav--logo">
-      <NuxtImg class="logo" src="/logo-3-topic.png" alt="Fire Dragon Enterprise Logo" />
+      <NuxtImg class="logo" src="/logo-3-topic.png" alt="Fire Dragon Enterprise Logo" loading="lazy"/>
     </NuxtLink>
 
     <!-- 右 -->
@@ -85,7 +85,6 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onEsc))
           aria-haspopup="menu"
           aria-controls="lang-menu"
           @click="langMenu.toggle()"
-          @keydown="onLangBtnKeydown"
         >
           🌐 <span class="lang__current">{{ lang.toUpperCase() }}</span>
           <span class="lang__caret" aria-hidden="true">▾</span>
@@ -97,7 +96,7 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onEsc))
           class="lang__menu"
           role="menu"
           tabindex="-1"
-          @keydown="onMenuKeydown"
+
         >
           <button
             v-for="(code, idx) in LANGS"

@@ -27,6 +27,9 @@
   font-size: 1.8rem;
   color: #000;
   text-decoration: none;
+  max-width: 100%;     /* ✅ 防止超出 */
+  height: auto;
+  display: block;      /* ✅ 让 margin auto 生效 */
 }
 
 /* INFO、SOCIAL 标题 */
@@ -101,5 +104,16 @@
   }
   .footer__icons {
     justify-self: center;
+  }
+  .footer__logo {
+    justify-self: center;
+  }
+
+  .footer__logo a {
+    display: inline-block;
+  }
+  .footer__brand {
+    width: min(320px, 80vw); /* ✅ 手机更合适 */
+    margin: 0 auto;          /* ✅ 居中 */
   }
 }

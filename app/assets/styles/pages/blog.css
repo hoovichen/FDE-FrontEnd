@@ -137,6 +137,26 @@
   padding: 24px 0 10px;
 }
 
+.blog-card--skeleton {
+  pointer-events: none;
+}
+
+.blog-card__cover--skeleton {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+}
+
+.sk-line {
+  height: 12px;
+  border-radius: 8px;
+  opacity: 0.35;
+  background: currentColor;
+}
+
+.sk-line--sm { height: 10px; width: 45%; }
+
+
 /* Mobile */
 @media (max-width: 640px) {
   .blog-list {
