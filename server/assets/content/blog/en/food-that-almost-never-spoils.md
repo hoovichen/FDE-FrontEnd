@@ -8,7 +8,7 @@ tags:
   - preservation
   - sauce
   - basics
-cover: /images/blog/food-that-almost-never-spoils/cover.png
+cover: /images/blog/food-that-almost-never-spoils/cover.jpg
 ---
 
 ## Yes — and the answer is surprisingly simple

@@ -8,7 +8,7 @@ tags:
   - preservation
   - sauce
   - basics
-cover: /images/blog/food-that-almost-never-spoils/cover.png
+cover: /images/blog/food-that-almost-never-spoils/cover.jpg
 ---
 
 ## Ya — dan jawapannya sebenarnya sangat mudah

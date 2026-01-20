@@ -8,7 +8,7 @@ tags:
   - preservation
   - sauce
   - basics
-cover: /images/blog/food-that-almost-never-spoils/cover.png
+cover: /images/blog/food-that-almost-never-spoils/cover.jpg
 ---
 ## 有，而且答案其实很简单
 
