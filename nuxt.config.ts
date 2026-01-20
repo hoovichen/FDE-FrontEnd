@@ -82,7 +82,6 @@ export default defineNuxtConfig({
 
     defaults: {
       // lastmod 可以给定字符串；也可以省略让模块自动处理
-      lastmod: new Date().toISOString(),
       changefreq: 'weekly',
       priority: 0.7
     },
@@ -90,7 +89,10 @@ export default defineNuxtConfig({
     // 不要用 true；可用 false（关闭）或提供自定义 XSL 路径字符串
     // xsl: '/sitemap.xsl',
     xsl: false,
-
+    sources: [
+      '/api/__sitemap__/urls'
+    ],
+    exclude: ['/api/**']
     // 可先省略缓存选项，避免类型不匹配
     // cacheMaxAge: 3600
   },

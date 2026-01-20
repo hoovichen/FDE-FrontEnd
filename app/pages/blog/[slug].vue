@@ -42,11 +42,31 @@ useSeoMeta({
 })
 
 useHead(() => ({
-  link: [{ rel: 'canonical', href: canonical.value }],
+  title: title.value,
+  link: [
+    { rel: 'canonical', href: canonical.value },
+  ],
+  meta: [
+    { name: 'description', content: description.value },
+
+    // Open Graph
+    { property: 'og:type', content: 'article' },
+    { property: 'og:title', content: title.value },
+    { property: 'og:description', content: description.value },
+    { property: 'og:url', content: canonical.value },
+    { property: 'og:image', content: cover.value.startsWith('http') ? cover.value : `${siteUrl}${cover.value}` },
+
+    // Twitter Card（可选但强烈建议）
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: title.value },
+    { name: 'twitter:description', content: description.value },
+    { name: 'twitter:image', content: cover.value.startsWith('http') ? cover.value : `${siteUrl}${cover.value}` },
+  ],
   script: [{
     key: 'blogposting-jsonld',
     type: 'application/ld+json',
-    innerHTML: JSON.stringify({
+    // ✅ Nuxt head script 推荐用 children（更稳，避免 innerHTML 被 sanitizer 影响）
+    children: JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
       headline: title.value,
@@ -63,13 +83,14 @@ useHead(() => ({
     })
   }]
 }))
+
 </script>
 
 <template>
   <section class="blog-detail">
     <div class="container" v-if="frontmatter && !error">
       <NuxtLink to="/blog" class="blog-back" aria-label="Back to blog list">
-        <span class="blog-back__icon">←</span>
+        <span class="blog-back__icon">⬅</span>
         <span class="blog-back__text">{{ ui.back }}</span>
       </NuxtLink>
 
