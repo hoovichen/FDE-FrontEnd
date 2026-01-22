@@ -6,13 +6,17 @@
 
 /* Local theme tokens (scoped by usage, not global overwrite) */
 :root {
-  --stock-accent: rgba(120, 75, 40, 1);        /* warm brown */
-  --stock-accent-2: rgba(120, 75, 40, 0.14);   /* focus ring */
+  --stock-accent: rgba(120, 75, 40, 1);
+  /* warm brown */
+  --stock-accent-2: rgba(120, 75, 40, 0.14);
+  /* focus ring */
   --stock-border: rgba(120, 75, 40, 0.16);
   --stock-ink: rgba(35, 24, 18, 1);
   --stock-ink-muted: rgba(35, 24, 18, 0.65);
-  --stock-surface: rgba(255, 251, 246, 1);     /* warm off-white */
-  --stock-surface-2: rgba(255, 245, 236, 1);   /* warm card */
+  --stock-surface: rgba(255, 251, 246, 1);
+  /* warm off-white */
+  --stock-surface-2: rgba(255, 245, 236, 1);
+  /* warm card */
   --stock-shadow: 0 10px 28px rgba(20, 10, 5, 0.08);
   --stock-shadow-hover: 0 16px 40px rgba(20, 10, 5, 0.14);
   --stock-radius-lg: 18px;
@@ -140,7 +144,7 @@
 /* Media */
 .stockist-card__media {
   position: relative;
-  background: rgba(0,0,0,0.04);
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .stockist-card__media img {
@@ -233,11 +237,49 @@
   color: var(--stock-ink);
 }
 
+.stockists-filters {
+  width: min(720px, 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.stockists-select {
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  outline: none;
+}
+
+.stockists-select:focus {
+  border-color: rgba(120, 75, 40, 0.35);
+  box-shadow: 0 0 0 6px rgba(120, 75, 40, 0.10);
+}
+
+.stockists-clear {
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(120, 75, 40, 0.18);
+  background: rgba(255, 255, 255, 0.65);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  .stockists-filters {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 /* Responsive */
 @media (max-width: 900px) {
   .stockists-state {
     padding: 12px;
   }
+
   .stockists-list {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
@@ -247,9 +289,11 @@
   .stockists-head {
     text-align: left;
   }
+
   .stockists-tools {
     justify-items: stretch;
   }
+
   .stockists-search {
     width: 100%;
   }

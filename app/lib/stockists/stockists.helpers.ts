@@ -56,6 +56,31 @@ export function groupByStateCity(list: StockistBase[]): StockistsGrouped {
   return out
 }
 
+export function uniqueSorted(values: string[]) {
+  return Array.from(new Set(values.filter(Boolean).map(v => v.trim())))
+    .sort((a, b) => a.localeCompare(b))
+}
+
+export function getCityOptions(list: StockistBase[]) {
+  return uniqueSorted(list.map(x => x.city || ''))
+}
+
+export function getStateOptions(list: StockistBase[]) {
+  return uniqueSorted(list.map(x => x.state || ''))
+}
+
+export function filterByStateCity(list: StockistBase[], state?: string, city?: string) {
+  const st = (state || '').trim()
+  const ct = (city || '').trim()
+
+  return list.filter(s => {
+    if (st && (s.state || '').trim() !== st) return false
+    if (ct && (s.city || '').trim() !== ct) return false
+    return true
+  })
+}
+
+
 export function formatPhoneMY(phoneRaw?: string) {
   const raw = (phoneRaw || '').trim()
   if (!raw) return ''
