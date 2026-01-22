@@ -38,7 +38,7 @@ const COMING_SOON = new Set(['/faq', '/privacy-policy', '/terms'])
               {{ t.links.stockists }}
             </NuxtLink>
           </li>
-          
+
           <li>
             <NuxtLink to="/faq">
               {{ t.links.faq }}
@@ -67,7 +67,7 @@ const COMING_SOON = new Set(['/faq', '/privacy-policy', '/terms'])
         <h3 class="footer__title">{{ t.socialTitle }}</h3>
         <div class="footer__icons">
           <a v-for="s in socials" :key="s.key" :href="s.href" target="_blank" rel="noopener" :aria-label="s.key">
-            <NuxtImg :src="s.icon" :alt="s.key" />
+            <NuxtImg :src="s.icon" :alt="s.key" width="28" height="28" />
           </a>
         </div>
       </div>

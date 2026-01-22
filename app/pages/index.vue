@@ -11,14 +11,6 @@ apply()
 
 onMounted(() => {
   document.documentElement.classList.add('js-ready')
-  const btn = document.getElementById('backToTop')
-  const toggle = () => {
-    if (!btn) return
-    btn.classList.toggle('back-to-top--visible', window.scrollY > 300)
-  }
-  window.addEventListener('scroll', toggle, { passive: true })
-  btn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }))
-  toggle()
 })
 </script>
 

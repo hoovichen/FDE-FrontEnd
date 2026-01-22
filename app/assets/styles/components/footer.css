@@ -1,10 +1,10 @@
-
 /* ==============================
    Footer
 ============================== */
 
 .footer {
-  background: #faf5ef; /* 轻米色背景，与全站调性统一 */
+  background: #faf5ef;
+  /* 轻米色背景，与全站调性统一 */
   color: #000;
   padding: clamp(40px, 6vw, 80px) 0 20px;
   font-family: var(--font-body, 'Inter', sans-serif);
@@ -27,9 +27,11 @@
   font-size: 1.8rem;
   color: #000;
   text-decoration: none;
-  max-width: 100%;     /* ✅ 防止超出 */
+  max-width: 100%;
+  /* ✅ 防止超出 */
   height: auto;
-  display: block;      /* ✅ 让 margin auto 生效 */
+  display: block;
+  /* ✅ 让 margin auto 生效 */
 }
 
 /* INFO、SOCIAL 标题 */
@@ -45,15 +47,18 @@
   padding: 0;
   margin: 0;
 }
+
 .footer__info li {
   margin: 6px 0;
 }
+
 .footer__info a {
   color: #000;
   text-decoration: none;
   font-weight: 400;
   transition: color 0.2s ease;
 }
+
 .footer__info a:hover {
   color: var(--color-brand-red, #af1311);
 }
@@ -64,11 +69,18 @@
   align-items: center;
   gap: 16px;
 }
+
+.footer__icons a {
+  display: inline-flex;
+  line-height: 0;
+}
+
 .footer__icons img {
   width: 28px;
   height: 28px;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
+
 .footer__icons img:hover {
   transform: scale(1.1);
   opacity: 0.85;
@@ -83,7 +95,7 @@
   padding-left: 4%;
 }
 
-.footer__soon{
+.footer__soon {
   margin-left: 8px;
   font-size: 12px;
   font-weight: 600;
@@ -98,13 +110,20 @@
     gap: 24px;
     text-align: center;
   }
+
   .footer__copyright {
     text-align: center;
     padding-left: 0;
   }
-  .footer__icons {
+
+  .footer__social {
     justify-self: center;
   }
+
+  .footer__icons {
+    justify-content: center;
+  }
+
   .footer__logo {
     justify-self: center;
   }
@@ -112,8 +131,11 @@
   .footer__logo a {
     display: inline-block;
   }
+
   .footer__brand {
-    width: min(320px, 80vw); /* ✅ 手机更合适 */
-    margin: 0 auto;          /* ✅ 居中 */
+    width: min(320px, 80vw);
+    /* ✅ 手机更合适 */
+    margin: 0 auto;
+    /* ✅ 居中 */
   }
 }

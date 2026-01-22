@@ -1,12 +1,10 @@
 <script setup lang="ts">
-  /** 默认布局：含 Skip Link 与主容器 */
-  import { SpeedInsights } from "@vercel/speed-insights/nuxt"
-  import { Analytics } from '@vercel/analytics/nuxt'
+/** 默认布局：含 Skip Link 与主容器 */
+import { SpeedInsights } from "@vercel/speed-insights/nuxt"
+import { Analytics } from '@vercel/analytics/nuxt'
 </script>
 
 <template>
-  <SpeedInsights />
-  <Analytics />
   <header class="site-header">
     <div class="site-header__inner">
       <HeaderNav />
@@ -17,9 +15,8 @@
     <slot />
   </main>
 
-  <footer class="footer">
-    <FooterBar />
-  </footer>
-
-  <button class="btn btn--primary back-to-top" id="backToTop" aria-label="返回顶部">↑</button>
+  <FooterBar />
+  <!-- <button id="backToTop" class="fdg-btt" type="button" aria-label="Back to top" title="Back to top">
+    <span class="fdg-btt__icon">↑</span>
+  </button> -->
 </template>

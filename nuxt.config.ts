@@ -55,6 +55,7 @@ export default defineNuxtConfig({
     '~/assets/styles/components/recipes.css',
     '~/assets/styles/components/products-section.css',
     '~/assets/styles/components/blog.css',
+    '~/assets/styles/components/back-to-top.css'
   ],
 
   runtimeConfig: {
