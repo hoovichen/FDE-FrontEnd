@@ -1,0 +1,346 @@
+/* ==============================
+   Page: Stockist Detail
+   Warm brown / soft shadow / rounded blocks
+   Only scopes to .stockist-* & .stockist-detail*
+============================== */
+
+:root {
+  --stockd-accent: rgba(120, 75, 40, 1);
+  --stockd-accent-2: rgba(120, 75, 40, 0.14);
+  --stockd-ink: rgba(35, 24, 18, 1);
+  --stockd-muted: rgba(35, 24, 18, 0.62);
+  --stockd-border: rgba(120, 75, 40, 0.12);
+  --stockd-surface: rgba(255, 251, 246, 1);
+  --stockd-card: rgba(255, 245, 236, 1);
+  --stockd-shadow: 0 12px 32px rgba(20, 10, 5, 0.10);
+  --stockd-shadow-soft: 0 10px 22px rgba(20, 10, 5, 0.08);
+  --stockd-radius-lg: 20px;
+  --stockd-radius-md: 14px;
+}
+
+/* Page */
+.stockist-detail {
+  padding: clamp(24px, 6vw, 56px) 0;
+}
+
+/* Back button */
+.stockist-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--stockd-ink);
+  background: rgba(255, 245, 236, 0.85);
+  border: 1px solid rgba(120, 75, 40, 0.14);
+  box-shadow: 0 10px 18px rgba(20, 10, 5, 0.08);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  margin-bottom: 16px;
+}
+
+.stockist-back:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 245, 236, 1);
+  box-shadow: 0 14px 26px rgba(20, 10, 5, 0.12);
+}
+
+.stockist-back__icon {
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+/* Hero */
+.stockist-hero {
+  width: min(980px, 100%);
+  margin: 0 auto 18px;
+  text-align: left;
+}
+
+.stockist-title {
+  font-size: clamp(26px, 4vw, 40px);
+  line-height: 1.14;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--stockd-ink);
+  margin: 0 0 8px;
+}
+
+.stockist-sub {
+  margin: 0;
+  color: var(--stockd-muted);
+  line-height: 1.6;
+}
+
+/* Layout: similar spirit to contact-grid, but scoped */
+.stockist-grid {
+  width: min(1120px, 92%);
+  margin: 18px auto 0;
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  gap: 26px;
+  align-items: start;
+}
+
+/* Left media */
+.stockist-media {
+  display: grid;
+  gap: 14px;
+}
+
+/* Photo block */
+.stockist-photo {
+  margin: 0;
+  border-radius: var(--stockd-radius-lg);
+  overflow: hidden;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(120, 75, 40, 0.10);
+  box-shadow: var(--stockd-shadow);
+}
+
+.stockist-photo img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+/* (Optional future) Map block style, prepared for your mapImage idea */
+.stockist-map {
+  margin: 0;
+  border-radius: var(--stockd-radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(120, 75, 40, 0.10);
+  background: rgba(0,0,0,0.04);
+  box-shadow: var(--stockd-shadow-soft);
+}
+
+.stockist-map__link {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.stockist-map__link img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.stockist-map__badge {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #fff;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(6px);
+}
+
+/* Right info */
+.stockist-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Info card blocks */
+.stockist-card {
+  background: var(--stockd-card);
+  border-radius: var(--stockd-radius-lg);
+  padding: 16px 18px;
+  border: 1px solid rgba(120, 75, 40, 0.12);
+  box-shadow: var(--stockd-shadow-soft);
+}
+
+.stockist-card__title {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(35, 24, 18, 0.60);
+  margin-bottom: 10px;
+}
+
+.stockist-card__text {
+  margin: 0;
+  color: var(--stockd-ink);
+  line-height: 1.75;
+}
+
+/* Optional list (hours) */
+.stockist-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--stockd-ink);
+}
+
+.stockist-list li {
+  margin: 6px 0;
+  line-height: 1.6;
+}
+
+/* Actions */
+.stockist-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+/* Make sure local buttons look consistent without touching global btn-primary */
+.stockist-actions .btn-primary,
+.stockist-actions .btn-ghost {
+  border-radius: 999px;
+}
+
+/* If your global btn-primary is too red, we can override only inside stockist detail */
+.stockist-actions .btn-primary {
+  background: var(--stockd-accent);
+  border: 1px solid rgba(120, 75, 40, 0.25);
+  color: #fff;
+  box-shadow: 0 12px 20px rgba(20, 10, 5, 0.14);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+.stockist-actions .btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 28px rgba(20, 10, 5, 0.18);
+  filter: saturate(1.05);
+}
+
+.stockist-actions .btn-ghost {
+  border: 1px solid rgba(120, 75, 40, 0.18);
+  background: rgba(255,255,255,0.65);
+  color: rgba(120, 75, 40, 1);
+  font-weight: 800;
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.stockist-actions .btn-ghost:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 14px 22px rgba(20, 10, 5, 0.10);
+}
+
+/* ==============================
+   Stockist Map Hover / Tap UX
+   Scoped: only inside stockist detail map block
+============================== */
+
+/* 让地图块本身变成一个“可交互卡片” */
+.stockist-map__link {
+  border-radius: var(--stockd-radius-lg);
+  overflow: hidden; /* 保证放大不溢出圆角 */
+  transform: translateZ(0); /* 防止缩放抖动 */
+}
+
+/* 图片：默认状态 */
+.stockist-map__link img {
+  transform: scale(1);
+  transition: transform .28s ease;
+  will-change: transform;
+}
+
+/* 增加一个柔和遮罩，hover时更“可点” */
+.stockist-map__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    1200px 400px at 20% 80%,
+    rgba(0,0,0,.14),
+    rgba(0,0,0,0)
+  );
+  opacity: 0;
+  transition: opacity .28s ease;
+  pointer-events: none;
+}
+
+/* badge：默认 */
+.stockist-map__badge {
+  transform: translateY(0);
+  transition: transform .28s ease, background .28s ease, box-shadow .28s ease;
+  box-shadow: 0 10px 18px rgba(0,0,0,.18);
+}
+
+/* 卡片 hover：阴影更立体 */
+.stockist-map {
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+/* ✅ Desktop hover */
+@media (hover: hover) and (pointer: fine) {
+  .stockist-map__link:hover img {
+    transform: scale(1.04); /* 轻轻放大 */
+  }
+
+  .stockist-map__link:hover::after {
+    opacity: 1;
+  }
+
+  .stockist-map__link:hover .stockist-map__badge {
+    transform: translateY(-2px);
+    background: rgba(0,0,0,.62);
+    box-shadow: 0 14px 26px rgba(0,0,0,.22);
+  }
+
+  .stockist-map:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(20, 10, 5, 0.14);
+  }
+}
+
+/* ✅ Mobile / touch：按下反馈（没有 hover 用 :active） */
+@media (hover: none) and (pointer: coarse) {
+  .stockist-map__link:active img {
+    transform: scale(1.02);
+  }
+  .stockist-map__link:active::after {
+    opacity: 1;
+  }
+  .stockist-map__link:active .stockist-map__badge {
+    transform: translateY(-1px);
+  }
+}
+
+/* ✅ 键盘可访问性：Tab 聚焦也有反馈 */
+.stockist-map__link:focus-visible {
+  outline: 2px solid rgba(120, 75, 40, 0.35);
+  outline-offset: 4px;
+  border-radius: var(--stockd-radius-lg);
+}
+
+/* ✅ 对“减少动画”用户自动降级 */
+@media (prefers-reduced-motion: reduce) {
+  .stockist-map,
+  .stockist-map__link img,
+  .stockist-map__link::after,
+  .stockist-map__badge {
+    transition: none !important;
+  }
+}
+
+
+/* Responsive */
+@media (max-width: 980px) {
+  .stockist-grid {
+    grid-template-columns: 1fr;
+  }
+  .stockist-hero {
+    width: min(1120px, 92%);
+  }
+}
+
+@media (max-width: 520px) {
+  .stockist-back {
+    width: 100%;
+    justify-content: center;
+  }
+}

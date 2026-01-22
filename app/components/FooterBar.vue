@@ -19,7 +19,7 @@ const COMING_SOON = new Set(['/faq', '/privacy-policy', '/terms'])
       <!-- 左侧 LOGO -->
       <div class="footer__logo">
         <NuxtLink to="/">
-          <NuxtImg class="footer__brand" src="/logo-3-topic.png" alt="Fire Dragon Enterprise Logo" loading="lazy"/>
+          <NuxtImg class="footer__brand" src="/logo-3-topic.png" alt="Fire Dragon Enterprise Logo" loading="lazy" />
         </NuxtLink>
       </div>
 
@@ -33,6 +33,12 @@ const COMING_SOON = new Set(['/faq', '/privacy-policy', '/terms'])
             </NuxtLink>
           </li>
 
+          <li>
+            <NuxtLink to="/stockists">
+              {{ t.links.stockists }}
+            </NuxtLink>
+          </li>
+          
           <li>
             <NuxtLink to="/faq">
               {{ t.links.faq }}
