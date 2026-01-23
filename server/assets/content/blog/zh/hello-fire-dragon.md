@@ -6,8 +6,7 @@ slug: hello-fire-dragon
 tags:
   - brand
   - story
-  - sauce
-cover: /images/blog/hello-fire-dragon/cover.png
+cover: /images/blog/hello-fire-dragon/cover-zh.png
 ---
 
 ## 为什么我们开始做 Fire Dragon？

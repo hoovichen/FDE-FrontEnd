@@ -1,39 +1,48 @@
 <script setup lang="ts">
-import { BLOGS } from '~/lib/blog.data'
-import { BLOGS_TEXT, type LangCode } from '~/locales/blog'
 import { useLanguage } from '~/composables/useLanguage'
+import { BLOGS_TEXT, type LangCode } from '~/locales/section.blog.ui'
 
 const { lang } = useLanguage()
-const t = computed(() => BLOGS_TEXT[(lang.value as LangCode) || 'en'])
+const l = computed(() => (lang.value as LangCode) || 'en')
+const ui = computed(() => BLOGS_TEXT[l.value])
+
+const FEATURED = new Set([
+  'hello-fire-dragon',
+  'food-that-almost-never-spoils',
+  'the-road-before-firedragon'
+])
+
+const { data } = await useFetch<{ items: any[] }>(
+  () => `/api/blog/${l.value}`
+)
+
+const featuredPosts = computed(() =>
+  (data.value?.items ?? [])
+    .filter(p => FEATURED.has(p.slug))
+    .slice(0, 3)
+)
 </script>
 
-<template>
-  <section id="blogs" class="blogs">
-    <div class="blogs__overlay"></div>
 
+<template>
+  <section class="blogs">
+    <div class="blogs__overlay"></div>
     <div class="container blogs__inner">
-      <!-- 标题区 -->
       <header class="blogs__header">
-        <h2 class="blogs__title">{{ t.title }}</h2>
-        <p class="blogs__desc">{{ t.desc }}</p>
+        <h2 class="blogs__title">{{ ui.title }}</h2>
+        <p class="blogs__desc">{{ ui.desc }}</p>
       </header>
 
-      <!-- 博客卡片区 -->
-      <div class="blogs__grid">
-        <div v-for="b in BLOGS" :key="b.key" class="blogs__card">
-          <NuxtImg :src="b.image" :alt="b.title" loading="lazy" decoding="async" />
-          <h3 class="blogs__card-title">{{ b.title }}</h3>
-          <NuxtLink :to="b.to" class="blogs__readmore">READ MORE</NuxtLink>
-        </div>
+      <div class="blog-list">
+        <BlogCard v-for="p in featuredPosts" :key="p.slug" :post="p" />
       </div>
 
-      <!-- 底部按钮 -->
       <div class="cta">
         <NuxtLink to="/blog" class="pill">
-          <NuxtImg src="/images/recipes/icon.png" alt="" class="pill-icon" />
-          {{ t.more }}
+          <NuxtImg src="/images/recipes/icon.png" alt="" class="pill-icon" /> {{ ui.more }}
         </NuxtLink>
       </div>
     </div>
   </section>
+
 </template>

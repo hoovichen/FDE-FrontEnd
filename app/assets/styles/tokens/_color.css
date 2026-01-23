@@ -1,11 +1,11 @@
 :root {
   /* 品牌主色与中性色 */
-  --color-brand: #f30300;
+  --color-brand: #c63c30;
   --color-brand-red: #af1311;
   --color-brand-600: hsla(0, 100%, 50%, 0.238);
   --color-accent: #ff6b00;
 
-  --color-text: #f30300;
+  --color-text: #af0000;
   --color-text-muted: #4b5563;
   --color-bg: #faf7ef;
   --color-bg-soft: #f8fafc;

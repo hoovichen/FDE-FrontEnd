@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { useLanguage } from '~/composables/useLanguage'
 import { BLOG_UI, type LangCode } from '~/locales/blog/blog.ui'
+import { sortBlogs, filterByTag, collectAllTags } from '~/lib/blog/blog.helpers'
 
 const { lang } = useLanguage()
 const l = computed(() => (lang.value as LangCode) || 'en')
 const ui = computed(() => BLOG_UI[l.value])
+const selectedTag = ref<string>('') // 用 '' 比 null 更适合 <select>
+const sortBy = ref<'latest'|'featured'|'oldest'>('latest')
 
 // ✅ 只走 API
 const { data, pending, error, refresh } = await useFetch<{ items: any[] }>(
@@ -12,7 +15,17 @@ const { data, pending, error, refresh } = await useFetch<{ items: any[] }>(
   { key: () => `blog-index-${l.value}` }
 )
 
-const posts = computed(() => data.value?.items ?? [])
+const rawPosts = computed(() => data.value?.items ?? [])
+const tags = computed(() => collectAllTags(rawPosts.value))
+
+const posts = computed(() => {
+  const list = selectedTag.value
+    ? rawPosts.value.filter(p => Array.isArray(p.tags) && p.tags.includes(selectedTag.value))
+    : rawPosts.value
+
+  return sortBlogs(list, sortBy.value)
+})
+
 
 // ✅ SEO（list page）
 useSeoMeta({
@@ -37,8 +50,30 @@ useSeoMeta({
         <div class="blog-page__headerInner">
           <h1 class="blog-page__title">{{ ui.title }}</h1>
           <p class="blog-page__desc">{{ ui.desc }}</p>
+
+          <div class="blog-tools">
+            <!-- Tag select -->
+            <select v-model="selectedTag" class="blog-select">
+              <option :value="''">All topics</option>
+              <option v-for="t in tags" :key="t" :value="t">{{ t }}</option>
+            </select>
+
+            <!-- Sort select -->
+            <select v-model="sortBy" class="blog-select">
+              <option value="latest">Latest</option>
+              <option value="featured">Featured</option>
+              <option value="oldest">Oldest</option>
+            </select>
+
+            <!-- Clear -->
+            <button v-if="selectedTag || sortBy !== 'latest'" class="blog-clear" type="button"
+              @click="() => { selectedTag = ''; sortBy = 'latest' }">
+              Clear
+            </button>
+          </div>
         </div>
       </header>
+
 
 
       <!-- ✅ Loading -->

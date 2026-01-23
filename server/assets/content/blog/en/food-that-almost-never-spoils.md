@@ -5,10 +5,8 @@ date: 2026-01-20
 slug: food-that-almost-never-spoils
 tags:
   - food-science
-  - preservation
   - sauce
-  - basics
-cover: /images/blog/food-that-almost-never-spoils/cover.jpg
+cover: /images/blog/food-that-almost-never-spoils/cover-en.png
 ---
 
 ## Yes — and the answer is surprisingly simple

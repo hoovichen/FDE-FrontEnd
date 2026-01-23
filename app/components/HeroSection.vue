@@ -47,7 +47,7 @@ const dots = computed(() => {
   return slides.value.map(s => ({
     key: s.key,
     label: s.key,        // 无障碍与 tooltip 用
-    // thumb: s.image,                 // 未来可换成真正的缩略图
+    thumb: undefined as string | undefined,  // 未来可换成真正的缩略图
   }))
 })
 /** 精细化：给特定 key 配专门 thumb */
@@ -79,11 +79,11 @@ const dots = computed(() => {
             <h1 class="hero__title">{{ s.title }}</h1>
             <h4 v-if="s.mainContent" class="hero__main">{{ s.mainContent }}</h4>
             <p v-if="s.subContent" class="hero__sub">{{ s.subContent }}</p>
-            <button v-if="s.cta && s.ctaLabel" class="btn btn--ghost" @click="scrollToId(s.cta.targetId)">{{ s.ctaLabel
+            <button v-if="s.shopCta && s.shopLabel" class="btn btn--ghost" @click="scrollToId(s.shopCta.url)">{{ s.shopLabel
               }}</button>
           </div>
           <div class="hero__image">
-            <NuxtImg preload preset :src="s.image" alt="" :loading="i === 0 ? 'eager' : 'lazy'"
+            <NuxtImg preload :src="s.image" alt="" :loading="i === 0 ? 'eager' : 'lazy'"
               :fetchpriority="i === 0 ? 'high' : 'low'" decoding="async" />
           </div>
         </article>
