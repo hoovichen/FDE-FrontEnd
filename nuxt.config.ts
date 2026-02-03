@@ -81,7 +81,9 @@ export default defineNuxtConfig({
       { loc: '/faq', priority: 0.6, changefreq: 'monthly' },
       { loc: '/privacy-policy', priority: 0.5, changefreq: 'monthly' },
       { loc: '/terms', priority: 0.5, changefreq: 'monthly' },
-      { loc: '/blog', priority: 0.6, changefreq: 'weekly' },
+      { loc: '/blog/zh', priority: 0.7, changefreq: 'weekly' },
+      { loc: '/blog/en', priority: 0.7, changefreq: 'weekly' },
+      { loc: '/blog/bm', priority: 0.7, changefreq: 'weekly' },
       { loc: '/stockists', priority: 0.6, changefreq: 'weekly' }
     ],
 
@@ -110,7 +112,7 @@ export default defineNuxtConfig({
   // 可顺便加上旧路径 301（如果你旧站是 /sitemap_index.xml）
   routeRules: {
     // 旧路径 → 新路径（永久 301）
-    '/stories': { redirect: { to: '/blog', statusCode: 301 } },
+    '/stories': { redirect: { to: '/blog/en', statusCode: 301 } },
     '/product': { redirect: { to: '/products', statusCode: 301 } },
     // （可选）把非 www 全部 301 到 www（建议在 Vercel 域名设置做，更可靠）
   },

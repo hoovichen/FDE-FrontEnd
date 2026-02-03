@@ -41,7 +41,7 @@
   font-size: clamp(28px, 5vw, 52px);
   font-weight: 800;
   line-height: 1.2;
-  color: #000;
+  color: var(--color-text)
 }
 .blogs__desc {
   margin-top: 8px;

@@ -36,5 +36,31 @@ export function useLanguage() {
   }, { immediate: true })
 
   const setLang = (v: LangCode) => { lang.value = v }
-  return { lang, setLang }
+
+  // =========================
+  // ✅ 新增：带路由逻辑的切换
+  // =========================
+  const router = useRouter()
+  const route = useRoute()
+
+  const switchLang = async (next: LangCode) => {
+    if (next === lang.value) return
+
+    lang.value = next
+
+    // 只处理 blog 路由
+    if (route.path.startsWith('/blog')) {
+      const segments = route.path.split('/').filter(Boolean)
+      // ['blog', 'zh', 'slug?']
+
+      if (segments[1]) {
+        segments[1] = next
+        await router.push('/' + segments.join('/'))
+      } else {
+        await router.push(`/blog/${next}`)
+      }
+    }
+  }
+
+  return { lang, setLang, switchLang }
 }

@@ -1,18 +1,25 @@
 <script setup lang="ts">
-import { useLanguage } from '~/composables/useLanguage'
+import { useRoute } from 'vue-router'
 import { BLOG_UI, type LangCode } from '~/locales/blog/blog.ui'
-import { sortBlogs, filterByTag, collectAllTags } from '~/lib/blog/blog.helpers'
+import { sortBlogs, collectAllTags } from '~/lib/blog/blog.helpers'
 
-const { lang } = useLanguage()
-const l = computed(() => (lang.value as LangCode) || 'en')
-const ui = computed(() => BLOG_UI[l.value])
+const route = useRoute()
+
+// ✅ 从 URL 取语言
+const lang = computed<LangCode>(() => {
+  const l = route.params.lang
+  return (l === 'zh' || l === 'en' || l === 'bm') ? l : 'en'
+})
+
+const ui = computed(() => BLOG_UI[lang.value])
+
 const selectedTag = ref<string>('') // 用 '' 比 null 更适合 <select>
-const sortBy = ref<'latest'|'featured'|'oldest'>('latest')
+const sortBy = ref<'latest' | 'featured' | 'oldest'>('latest')
 
-// ✅ 只走 API
+// ✅ 只走 API（按 URL lang 拉）
 const { data, pending, error, refresh } = await useFetch<{ items: any[] }>(
-  () => `/api/blog/${l.value}`,
-  { key: () => `blog-index-${l.value}` }
+  () => `/api/blog/${lang.value}`,
+  { key: () => `blog-index-${lang.value}` }
 )
 
 const rawPosts = computed(() => data.value?.items ?? [])
@@ -26,22 +33,24 @@ const posts = computed(() => {
   return sortBlogs(list, sortBy.value)
 })
 
-
 // ✅ SEO（list page）
+const siteUrl = 'https://www.firedragonmy.com'
+const canonical = computed(() => `${siteUrl}/blog/${lang.value}`)
+
 useSeoMeta({
   title: () => `${ui.value.title} - Fire Dragon`,
   description: () => ui.value.desc,
   ogTitle: () => `${ui.value.title} - Fire Dragon`,
   ogDescription: () => ui.value.desc,
   ogType: 'website',
+  ogUrl: () => canonical.value,
 })
 
-// （可选）Canonical（建议）
-// const siteUrl = 'https://www.firedragonmy.com'
-// useHead(() => ({
-//   link: [{ rel: 'canonical', href: `${siteUrl}/blog` }]
-// }))
+useHead(() => ({
+  link: [{ rel: 'canonical', href: canonical.value }],
+}))
 </script>
+
 
 <template>
   <section class="blog-page">
@@ -66,10 +75,11 @@ useSeoMeta({
             </select>
 
             <!-- Clear -->
-            <button v-if="selectedTag || sortBy !== 'latest'" class="blog-clear" type="button"
+            <button v-if="selectedTag !== '' || sortBy !== 'latest'" class="blog-clear" type="button"
               @click="() => { selectedTag = ''; sortBy = 'latest' }">
               Clear
             </button>
+
           </div>
         </div>
       </header>
@@ -102,7 +112,7 @@ useSeoMeta({
 
       <!-- ✅ List -->
       <div v-else-if="posts.length" class="blog-list">
-        <BlogCard v-for="p in posts" :key="p.slug" :post="p" />
+        <BlogCard v-for="p in posts" :key="p.slug" :post="p" :lang="lang" />
       </div>
 
       <!-- ✅ Empty -->

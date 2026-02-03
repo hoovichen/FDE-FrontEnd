@@ -14,7 +14,7 @@
 .recipes__title {
   font-size: clamp(28px, 5vw, 56px);
   line-height: 1.2;
-  color: var(--color-brand);
+  color: var(--color-text);
   font-weight: 500;
   justify-self: center;
 }

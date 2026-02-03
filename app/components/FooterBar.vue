@@ -28,7 +28,7 @@ const COMING_SOON = new Set(['/faq', '/privacy-policy', '/terms'])
         <h3 class="footer__title">{{ t.infoTitle }}</h3>
         <ul class="footer__links">
           <li>
-            <NuxtLink to="/blog">
+            <NuxtLink :to="`/blog/${lang}`">
               {{ t.links.blog }}
             </NuxtLink>
           </li>

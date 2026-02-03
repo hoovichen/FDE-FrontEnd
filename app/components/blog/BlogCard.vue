@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { useLanguage } from '~/composables/useLanguage'
 import { useDateFormat } from '~/composables/useDateFormat'
 import type { LangCode } from '~/locales/blog/blog.ui'
 
 type BlogPostCard = {
   slug: string
-  to: string
   title: string
   summary?: string
   date?: string | Date
@@ -13,20 +11,19 @@ type BlogPostCard = {
   cover?: string
 }
 
-const props = defineProps<{ post: BlogPostCard }>()
-
-const { lang } = useLanguage()
-const l = computed(() => (lang.value as LangCode) || 'en')
+const props = defineProps<{
+  post: BlogPostCard
+  lang: LangCode
+}>()
 
 const { formatDate } = useDateFormat()
-const displayDate = computed(() => formatDate(props.post.date, l.value))
+const displayDate = computed(() => formatDate(props.post.date, props.lang))
 
-// ✅ 让 template 用起来更干净
 const post = computed(() => props.post)
 </script>
 
 <template>
-  <NuxtLink class="blog-card" :to="post.to">
+  <NuxtLink class="blog-card" :to="`/blog/${lang}/${post.slug}`">
     <NuxtImg
       v-if="post.cover"
       class="blog-card__cover"
@@ -38,7 +35,9 @@ const post = computed(() => props.post)
 
     <div class="blog-card__body">
       <div class="blog-card__meta muted">
-        <time v-if="post.date" :datetime="String(post.date)">{{ displayDate }}</time>
+        <time v-if="post.date" :datetime="String(post.date)">
+          {{ displayDate }}
+        </time>
         <span v-if="post.tags?.length" class="blog-card__tags">
           · {{ post.tags.join(' / ') }}
         </span>

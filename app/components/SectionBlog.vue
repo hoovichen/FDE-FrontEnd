@@ -34,11 +34,11 @@ const featuredPosts = computed(() =>
       </header>
 
       <div class="blog-list">
-        <BlogCard v-for="p in featuredPosts" :key="p.slug" :post="p" />
+        <BlogCard v-for="p in featuredPosts" :key="p.slug" :post="p" :lang="lang" />
       </div>
 
       <div class="cta">
-        <NuxtLink to="/blog" class="pill">
+          <NuxtLink :to="`/blog/${lang}`" class="pill">
           <NuxtImg src="/images/recipes/icon.png" alt="" class="pill-icon" /> {{ ui.more }}
         </NuxtLink>
       </div>

@@ -5,7 +5,7 @@ import { useLanguage } from '~/composables/useLanguage'
 import { useDisclosure } from '~/composables/useDisclosure'
 import { useClickOutside } from '~/composables/useClickOutside'
 
-const { lang, setLang } = useLanguage()
+const { lang, switchLang } = useLanguage() // ⬅️ 这里换
 const LANGS = ['zh', 'en', 'bm'] as const
 const labels = computed(() => NAV_TEXT[lang.value])
 
@@ -106,7 +106,7 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onEsc))
             :class="{ 'is-active': lang === code }"
             role="menuitemradio"
             :aria-checked="String(lang === code)"
-            @click="setLang(code); langMenu.close()"
+            @click="() => { switchLang(code as any); langMenu.close() }"
           >
             <span class="lang__dot" :class="{ 'is-active': lang === code }"></span>
             {{ code.toUpperCase() }}
@@ -153,7 +153,7 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onEsc))
             :key="code"
             class="sheet__lang"
             :class="{ 'is-active': lang === code }"
-            @click="setLang(code as any); closeSheet()"
+            @click="() => { switchLang(code as any); langMenu.close() }"
           >
             {{ code.toUpperCase() }}
           </button>
