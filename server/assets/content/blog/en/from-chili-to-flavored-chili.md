@@ -18,11 +18,11 @@ From a production standpoint, most chili sauces on the market are not particular
 
 In a home kitchen, this logic works perfectly. When we first started making chili sauce, we also began here, choosing the most basic and widely accepted version: garlic chili sauce. On one hand, it was the easiest flavor for the market to accept. On the other hand, our experience at the time suggested that simpler formulas were easier to stabilize and preserve. After all, the sour chili sauce used in chicken rice stalls is not meant to be stored for long.
 
-## 2. In the Beginning, We Looked at Chili Sauce Through a Consumer’s Eyes
+## 2. In the Beginning, We Viewed Chili Sauce Through a Consumer’s Perspective
 
 Looking back, our understanding of chili sauce did not start from a “research” perspective. During preparation and market observation, we evaluated products, competitors, and trends much like ordinary consumers.
 
-At that time, our criteria for judging chili sauce were very direct:
+At that time, our criteria for making chili sauce were very direct:
 - If it tasted bad, you could tell in one bite, and no one would buy it again.
 - If it wasn’t bad, it was acceptable, and people would buy it if the price was right.
 - If it suited the palate and felt easy to eat, people would repurchase.
@@ -79,23 +79,23 @@ When we mentioned that fruits or vegetables were used, some shop owners reacted 
 
 Despite being stocked in many shops, we often heard, “Your chili sauce doesn’t sell well.” Each time, it hit our confidence hard.
 
-## 8. A Make-or-Break Decision Changed the Direction
+## 8. The Decision That Changed Everything
 
 With sales stagnating, the true turning point came not from flavor itself, but from a decision. The founder believed that technical improvements had reached their limit; the real issue was a lack of visual identity. On the shelf, the product looked “just like the others,” discouraging trial.
 
-So we made a bold move. We invested in visual differentiation: a custom pink bottle cap and clean white labeling, unlike anything else on the shelf. This was how **Bird’s Eye Chili Sauce** was born.
+So we made a bold move. We invested in visual differentiation—a custom pink bottle cap and clean white labeling that stood apart from anything else on the shelf. That was how *Bird’s Eye Chili Sauce* was born.
 
-It is also a flavored chili sauce, designed using our accumulated flavor techniques, but with a sharper approach—more acidity, more heat, less sweetness. The difference was clear and memorable.
+It is still a flavored chili sauce, built on our accumulated flavor expertise, but with a sharper approach: more acidity, more heat, and less sweetness. The difference was immediate, clear, and memorable.
 
-## 9. Not Success, but a Clearer Direction
+## 9. From Uncertainty to Validation
 
-Bird’s Eye Chili Sauce didn’t become a hit overnight. We worried about the large packaging investment. But after several sales cycles, it surpassed the previously stagnant three variants. We even received inquiries from overseas, including fans from Hunan.
+Bird’s Eye Chili Sauce didn’t become popular overnight. At first, we were worried about the high cost of large packaging. But after several sales cycles, it outperformed the three variants that had previously stagnated. We even started receiving inquiries from overseas, including customer from Hunan.
 
 This didn’t mean the journey was over. It simply confirmed one thing:
 
 > This unconventional path wasn’t wrong. There was still room to explore.
 
-## 10. The Path Will Continue to Branch
+## 10. Refinement Over Replacement
 
 The three original variants still exist today. They aren’t bestsellers, but they have loyal customers. For us, the question isn’t whether to discontinue them, but whether to keep refining them.
 
@@ -103,6 +103,6 @@ In upcoming articles, we’ll explore how pumpkin, winter melon, and sweet potat
 
 ## Conclusion: Flavor Is Not About Pleasing Everyone
 
-There is no single answer to chili sauce. Some care about heat, some about aroma, others about how it feels after eating.
+There’s no single definition of the perfect chili sauce. Some people focus on spiciness, others care more about aroma, and some pay attention to how it feels after eating.
 
-All we can do is explain each choice clearly. In the end, what you enjoy is what matters most.
+What we can do is explain each choice clearly. In the end, what matters most is what you enjoy.
