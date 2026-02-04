@@ -6,7 +6,7 @@ slug: from-chili-to-flavored-chili
 tags:
   - interview
   - sauce
-  - food-design
+  - food_design
   - brand
 cover: /images/blog/from-chili-to-flavored-chili/cover-en.png
 ---

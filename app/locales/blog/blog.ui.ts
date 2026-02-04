@@ -7,6 +7,10 @@ export interface BlogUiText {
   emptyDesc: string
   readMore: string
   back: string
+  allTopics?: string
+  latest?: string
+  oldest?: string
+  featured?: string
 }
 
 export const BLOG_UI: Record<LangCode, BlogUiText> = {
@@ -16,7 +20,11 @@ export const BLOG_UI: Record<LangCode, BlogUiText> = {
     emptyTitle: '内容准备中',
     emptyDesc: '我们正在整理文章，敬请期待～',
     readMore: '阅读全文',
-    back: '返回博客'
+    back: '返回博客',
+    allTopics: '所有主题',
+    latest: '最新发布',
+    oldest: '最早发布',
+    featured: '精选推荐'
   },
   en: {
     title: 'Blog',
@@ -24,7 +32,11 @@ export const BLOG_UI: Record<LangCode, BlogUiText> = {
     emptyTitle: 'Coming soon',
     emptyDesc: 'We’re preparing new posts. Stay tuned!',
     readMore: 'Read more',
-    back: 'Back to Blog'
+    back: 'Back to Blog',
+    allTopics: 'All topics',
+    latest: 'Latest',
+    oldest: 'Oldest',
+    featured: 'Featured'
   },
   bm: {
     title: 'Blog',
@@ -32,6 +44,10 @@ export const BLOG_UI: Record<LangCode, BlogUiText> = {
     emptyTitle: 'Akan datang',
     emptyDesc: 'Kami sedang sediakan artikel baharu. Nantikan ya!',
     readMore: 'Baca lagi',
-    back: 'Kembali ke Blog'
+    back: 'Kembali ke Blog',
+    allTopics: 'Semua topik',
+    latest: 'Terkini',
+    oldest: 'Terlama',
+    featured: 'Pilihan'
   }
 }

@@ -27,8 +27,13 @@ export function filterByTag(list: any[], tag: string | null) {
   return list.filter(p => Array.isArray(p.tags) && p.tags.includes(tag))
 }
 
-export function collectAllTags(list: any[]) {
+// blog.helpers.ts
+export function collectAllTags(posts: any[]) {
   const set = new Set<string>()
-  list.forEach(p => p.tags?.forEach((t: string) => set.add(t)))
-  return Array.from(set).sort()
+  posts.forEach(p => {
+    if (Array.isArray(p.tags)) {
+      p.tags.forEach((t: string) => set.add(t))
+    }
+  })
+  return Array.from(set)
 }

@@ -4,7 +4,7 @@ summary: 有，而且我们每天都在用。盐、油、醋几乎不会坏，�
 date: 2026-01-20
 slug: food-that-almost-never-spoils
 tags:
-  - food-science
+  - food_science
   - sauce
 cover: /images/blog/food-that-almost-never-spoils/cover-zh.png
 ---

@@ -2,6 +2,7 @@
 import { useRoute } from 'vue-router'
 import { BLOG_UI, type LangCode } from '~/locales/blog/blog.ui'
 import { sortBlogs, collectAllTags } from '~/lib/blog/blog.helpers'
+import { BLOG_TAGS } from '~/locales/blog/blog.tags'
 
 const route = useRoute()
 
@@ -63,15 +64,20 @@ useHead(() => ({
           <div class="blog-tools">
             <!-- Tag select -->
             <select v-model="selectedTag" class="blog-select">
-              <option :value="''">All topics</option>
-              <option v-for="t in tags" :key="t" :value="t">{{ t }}</option>
+              <option :value="''">
+                {{ ui.allTopics ?? 'All topics' }}
+              </option>
+
+              <option v-for="t in tags" :key="t" :value="t">
+                {{ BLOG_TAGS[t]?.[lang] ?? t }}
+              </option>
             </select>
 
             <!-- Sort select -->
             <select v-model="sortBy" class="blog-select">
-              <option value="latest">Latest</option>
-              <option value="featured">Featured</option>
-              <option value="oldest">Oldest</option>
+              <option value="latest">{{ ui.latest ?? 'Latest' }}</option>
+              <option value="featured">{{ ui.featured ?? 'Featured' }}</option>
+              <option value="oldest">{{ ui.oldest ?? 'Oldest' }}</option>
             </select>
 
             <!-- Clear -->
@@ -83,9 +89,6 @@ useHead(() => ({
           </div>
         </div>
       </header>
-
-
-
       <!-- ✅ Loading -->
       <!-- <div v-if="pending" class="blog-empty">
         <h2>Loading…</h2>
