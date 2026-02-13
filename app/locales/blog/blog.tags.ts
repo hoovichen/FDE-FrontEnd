@@ -11,7 +11,7 @@ export const BLOG_TAGS: Record<
     bm: 'Sains Makanan',
   },
   food_design: {
-    zh: '食品设计',
+    zh: '风味设计',
     en: 'Food Design',
     bm: 'Reka Bentuk Makanan',
   },

@@ -1,1 +1,11 @@
-{ "slugs": ["hello-fire-dragon", "food-that-almost-never-spoils", "the-road-before-firedragon", "from-chili-to-flavored-chili"] }
+{
+    "slugs": [
+        "hello-fire-dragon",
+        "food-that-almost-never-spoils",
+        "the-road-before-firedragon",
+        "from-chili-to-flavored-chili",
+        "green-cap-firedragon",
+        "yellow-cap-firedragon",
+        "red-cap-firedragon"
+    ]
+}
