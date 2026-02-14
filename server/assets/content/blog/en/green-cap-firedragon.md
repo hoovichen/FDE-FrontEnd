@@ -1,5 +1,5 @@
 ---
-title: "Sos Cili Berperisa Series — Opening Chapter: Green Cap Fire Dragon"
+title: "Flavour Chilli Sauce Series | Green Cap Chilli Sauce: Where the Flavour Journey Began"
 summary: "Among the three Fire Dragon variants, Green Cap may not be the most eye-catching — but it was the first to be born, and the one that defines our flavour direction."
 date: 2026-02-07
 slug: green-cap-firedragon

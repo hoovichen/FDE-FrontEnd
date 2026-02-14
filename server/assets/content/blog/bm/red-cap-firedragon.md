@@ -1,5 +1,5 @@
 ---
-title: "Siri Sos Cili Berlapis | Sos Cili FireDragon Penutup Merah: Bila “Tak Pedas” Jadi Cabaran Rekaan"
+title: "Siri Sos Cili Berlapis | Fire Dragon Sos Cili Merah: Cabaran Mereka Rasa Tanpa Pedas"
 summary: Selepas laluan pedas tinggi dan laluan tahan makan semakin jelas, kami berdepan satu permintaan yang nampak bercanggah — sos cili yang hampir tidak pedas, tetapi masih mengekalkan lapisan rasa tradisional.
 date: 2026-02-13
 slug: red-cap-firedragon

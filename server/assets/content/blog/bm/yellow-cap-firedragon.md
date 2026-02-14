@@ -1,5 +1,5 @@
 ---
-title: "Siri Sos Cili Berperisa | Yellow Cap Fire Dragon: Bila “Nak Lagi Pedas” Jadi Soalan Besar"
+title: "Siri Sos Cili Berperisa | Fire Dragon Sos Cili Kuning: Di Sebalik Kepedasan Tambahan"
 summary: "Selepas laluan rasa Green Cap menjadi stabil, kami mula menerima permintaan lain: tahap kepedasan yang lebih tinggi, rasa bawang putih yang lebih kuat, serta kemanisan yang lebih tradisional — namun ini bukan sekadar tambah cili semata-mata."
 date: 2026-02-12
 slug: yellow-cap-firedragon

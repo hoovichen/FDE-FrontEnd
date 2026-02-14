@@ -1,5 +1,5 @@
 ---
-title: "Siri Sos Cili Berperisa — Pembukaan: Green Cap Fire Dragon"
+title: "Siri Sos Cili Berperisa | Fire Dragon Sos Cili Hijau: Di Mana Perjalanan Rasa Bermula"
 summary: "Dalam tiga varian Fire Dragon, Green Cap mungkin bukan yang paling menonjol — tetapi ia yang paling awal lahir dan menjadi asas hala tuju rasa kami."
 date: 2026-02-07
 slug: green-cap-firedragon

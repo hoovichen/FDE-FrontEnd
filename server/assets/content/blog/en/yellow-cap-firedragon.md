@@ -1,5 +1,5 @@
 ---
-title: "Flavour Chilli Sauce Series | Yellow Cap Fire Dragon: When “A Little Spicier” Became a Bigger Question"
+title: "Flavour Chilli Sauce Series | Yellow Cap Chilli Sauce: Beyond Simply Adding More Heat"
 summary: "After the Green Cap flavour route stabilised, we began facing a different demand: higher heat, stronger garlic presence, and a more traditional sweetness — but this was not something that could be solved by simply adding more chilli."
 date: 2026-02-12
 slug: yellow-cap-firedragon

@@ -1,5 +1,5 @@
 ---
-title: "Flavor Chili Sauce Series | Red Cap FireDragon Chili Sauce: When “Not Spicy” Becomes a Design Challenge"
+title: "Flavor Chili Sauce Series | Red Cap Chilli Sauce: When “Not Spicy” Became a Design Challenge"
 summary: After defining both the high-heat and balanced-eating routes, we faced a seemingly contradictory request — a chili sauce that is almost not spicy, yet still preserves the layered character of a traditional chili sauce.
 date: 2026-02-13
 slug: red-cap-firedragon
