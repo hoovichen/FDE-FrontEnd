@@ -70,7 +70,7 @@ export const PRODUCTS_BASE: ProductBase[] = [
     imageOld: '/images/products/old-products/sambal.jpg',
     url: 'https://shopee.com.my/Sambal-Shrimp-Chili-Paste-%E5%8F%81%E5%B7%B4%E8%99%BE%E9%85%B1-%E4%B8%8D%E8%BE%A3Non-spicy-i.1708308739.57854432037',
     url2: 'https://www.lazada.com.my/products/pdp-i4772309686-s26898423098.html',
-    price: 8,
+    price: 9,
     featuredHome: true,
     featuredOrder: 2
   },
