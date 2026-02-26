@@ -45,6 +45,7 @@ export default defineNuxtConfig({
     '~/assets/styles/pages/blog-detail.css',
     '~/assets/styles/pages/stockists.css',
     '~/assets/styles/pages/stockists-detail.css',
+    '~/assets/styles/pages/faq.css',
 
     // components
     '~/assets/styles/components/cards.css',

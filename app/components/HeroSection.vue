@@ -6,7 +6,7 @@ import { useScrollToId } from '~/composables/useScrollToId'
 import { useCarousel } from '~/composables/useCarousel'
 import { useLanguage } from '~/composables/useLanguage'
 
-const SHOP_URL = 'https://shop.example.com'
+
 // 翻译状态
 const { lang } = useLanguage()
 
@@ -72,15 +72,16 @@ const dots = computed(() => {
           s.align,          // 'text-left' | 'text-right'
           { 'is-active': index === i }
         ]" :style="{
-            '--text': (s.ratio?.[0] ?? 40) + '%',
-            '--image': (s.ratio?.[1] ?? 60) + '%'
-          }" role="group" :aria-roledescription="'slide'" :aria-label="`${i + 1} / ${slides.length}`">
+          '--text': (s.ratio?.[0] ?? 40) + '%',
+          '--image': (s.ratio?.[1] ?? 60) + '%'
+        }" role="group" :aria-roledescription="'slide'" :aria-label="`${i + 1} / ${slides.length}`">
           <div class="hero__text">
             <h1 class="hero__title">{{ s.title }}</h1>
             <h4 v-if="s.mainContent" class="hero__main">{{ s.mainContent }}</h4>
             <p v-if="s.subContent" class="hero__sub">{{ s.subContent }}</p>
-            <button v-if="s.shopCta && s.shopLabel" class="btn btn--ghost" @click="scrollToId(s.shopCta.url)">{{ s.shopLabel
-              }}</button>
+            <button v-if="s.shopCta && s.shopLabel" class="btn btn--ghost" @click="scrollToId(s.shopCta.url)">{{
+              s.shopLabel
+            }}</button>
           </div>
           <div class="hero__image">
             <NuxtImg preload :src="s.image" alt="" :loading="i === 0 ? 'eager' : 'lazy'"

@@ -12,8 +12,8 @@ export interface HeroSlideBase {
 
 // 仅结构/图片/比例/目标
 export const HERO_SLIDES_BASE: HeroSlideBase[] = [
-  { key: 'I',      image: '/images/hero-recommend.jpg',            align: 'text-left',  ratio: [30, 70] },
-  { key: 'II', image: '/images/hero2.jpg',           align: 'text-right', ratio: [40, 60]},
-  { key: 'III',     image: '/images/hero3.jpg', align: 'text-left',  ratio: [45, 55] },
+  { key: 'I',      image: '/images/hero-recommend.jpg',            align: 'text-left',  ratio: [40, 60] },
+  { key: 'II', image: '/images/hero2.png',           align: 'text-right', ratio: [65, 35]},
+  { key: 'III',     image: '/images/hero3.png', align: 'text-left',  ratio: [65, 35] },
 ]
 

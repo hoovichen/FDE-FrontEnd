@@ -7,7 +7,7 @@ export interface ProductBase {
   image: string                  // 建议使用 CDN URL
   imageOld?: string               // 旧版图片 URL（兼容旧站）
   url?: string                   // 外部商城链接（Shopee/Lazada/Shopify等）
-  url2?: string                  // 可选第二外部链接
+  url2?: string                  // 可选第二外部链接Lazada
   price?: number                 // 可选：建议零售价（数字，不带货币）
   categoryId?: number            // 可选：分类（将来用）
   subcategoryId?: number         // 可选：子分类（将来用）

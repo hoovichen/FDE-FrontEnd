@@ -43,24 +43,30 @@ export function useLanguage() {
   const router = useRouter()
   const route = useRoute()
 
-  const switchLang = async (next: LangCode) => {
+    const switchLang = async (next: LangCode) => {
     if (next === lang.value) return
 
     lang.value = next
 
-    // 只处理 blog 路由
-    if (route.path.startsWith('/blog')) {
-      const segments = route.path.split('/').filter(Boolean)
-      // ['blog', 'zh', 'slug?']
+    // ✅ 统一处理多语言前缀路由：/blog/<lang>/...  /faq/<lang>/...  /stockists/<lang>/...
+    const segments = route.path.split('/').filter(Boolean) // e.g. ['blog','zh','hello']
+    const root = segments[0] || ''
+    const multiRoots = new Set(['blog', 'faq'])
 
-      if (segments[1]) {
-        segments[1] = next
-        await router.push('/' + segments.join('/'))
-      } else {
-        await router.push(`/blog/${next}`)
-      }
+    if (!multiRoots.has(root)) return
+
+    // 如果当前是 /blog 或 /faq（没有 lang 段），补上
+    // e.g. /blog -> /blog/en
+    if (!segments[1]) {
+      await router.push(`/${root}/${next}`)
+      return
     }
+
+    // 正常情况：/blog/zh/... 把第二段 lang 换掉
+    segments[1] = next
+    await router.push('/' + segments.join('/'))
   }
+
 
   return { lang, setLang, switchLang }
 }

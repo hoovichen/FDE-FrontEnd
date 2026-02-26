@@ -13,6 +13,7 @@
   /* 左侧文字 / 右侧产品 */
   align-items: center;
   gap: 32px;
+  border-radius: 16px 16px 0 0;
 }
 
 /* 左侧文案容器（启用虚化背景） */

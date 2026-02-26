@@ -21,12 +21,12 @@ export const FOOTER_UI: Record<LangCode, FooterUiText> = {
     socialTitle: '关注我们',
     links: {
       blog: '博客',
-      stockists: '线下门店',
+      stockists: '线下合作门店',
       faq: '常见问题',
       privacy: '隐私政策',
       terms: '条款与条件',
     },
-    comingSoon: '（筹备中）',
+    comingSoon: '（开发中）',
     copyright: '版权所有 © 2026 FIRE DRAGON ENTERPRISE',
   },
   en: {
@@ -39,7 +39,7 @@ export const FOOTER_UI: Record<LangCode, FooterUiText> = {
       privacy: 'PRIVACY POLICY',
       terms: 'TERMS & CONDITIONS',
     },
-    comingSoon: '(Coming soon)',
+    comingSoon: '(Developing)',
     copyright: 'COPYRIGHT © 2026 FIRE DRAGON ENTERPRISE',
   },
   bm: {

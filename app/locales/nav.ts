@@ -7,6 +7,8 @@ export const NAV_TEXT: Record<LangCode, {
   products: string
   about: string
   contact: string
+  stockists: string
+  faq: string
 }> = {
   zh: {
     home: '首页',
@@ -14,6 +16,9 @@ export const NAV_TEXT: Record<LangCode, {
     products: '产品',
     about: '关于我们',
     contact: '联系我们',
+    stockists: '线下合作店',
+    faq: '常见问题',
+
   },
   en: {
     home: 'Home',
@@ -21,6 +26,8 @@ export const NAV_TEXT: Record<LangCode, {
     products: 'Products',
     about: 'About us',
     contact: 'Contact us',
+    stockists: 'Stockists',
+    faq: 'FAQ',
   },
   bm: {
     home: 'Home',
@@ -28,5 +35,7 @@ export const NAV_TEXT: Record<LangCode, {
     products: 'Produk',
     about: 'Tentang Kami',
     contact: 'Hubungi Kami',
+    stockists: 'Kedai / Stockists',
+    faq: 'FAQ',
   }
 }
