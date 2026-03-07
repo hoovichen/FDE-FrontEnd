@@ -27,7 +27,7 @@ export const FOOTER_UI: Record<LangCode, FooterUiText> = {
       terms: '条款与条件',
     },
     comingSoon: '（开发中）',
-    copyright: '版权所有 © 2026 FIRE DRAGON ENTERPRISE',
+    copyright: '版权所有 © 2026 FIRE DRAGON ENTERPRISE(IP0327174-X)',
   },
   en: {
     infoTitle: 'INFO',
@@ -40,7 +40,7 @@ export const FOOTER_UI: Record<LangCode, FooterUiText> = {
       terms: 'TERMS & CONDITIONS',
     },
     comingSoon: '(Developing)',
-    copyright: 'COPYRIGHT © 2026 FIRE DRAGON ENTERPRISE',
+    copyright: 'COPYRIGHT © 2026 FIRE DRAGON ENTERPRISE(IP0327174-X)',
   },
   bm: {
     infoTitle: 'INFO',
@@ -53,6 +53,6 @@ export const FOOTER_UI: Record<LangCode, FooterUiText> = {
       terms: 'TERMA & SYARAT',
     },
     comingSoon: '(Akan datang)',
-    copyright: 'HAK CIPTA © 2026 FIRE DRAGON ENTERPRISE',
+    copyright: 'HAK CIPTA © 2026 FIRE DRAGON ENTERPRISE(IP0327174-X)',
   },
 }

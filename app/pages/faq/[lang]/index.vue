@@ -6,6 +6,7 @@ import { FAQ_ENTITIES } from '~/lib/faq/faq.entities'
 import { searchFaqEntities, buildSuggestionTopics } from '~/lib/faq/faq.search'
 import { FAQ_UI } from '~/locales/faq/faq.ui'
 import { useHead } from '#app'
+import { smartFaqSearch } from '~/lib/faq/faq.smart'
 
 const route = useRoute()
 
@@ -27,9 +28,11 @@ const showClassic = ref(false)
 
 const state = ref<'idle' | 'thinking' | 'answered' | 'notfound'>('idle')
 const hits = ref<FaqEntitySearchHit[]>([])
-const hit = computed<FaqEntitySearchHit | null>(() => hits.value[0] || null)
+const hit = ref<FaqEntitySearchHit | null>(null) // ✅ 改成 ref
 
-const suggestions = computed(() => buildSuggestionTopics(lang.value))
+const suggestions = ref<string[]>([])
+const actions = ref<any[]>([])
+const cards = ref<any[]>([])
 
 // 5️⃣ search
 function submit() {
@@ -37,6 +40,7 @@ function submit() {
   if (!query) {
     state.value = 'idle'
     hits.value = []
+    hit.value = null
     return
   }
 
@@ -44,27 +48,23 @@ function submit() {
   hits.value = []
 
   window.setTimeout(() => {
-    const result = searchFaqEntities(FAQ_ENTITIES, query, {
-      displayLang: lang.value,
-      limit: 5,
-    })
+    const res = smartFaqSearch(query, { displayLang: lang.value, limit: 5 })
 
-    hits.value = result
+    hits.value = res.hits
+    hit.value = res.best || res.hits[0] || null  // ✅ best 优先，fallback hits[0]
 
-    // ✅ 判定 answered / notfound：
-    // - 只有 primary 才认为“找到了明确答案”
-    // - 否则进入 notfound（但仍显示推荐）
-    if (result.length && result[0] && result[0].tier === 'primary') {
-      state.value = 'answered'
-    } else {
-      state.value = 'notfound'
-    }
+    actions.value = res.actions
+    cards.value = res.cards
+    suggestions.value = res.suggestions
+
+    state.value = res.state === 'answered' ? 'answered' : 'notfound'
   }, 180)
 }
 
 function clearAll() {
   q.value = ''
   hits.value = []
+  hit.value = null
   state.value = 'idle'
 }
 
@@ -160,7 +160,8 @@ useHead({
         </form>
 
         <!-- Answer -->
-        <FaqAnswer :ui="ui" :query="q" :hit="hit" :hits="hits" :suggestions="suggestions" :state="state" />
+        <FaqAnswer :ui="ui" :query="q" :hit="hit" :hits="hits" :actions="actions" :cards="cards"
+          :suggestions="suggestions" :state="state" />
       </div>
 
       <!-- Classic -->

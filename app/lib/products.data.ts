@@ -32,7 +32,7 @@ export const PRODUCTS_BASE: ProductBase[] = [
     gallery: ['/images/products/greencap.png'],
   },
   {
-    key: 'garlic-sauce',
+    key: 'red-cap',
     image: '/images/products/redcap.png',
     imageOld: '/images/products/old-products/redcap.jpg',
     url: 'https://shopee.com.my/FGD\'s-Pantai-Remis-Chilli-Sauce-%E7%81%AB%E9%BE%8D%E8%BE%A3%E6%A4%92%E9%85%B1-%E4%B8%89%E7%A7%8D%E8%BE%A3%E5%BA%A6%E5%8F%AF%E9%80%89-Sos-Chilli-i.1708308739.56054449110',
@@ -40,7 +40,7 @@ export const PRODUCTS_BASE: ProductBase[] = [
     price: 4,
   },
   {
-    key: 'extra-hot',
+    key: 'yellow-cap',
     image: '/images/products/yellowcap.png',
     imageOld: '/images/products/old-products/yellowcap.png',
     url: 'https://shopee.com.my/FGD\'s-Pantai-Remis-Chilli-Sauce-%E7%81%AB%E9%BE%8D%E8%BE%A3%E6%A4%92%E9%85%B1-%E4%B8%89%E7%A7%8D%E8%BE%A3%E5%BA%A6%E5%8F%AF%E9%80%89-Sos-Chilli-i.1708308739.56054449110',
@@ -51,7 +51,7 @@ export const PRODUCTS_BASE: ProductBase[] = [
     key: 'sky-pepper',
     image: '/images/products/cann.png',
     price: 9,
-    url: 'https://shopee.com.my/FDG\'s-Brid\'s-Eye-Chilli-Sauce-%E7%81%AB%E9%BE%8D%E6%8C%87%E5%A4%A9%E6%A4%92%E8%BE%A3%E6%A4%92%E9%85%B1-Sos-Chilli-Padi-Extra-Hot-i.1708308739.49854468963',
+    url: 'https://shopee.com.my/FDG\'s-Brid\'s-Eye-Chilli-Sauce-%E7%81%AB%E9%BE%8D%E6%8C%87%E5%A4%A9%E6%A4%92%E8%BE%A3%E6%A4%92%E9%85%B1-Sos-Chilli-Padi-yellow-cap-i.1708308739.49854468963',
     url2: 'https://www.lazada.com.my/products/pdp-i4772897649-s26913424201.html',
     featuredHome: true,
     featuredOrder: 3

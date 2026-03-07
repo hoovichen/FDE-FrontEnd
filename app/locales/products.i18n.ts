@@ -11,11 +11,11 @@ export const PRODUCTS_I18N: Record<LangCode, Record<string, ProductI18n>> = {
       name: 'Pantai Remis Chili Sauce – Mild',
       summary: 'Mildly spicy with a balanced flavor and signature aroma.'
     },
-    'garlic-sauce': {
+    'red-cap': {
       name: 'Pantai Remis Chili Sauce – Original',
       summary: 'Medium heat with rich garlic aroma — perfect for everyday meals.'
     },
-    'extra-hot': {
+    'yellow-cap': {
       name: 'Pantai Remis Chili Sauce – Hot',
       summary: 'Made from premium chilies for strong, flavorful heat.'
     },
@@ -46,11 +46,11 @@ export const PRODUCTS_I18N: Record<LangCode, Record<string, ProductI18n>> = {
       name: '火龍辣椒酱 · 青盖',
       summary: '辣度平衡，标志性香气。'
     },
-    'garlic-sauce': {
+    'red-cap': {
       name: '火龍辣椒酱 · 红盖',
       summary: '蒜香浓郁，多场景适配。'
     },
-    'extra-hot': {
+    'yellow-cap': {
       name: '火龍辣椒酱 · 黄盖',
       summary: '使用优质辣椒，辣度更强，风味浓郁。'
     },
@@ -81,11 +81,11 @@ export const PRODUCTS_I18N: Record<LangCode, Record<string, ProductI18n>> = {
       name: 'Sos Cili Pantai Remis – Hijau',
       summary: 'Kepedasan ringan dengan rasa seimbang dan aroma tersendiri.'
     },
-    'garlic-sauce': {
+    'red-cap': {
       name: 'Sos Cili Pantai Remis – Merah',
       summary: 'Rasa bawang putih yang kaya dan kepedasan sederhana — sesuai untuk hidangan harian.'
     },
-    'extra-hot': {
+    'yellow-cap': {
       name: 'Sos Cili Pantai Remis – Kuning',
       summary: 'Diperbuat daripada cili berkualiti tinggi untuk rasa pedas yang kuat dan beraroma.'
     },
