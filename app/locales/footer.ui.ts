@@ -6,6 +6,7 @@ export interface FooterUiText {
   socialTitle: string
   links: {
     blog: string
+    about: string
     stockists: string
     faq: string
     privacy: string
@@ -21,6 +22,7 @@ export const FOOTER_UI: Record<LangCode, FooterUiText> = {
     socialTitle: '关注我们',
     links: {
       blog: '博客',
+      about: '关于我们',
       stockists: '线下合作门店',
       faq: '常见问题',
       privacy: '隐私政策',
@@ -34,6 +36,7 @@ export const FOOTER_UI: Record<LangCode, FooterUiText> = {
     socialTitle: 'STALK US',
     links: {
       blog: 'BLOG',
+      about: 'ABOUT',
       stockists: 'STOCKISTS',
       faq: 'FAQ',
       privacy: 'PRIVACY POLICY',
@@ -47,6 +50,7 @@ export const FOOTER_UI: Record<LangCode, FooterUiText> = {
     socialTitle: 'IKUT KAMI',
     links: {
       blog: 'BLOG',
+      about: 'TENTANG KAMI',
       stockists: 'KEDAI / STOCKISTS',
       faq: 'FAQ',
       privacy: 'POLISI PRIVASI',

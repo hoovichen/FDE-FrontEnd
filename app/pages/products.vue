@@ -5,6 +5,8 @@ import { PRODUCTS_PAGE_TEXT } from '~/locales/seo.products'
 import { Analytics } from '@vercel/analytics/nuxt'
 import { SpeedInsights } from "@vercel/speed-insights/nuxt"
 const { sorted: products, sortBy, ui } = useProductsList()
+const config = useRuntimeConfig()
+const siteUrl = computed(() => String(config.public.siteUrl || 'https://www.firedragonmy.com').replace(/\/$/, ''))
 
 // SEO
 const { apply } = useSeoPage(PRODUCTS_PAGE_TEXT, {
@@ -20,7 +22,7 @@ const itemListJsonLd = computed(() => ({
   itemListElement: products.value.map((p, idx) => ({
     '@type': 'ListItem',
     position: idx + 1,
-    url: `https://example.com/products/${p.key}`, // TODO: 上线换域名
+    url: `${siteUrl.value}/products/${p.key}`,
     name: p.name
   }))
 }))
@@ -32,14 +34,6 @@ useHead(() => ({
   }]
 }))
 
-// —— 手机“第2张居中”体验优化（保留你的逻辑）
-const railRef = ref<HTMLDivElement | null>(null)
-onMounted(() => {
-  const isMobile = window.matchMedia('(max-width: 768px)').matches
-  if (!isMobile) return
-  const second = railRef.value?.querySelectorAll<HTMLAnchorElement>('.card')[1]
-  second?.scrollIntoView({ behavior: 'instant' as any, inline: 'center', block: 'nearest' })
-})
 </script>
 
 
@@ -48,7 +42,11 @@ onMounted(() => {
   <Analytics />
   <section class="page-products">
     <div class="page-products__header">
-      <h1 class="page-products__title">{{ ui.pageTitle }}</h1>
+      <div>
+        <p class="page-products__eyebrow">{{ ui.all }}</p>
+        <h1 class="page-products__title">{{ ui.pageTitle }}</h1>
+        <p v-if="ui.pageDesc" class="page-products__desc">{{ ui.pageDesc }}</p>
+      </div>
 
       <label class="page-products__sort">
         <span class="sr-only">Sort</span>
@@ -61,47 +59,14 @@ onMounted(() => {
       </label>
     </div>
 
-    <!-- 桌面：网格；手机：横向轮播（可见左右半卡） -->
     <div class="page-products__content">
-      <!-- Desktop Grid -->
       <div class="grid" aria-hidden="false">
         <NuxtLink v-for="p in products" :key="p.key" :to="`/products/${p.key}`" class="product-card">
           <div class="card__image-wrapper">
-            <!-- 只裁主图 -->
-            <div class="card__image-clip">
-              <NuxtImg :src="p.image" :alt="p.name" class="card__main-NuxtImg" loading="lazy" decoding="async" />
-            <!-- 右下角预览（旧站风格） -->
-            <div v-if="p.imageOld" class="old-version-preview">
-              <NuxtImg :src="p.imageOld" :alt="`${p.name} - ${ui.oldPackage || 'Old Packaging'}`" />
-              <span class="old-version-label">{{ ui.oldPackage || 'Old Packaging' }}</span>
-            </div>
-            </div>
-
-          </div>
-          <div class="card__body">
-            <h3 class="card__title">{{ p.name }}</h3>
-            <p v-if="p.summary" class="card__summary">{{ p.summary }}</p>
-            <p v-if="p.price" class="card__price">RM {{ p.price.toFixed(2) }}</p>
-          </div>
-        </NuxtLink>
-      </div>
-
-      <!-- Mobile Rail -->
-      <div class="rail" ref="railRef">
-        <NuxtLink v-for="p in products" :key="`m-${p.key}`" :to="`/products/${p.key}`" class="product-card">
-          <div class="card__image-wrapper">
-            <!-- 只裁主图 -->
             <div class="card__image-clip">
               <NuxtImg :src="p.image" :alt="p.name" class="card__main-NuxtImg" loading="lazy" decoding="async" />
             </div>
-
-            <!-- 右下角预览（旧站风格） -->
-            <div v-if="p.imageOld" class="old-version-preview">
-              <NuxtImg :src="p.imageOld" :alt="`${p.name} - ${ui.oldPackage || 'Old Packaging'}`" />
-              <span class="old-version-label">{{ ui.oldPackage || 'Old Packaging' }}</span>
-            </div>
           </div>
-
           <div class="card__body">
             <h3 class="card__title">{{ p.name }}</h3>
             <p v-if="p.summary" class="card__summary">{{ p.summary }}</p>

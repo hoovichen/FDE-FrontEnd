@@ -9,6 +9,16 @@ export interface StockistsUiText {
     emptyDesc: string
     backToList: string
     groupLabel: string
+    allStates: string
+    allCities: string
+    clear: string
+    storesLabel: string
+    regionsLabel: string
+    citiesLabel: string
+    viewDetails: string
+    address: string
+    contact: string
+    call: string
 }
 
 export const STOCKISTS_UI: Record<LangCode, StockistsUiText> = {
@@ -20,7 +30,17 @@ export const STOCKISTS_UI: Record<LangCode, StockistsUiText> = {
         emptyTitle: '暂时找不到匹配的店',
         emptyDesc: '换个关键词试试，例如城市名或店名。',
         backToList: '返回所有店铺',
-        groupLabel: '按州 / 城市分组'
+        groupLabel: '按州 / 城市分组',
+        allStates: '所有州',
+        allCities: '所有城市',
+        clear: '清除',
+        storesLabel: '合作店',
+        regionsLabel: '州属',
+        citiesLabel: '城市',
+        viewDetails: '查看详情',
+        address: '地址',
+        contact: '联络',
+        call: '拨打'
     },
     en: {
         title: 'Stockists',
@@ -30,7 +50,17 @@ export const STOCKISTS_UI: Record<LangCode, StockistsUiText> = {
         emptyTitle: 'No matching stockist',
         emptyDesc: 'Try a different keyword — city or store name.',
         backToList: 'Back to stockist list',
-        groupLabel: 'Grouped by state / city'
+        groupLabel: 'Grouped by state / city',
+        allStates: 'All states',
+        allCities: 'All cities',
+        clear: 'Clear',
+        storesLabel: 'Stores',
+        regionsLabel: 'Regions',
+        citiesLabel: 'Cities',
+        viewDetails: 'View details',
+        address: 'Address',
+        contact: 'Contact',
+        call: 'Call'
     },
     bm: {
         title: 'Stockists',
@@ -40,6 +70,16 @@ export const STOCKISTS_UI: Record<LangCode, StockistsUiText> = {
         emptyTitle: 'Tiada padanan',
         emptyDesc: 'Cuba kata kunci lain — bandar atau nama kedai.',
         backToList: 'Kembali ke senarai kedai',
-        groupLabel: 'Mengikut negeri / bandar'
+        groupLabel: 'Mengikut negeri / bandar',
+        allStates: 'Semua negeri',
+        allCities: 'Semua bandar',
+        clear: 'Kosongkan',
+        storesLabel: 'Kedai',
+        regionsLabel: 'Negeri',
+        citiesLabel: 'Bandar',
+        viewDetails: 'Lihat butiran',
+        address: 'Alamat',
+        contact: 'Hubungi',
+        call: 'Telefon'
     }
 }

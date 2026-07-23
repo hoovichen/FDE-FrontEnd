@@ -1,300 +1,358 @@
-/* ==============================
-   Page: Stockists (List)
-   Warm brown / soft shadow / rounded cards
-   Only scopes to .stockists-* & .stockist-card*
-============================== */
-
-/* Local theme tokens (scoped by usage, not global overwrite) */
-:root {
-  --stock-accent: rgba(120, 75, 40, 1);
-  /* warm brown */
-  --stock-accent-2: rgba(120, 75, 40, 0.14);
-  /* focus ring */
-  --stock-border: rgba(120, 75, 40, 0.16);
-  --stock-ink: rgba(35, 24, 18, 1);
-  --stock-ink-muted: rgba(35, 24, 18, 0.65);
-  --stock-surface: rgba(255, 251, 246, 1);
-  /* warm off-white */
-  --stock-surface-2: rgba(255, 245, 236, 1);
-  /* warm card */
-  --stock-shadow: 0 10px 28px rgba(20, 10, 5, 0.08);
-  --stock-shadow-hover: 0 16px 40px rgba(20, 10, 5, 0.14);
-  --stock-radius-lg: 18px;
-  --stock-radius-md: 14px;
-}
-
-/* Page */
 .stockists-page {
-  padding: clamp(24px, 6vw, 56px) 0;
+  width: 100%;
+  padding: clamp(42px, 7vw, 88px) 0 clamp(70px, 9vw, 118px);
+  background: var(--fdg-color-white);
+  color: var(--fdg-color-ink);
+  font-family: var(--fdg-font-family);
 }
 
-/* Header */
+.stockists-page .container {
+  width: min(1180px, calc(100% - 72px));
+  max-width: none;
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
 .stockists-head {
-  width: min(980px, 100%);
-  margin: 0 auto clamp(18px, 4vw, 28px);
-  text-align: center;
+  max-width: 760px;
+  margin: 0 0 clamp(30px, 5vw, 58px);
 }
 
 .stockists-title {
-  font-size: clamp(28px, 5vw, 46px);
-  line-height: 1.12;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--stock-ink);
+  margin: 0;
+  color: var(--fdg-color-ink);
+  font-size: clamp(40px, 6vw, 82px);
+  font-weight: 420;
+  line-height: .98;
+  letter-spacing: 0;
 }
 
 .stockists-desc {
-  margin-top: 10px;
-  line-height: 1.75;
-  color: var(--stock-ink-muted);
+  max-width: 560px;
+  margin: 18px 0 0;
+  color: var(--fdg-color-muted);
+  font-size: 16px;
+  line-height: 1.58;
 }
 
-/* Tools */
+.stockists-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, .34fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+
+.stockists-panel {
+  position: sticky;
+  top: 88px;
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid rgba(16, 21, 17, .1);
+  background: #f8faf8;
+}
+
+.stockists-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid rgba(16, 21, 17, .1);
+  border-left: 1px solid rgba(16, 21, 17, .1);
+}
+
+.stockists-stats div {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  padding: 12px 10px;
+  border-right: 1px solid rgba(16, 21, 17, .1);
+  border-bottom: 1px solid rgba(16, 21, 17, .1);
+  background: var(--fdg-color-white);
+}
+
+.stockists-stats strong {
+  color: var(--fdg-color-ink);
+  font-size: 20px;
+  font-weight: 520;
+  line-height: 1;
+}
+
+.stockists-stats span {
+  color: var(--fdg-color-muted);
+  font-size: 11px;
+  font-weight: 760;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
 .stockists-tools {
-  margin-top: 18px;
   display: grid;
   gap: 10px;
-  justify-items: center;
 }
 
-.stockists-search {
-  width: min(720px, 100%);
-  padding: 12px 14px;
-  border-radius: var(--stock-radius-md);
-  border: 1px solid var(--color-border);
-  background: var(--color-bg);
+.stockists-search,
+.stockists-select {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid rgba(16, 21, 17, .14);
+  border-radius: 0;
+  padding: 11px 13px;
+  color: var(--fdg-color-ink);
+  background: var(--fdg-color-white);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
   outline: none;
-  transition: box-shadow .2s ease, border-color .2s ease, transform .2s ease;
 }
 
 .stockists-search::placeholder {
-  color: rgba(35, 24, 18, 0.45);
+  color: rgba(104, 113, 107, .72);
 }
 
-.stockists-search:focus {
-  border-color: rgba(120, 75, 40, 0.35);
-  box-shadow: 0 0 0 6px var(--stock-accent-2);
-}
-
-.stockists-hint {
-  font-size: 13px;
-  color: rgba(35, 24, 18, 0.55);
-}
-
-/* Groups layout */
-.stockists-groups {
-  width: min(1120px, 92%);
-  margin: 0 auto;
-  display: grid;
-  gap: 26px;
-}
-
-/* State section */
-.stockists-state {
-  background: linear-gradient(180deg, var(--stock-surface), rgba(255, 255, 255, 0));
-  border-radius: var(--stock-radius-lg);
-  padding: clamp(12px, 2vw, 16px);
-  border: 1px solid rgba(120, 75, 40, 0.10);
-}
-
-.stockists-stateTitle {
-  font-size: 18px;
-  font-weight: 800;
-  margin: 0 0 10px;
-  color: var(--stock-ink);
-  letter-spacing: -0.01em;
-}
-
-.stockists-cityTitle {
-  font-size: 13px;
-  font-weight: 800;
-  margin: 14px 0 10px;
-  color: rgba(35, 24, 18, 0.55);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-/* Cards grid */
-.stockists-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
-}
-
-/* Card (NuxtLink) */
-.stockist-card {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  border-radius: var(--stock-radius-lg);
-  overflow: hidden;
-  background: var(--stock-surface-2);
-  border: 1px solid rgba(120, 75, 40, 0.10);
-  box-shadow: var(--stock-shadow);
-  text-decoration: none;
-  color: inherit;
-  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-}
-
-.stockist-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--stock-shadow-hover);
-  border-color: rgba(120, 75, 40, 0.18);
-}
-
-/* Media */
-.stockist-card__media {
-  position: relative;
-  background: rgba(0, 0, 0, 0.04);
-}
-
-.stockist-card__media img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  display: block;
-  transform: scale(1);
-  transition: transform .35s ease;
-}
-
-.stockist-card:hover .stockist-card__media img {
-  transform: scale(1.03);
-}
-
-/* Body */
-.stockist-card__body {
-  padding: 14px 16px 16px;
-  display: grid;
-  gap: 10px;
-}
-
-.stockist-card__top {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.stockist-card__name {
-  font-weight: 850;
-  line-height: 1.28;
-  color: var(--stock-ink);
-  letter-spacing: -0.01em;
-}
-
-.stockist-card__code {
-  font-size: 12px;
-  color: rgba(35, 24, 18, 0.5);
-  white-space: nowrap;
-}
-
-/* Meta */
-.stockist-card__meta {
-  display: grid;
-  gap: 6px;
-  font-size: 13px;
-  line-height: 1.55;
-  color: rgba(35, 24, 18, 0.62);
-}
-
-/* Actions */
-.stockist-card__actions {
-  margin-top: 2px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Make the maps button feel more "chip-like" (won't affect global .btn-ghost) */
-.stockist-card__maps {
-  border-radius: 999px;
-  padding: 8px 12px;
-  border: 1px solid rgba(120, 75, 40, 0.18);
-  background: rgba(255, 255, 255, 0.6);
-  color: rgba(120, 75, 40, 1);
-  font-weight: 700;
-  font-size: 12px;
-  text-decoration: none;
-  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
-}
-
-.stockist-card__maps:hover {
-  transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 10px 18px rgba(20, 10, 5, 0.10);
-}
-
-/* Empty */
-.stockists-empty {
-  text-align: center;
-  padding: 42px 0;
-}
-
-.stockists-empty h2 {
-  font-size: 20px;
-  font-weight: 800;
-  margin-bottom: 8px;
-  color: var(--stock-ink);
+.stockists-search:focus,
+.stockists-select:focus {
+  border-color: var(--fdg-color-olive);
 }
 
 .stockists-filters {
-  width: min(720px, 100%);
   display: grid;
-  grid-template-columns: 1fr 1fr auto;
   gap: 10px;
-  align-items: center;
-}
-
-.stockists-select {
-  padding: 12px 14px;
-  border-radius: 14px;
-  border: 1px solid var(--color-border);
-  background: var(--color-bg);
-  outline: none;
-}
-
-.stockists-select:focus {
-  border-color: rgba(120, 75, 40, 0.35);
-  box-shadow: 0 0 0 6px rgba(120, 75, 40, 0.10);
 }
 
 .stockists-clear {
-  padding: 12px 14px;
-  border-radius: 14px;
-  border: 1px solid rgba(120, 75, 40, 0.18);
-  background: rgba(255, 255, 255, 0.65);
-  font-weight: 800;
+  min-height: 42px;
+  border: 1px solid rgba(16, 21, 17, .14);
+  border-radius: var(--fdg-radius-pill);
+  padding: 0 16px;
+  color: var(--fdg-color-ink);
+  background: var(--fdg-color-white);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 820;
   cursor: pointer;
 }
 
-@media (max-width: 720px) {
-  .stockists-filters {
+.stockists-hint {
+  color: var(--fdg-color-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.stockists-groups {
+  display: grid;
+  gap: 34px;
+}
+
+.stockists-state {
+  display: grid;
+  gap: 16px;
+}
+
+.stockists-stateHead {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(16, 21, 17, .1);
+}
+
+.stockists-stateTitle {
+  margin: 0;
+  color: var(--fdg-color-ink);
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 430;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.stockists-city {
+  display: grid;
+  gap: 10px;
+}
+
+.stockists-cityTitle {
+  margin: 0;
+  color: var(--fdg-color-olive);
+  font-size: 12px;
+  font-weight: 820;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.stockists-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid rgba(16, 21, 17, .08);
+}
+
+.stockists-page .stockist-card {
+  display: grid;
+  grid-template-columns: 124px minmax(0, 1fr);
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+  background: var(--fdg-color-white);
+  border-right: 1px solid rgba(16, 21, 17, .08);
+  border-bottom: 1px solid rgba(16, 21, 17, .08);
+  border-left: 1px solid rgba(16, 21, 17, .08);
+  transition: background-color .18s ease;
+}
+
+.stockists-page .stockist-card:hover {
+  background: #f8faf8;
+}
+
+.stockists-page .stockist-card__media {
+  min-height: 124px;
+  background: linear-gradient(90deg, #edf2f1, #f8f9f6);
+  overflow: hidden;
+}
+
+.stockists-page .stockist-card__media img {
+  width: 100%;
+  height: 100%;
+  min-height: 124px;
+  object-fit: cover;
+  display: block;
+  transition: transform .24s ease;
+}
+
+.stockists-page .stockist-card:hover .stockist-card__media img {
+  transform: scale(1.03);
+}
+
+.stockists-page .stockist-card__body {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px 18px;
+}
+
+.stockists-page .stockist-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.stockists-page .stockist-card__name {
+  color: var(--fdg-color-ink);
+  font-size: clamp(17px, 1.65vw, 22px);
+  font-weight: 430;
+  line-height: 1.12;
+}
+
+.stockists-page .stockist-card__place,
+.stockists-page .stockist-card__code {
+  color: var(--fdg-color-muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.stockists-page .stockist-card__code {
+  flex: 0 0 auto;
+  font-weight: 760;
+}
+
+.stockists-page .stockist-card__meta {
+  display: grid;
+  gap: 5px;
+  max-width: 62ch;
+  color: var(--fdg-color-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.stockists-page .stockist-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.stockists-page .stockist-card__detail {
+  color: var(--fdg-color-olive);
+  font-size: 12px;
+  font-weight: 820;
+}
+
+.stockists-page .stockist-card__maps {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  border: 1px solid rgba(16, 21, 17, .14);
+  border-radius: var(--fdg-radius-pill);
+  padding: 0 13px;
+  color: var(--fdg-color-ink);
+  background: var(--fdg-color-white);
+  font-size: 12px;
+  font-weight: 820;
+  text-decoration: none;
+}
+
+.stockists-empty {
+  padding: 34px;
+  border: 1px solid rgba(16, 21, 17, .1);
+  background: #f8faf8;
+}
+
+.stockists-empty h2 {
+  margin: 0 0 8px;
+  color: var(--fdg-color-ink);
+  font-size: 24px;
+  font-weight: 430;
+}
+
+.stockists-empty p {
+  margin: 0;
+  color: var(--fdg-color-muted);
+}
+
+@media (max-width: 980px) {
+  .stockists-page .container {
+    width: min(680px, calc(100% - 28px));
+  }
+
+  .stockists-layout {
     grid-template-columns: 1fr;
   }
-}
 
-
-/* Responsive */
-@media (max-width: 900px) {
-  .stockists-state {
-    padding: 12px;
-  }
-
-  .stockists-list {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  .stockists-panel {
+    position: static;
   }
 }
 
-@media (max-width: 520px) {
-  .stockists-head {
-    text-align: left;
+@media (max-width: 620px) {
+  .stockists-title {
+    font-size: clamp(34px, 14vw, 56px);
   }
 
-  .stockists-tools {
-    justify-items: stretch;
+  .stockists-page .stockist-card {
+    grid-template-columns: 1fr;
   }
 
-  .stockists-search {
+  .stockists-page .stockist-card__media {
+    min-height: 0;
+    aspect-ratio: 16 / 8.5;
+  }
+
+  .stockists-page .stockist-card__media img {
+    min-height: 0;
+  }
+
+  .stockists-page .stockist-card__body {
+    padding: 14px 16px 16px;
+  }
+
+  .stockists-page .stockist-card__top,
+  .stockists-page .stockist-card__actions {
+    display: grid;
+    justify-content: stretch;
+  }
+
+  .stockists-page .stockist-card__maps {
     width: 100%;
   }
 }

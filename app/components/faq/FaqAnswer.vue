@@ -136,8 +136,6 @@ const recoQuestionHtml = (q: string) => {
 
       <div class="faq-answer__hint" v-if="suggestions.length">
         <span class="faq-answer__hintLead">{{ ui.suggestionIntro }}</span>
-        <div class="faq-suggest">
-        </div>
       </div>
     </div>
 

@@ -24,7 +24,7 @@ const list = computed(() => FAQ_ENTITIES.map(e => e.i18n[lang.value]))
 
 // 4️⃣ state
 const q = ref('')
-const showClassic = ref(false)
+const showClassic = ref(true)
 
 const state = ref<'idle' | 'thinking' | 'answered' | 'notfound'>('idle')
 const hits = ref<FaqEntitySearchHit[]>([])

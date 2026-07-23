@@ -9,7 +9,7 @@
   --color-text-muted: #4b5563;
   --color-bg: #faf7ef;
   --color-bg-soft: #f8fafc;
-  --color-bg-softer: rgb(255, 235, 213)c;
+  --color-bg-softer: rgb(255, 235, 213);
   --color-border: #e5e7eb;
 
   --color-shopee: #f97316;
@@ -35,4 +35,18 @@
   /* 浅暖灰（summary / meta） */
   --color-recipe-card-bg: #fffaf5;
   /* 米白 / 厨房感 */
+
+  /* Homepage redesign / editorial commerce tokens */
+  --fdg-color-olive: #4f6f45;
+  --fdg-color-olive-dark: #101510;
+  --fdg-color-ink: #101511;
+  --fdg-color-muted: #68716b;
+  --fdg-color-white: #ffffff;
+  --fdg-color-soft-blue: #dfe8eb;
+  --fdg-color-soft-gray: #f4f5f3;
+  --fdg-color-border: #d4dddf;
+  --fdg-color-cream: #faf8f4;
+
+  --fdg-font-family: "Inter Variable", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", Arial, sans-serif;
+  --fdg-radius-pill: 999px;
 }

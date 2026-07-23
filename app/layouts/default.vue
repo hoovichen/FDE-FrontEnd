@@ -1,14 +1,12 @@
 <script setup lang="ts">
-/** 默认布局：含 Skip Link 与主容器 */
-import { SpeedInsights } from "@vercel/speed-insights/nuxt"
-import { Analytics } from '@vercel/analytics/nuxt'
+const route = useRoute()
+const isHome = computed(() => route.path === '/')
 </script>
 
 <template>
-  <header class="site-header">
-    <div class="site-header__inner">
-      <HeaderNav />
-    </div>
+  <header class="site-header" :class="{ 'site-header--home': isHome }">
+    <HomeAnnouncementBar v-if="isHome" />
+    <HeaderNav />
   </header>
 
   <main id="main">
@@ -16,7 +14,5 @@ import { Analytics } from '@vercel/analytics/nuxt'
   </main>
 
   <FooterBar />
-  <!-- <button id="backToTop" class="fdg-btt" type="button" aria-label="Back to top" title="Back to top">
-    <span class="fdg-btt__icon">↑</span>
-  </button> -->
+  <FloatingContactDock />
 </template>

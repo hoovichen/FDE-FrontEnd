@@ -27,6 +27,8 @@ export default defineNuxtConfig({
 
   // 你的全局样式保持不变
   css: [
+    '@fontsource-variable/inter',
+
     // token and base
     '~/assets/styles/tokens/_color.css',
     '~/assets/styles/tokens/_spacing.css',
@@ -35,6 +37,7 @@ export default defineNuxtConfig({
 
     // pages 
     '~/assets/styles/pages/home.css',
+    '~/assets/styles/pages/home-redesign.css',
     '~/assets/styles/pages/products.css',
     '~/assets/styles/pages/keyproducts.css',
     '~/assets/styles/pages/contact.css',
@@ -45,6 +48,7 @@ export default defineNuxtConfig({
     '~/assets/styles/pages/blog-detail.css',
     '~/assets/styles/pages/stockists.css',
     '~/assets/styles/pages/stockists-detail.css',
+    '~/assets/styles/pages/legal.css',
     '~/assets/styles/pages/faq.css',
 
     // components

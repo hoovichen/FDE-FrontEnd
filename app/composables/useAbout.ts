@@ -26,5 +26,5 @@ export function useAboutPage() {
     // sameAs: SEO_BASE.sameAs || []  // 可选：社媒链接数组
   }))
 
-  return { ui, seo, base, jsonLd }
+  return { ui, seo, base, jsonLd, lang: l }
 }

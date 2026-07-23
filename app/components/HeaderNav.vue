@@ -1,28 +1,30 @@
 <script setup lang="ts">
-import { NAV_ITEMS } from '~/lib/nav.config'
-import { NAV_TEXT } from '~/locales/nav'
+import { HOME_REDESIGN_TEXT, type LangCode } from '~/locales/home.redesign'
 import { useLanguage } from '~/composables/useLanguage'
 import { useDisclosure } from '~/composables/useDisclosure'
 import { useClickOutside } from '~/composables/useClickOutside'
 
-const { lang, switchLang } = useLanguage() // ⬅️ 这里换
+const { lang, switchLang } = useLanguage()
 const LANGS = ['zh', 'en', 'bm'] as const
-const labels = computed(() => NAV_TEXT[lang.value])
+const l = computed<LangCode>(() => (lang.value as LangCode) || 'en')
+const labels = computed(() => HOME_REDESIGN_TEXT[l.value].nav)
 
-// 左右菜单
-const leftItems  = computed(() => NAV_ITEMS.filter(i => i.side === 'left'))
-const rightItems = computed(() => NAV_ITEMS.filter(i => i.side === 'right'))
+const navItems = computed(() => [
+  { key: 'home', to: '/', label: labels.value.home },
+  { key: 'catalog', to: '/products', label: labels.value.catalog },
+  { key: 'contact', to: '/contact', label: labels.value.contact },
+])
 
 // 路由高亮
 const route = useRoute()
-const isActive = (to: string) => route.path === to
+const isActive = (to: string) => to === '/' ? route.path === '/' : route.path === to || route.path.startsWith(`${to}/`)
 
 // 语言下拉
 const langMenu = useDisclosure(false)
 const { el: langRef } = useClickOutside<HTMLDivElement>(() => langMenu.close())
 
 // 移动端抽屉
-const mobileItems = computed(() => NAV_ITEMS) // 移动端合并成一列
+const mobileItems = computed(() => navItems.value)
 
 // 抽屉（移动下拉面板）
 const {
@@ -41,42 +43,22 @@ const onEsc = (e: KeyboardEvent) => {
 onMounted(() => document.addEventListener('keydown', onEsc))
 onBeforeUnmount(() => document.removeEventListener('keydown', onEsc))
 
-// 临时的小逻辑，当画面从小变大的时候，自动关闭Sheet
-
 </script>
 
 
 <template>
-  <nav class="nav" aria-label="主导航">
-    <!-- 左 -->
-    <div class="nav--left">
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav__links">
       <NuxtLink
-        v-for="it in leftItems"
+        v-for="it in navItems"
         :key="it.key"
         :to="it.to"
         class="nav__link"
         :aria-current="isActive(it.to) ? 'page' : undefined"
-      >{{ labels[it.key] }}</NuxtLink>
+      >{{ it.label }}</NuxtLink>
     </div>
 
-    <!-- 中：Logo -->
-    <NuxtLink to="/" aria-label="品牌主页" class="nav--logo">
-      <NuxtImg class="logo" src="/logo-3-topic.png" alt="Fire Dragon Enterprise Logo" loading="lazy"/>
-    </NuxtLink>
-
-    <!-- 右 -->
-    <div class="nav--right">
-      <div class="nav__right-links">
-        <NuxtLink
-          v-for="it in rightItems"
-          :key="it.key"
-          :to="it.to"
-          class="nav__link"
-          :aria-current="isActive(it.to) ? 'page' : undefined"
-        >{{ labels[it.key] }}</NuxtLink>
-      </div>
-
-      <!-- 语言下拉 -->
+    <div class="nav__actions">
       <div class="lang" ref="langRef">
         <button
           id="lang-btn"
@@ -84,10 +66,10 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onEsc))
           :aria-expanded="langMenu.isOpen.value ? 'true' : 'false'"
           aria-haspopup="menu"
           aria-controls="lang-menu"
+          :aria-label="labels.language"
           @click="langMenu.toggle()"
         >
-          🌐 <span class="lang__current">{{ lang.toUpperCase() }}</span>
-          <span class="lang__caret" aria-hidden="true">▾</span>
+          <span class="lang__current">{{ lang.toUpperCase() }}</span>
         </button>
 
         <div
@@ -106,18 +88,19 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onEsc))
             :class="{ 'is-active': lang === code }"
             role="menuitemradio"
             :aria-checked="String(lang === code)"
-            @click="() => { switchLang(code as any); langMenu.close() }"
+            @click="() => { switchLang(code); langMenu.close() }"
           >
-            <span class="lang__dot" :class="{ 'is-active': lang === code }"></span>
             {{ code.toUpperCase() }}
           </button>
         </div>
       </div>
+
+      <button class="nav__burger" type="button" :aria-label="labels.openMenu" @click="toggleSheet()">
+        Menu
+      </button>
     </div>
-    <!-- 移动端汉堡 -->
-    <button class="nav__burger" aria-label="打开菜单" @click="toggleSheet()">☰</button>
   </nav>
-  <!-- 移动：从 Header 下滑的“下拉面板” -->
+
   <div
     class="sheet"
     :class="{ 'is-open': isSheetOpen }"
@@ -135,14 +118,13 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onEsc))
 
         <nav class="sheet__nav" aria-label="移动主导航">
           <NuxtLink
-            v-for="(it, idx) in mobileItems"
+            v-for="it in mobileItems"
             :key="it.key"
             :to="it.to"
             class="sheet__link"
             @click="closeSheet()"
-            :ref="idx === 0 ? 'firstLink' : undefined"
           >
-            {{ labels[it.key] }}
+            {{ it.label }}
           </NuxtLink>
         </nav>
 
@@ -153,7 +135,7 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onEsc))
             :key="code"
             class="sheet__lang"
             :class="{ 'is-active': lang === code }"
-            @click="() => { switchLang(code as any); langMenu.close() }"
+            @click="() => { switchLang(code); closeSheet() }"
           >
             {{ code.toUpperCase() }}
           </button>

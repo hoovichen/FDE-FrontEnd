@@ -9,6 +9,9 @@ import { useLanguage } from '~/composables/useLanguage'
 export interface ProductView extends ProductBase {
   name: string
   summary?: string
+  description?: string
+  highlights?: string[]
+  servingSuggestions?: string[]
 }
 
 /** 列表/Section 共用：按当前语言合并好产品数组 */
@@ -55,10 +58,14 @@ export function useProductDetail(key: string) {
     const base = PRODUCTS_BASE.find(p => p.key === key)
     if (!base) return null
     const i18n = PRODUCTS_I18N[l.value]?.[key]
+    const fallback = PRODUCTS_I18N.en[key]
     return {
       ...base,
-      name: i18n?.name || key,
-      summary: i18n?.summary
+      name: i18n?.name || fallback?.name || key,
+      summary: i18n?.summary || fallback?.summary,
+      description: i18n?.description || fallback?.description,
+      highlights: i18n?.highlights || fallback?.highlights,
+      servingSuggestions: i18n?.servingSuggestions || fallback?.servingSuggestions
     }
   })
 

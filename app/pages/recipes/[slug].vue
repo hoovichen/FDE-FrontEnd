@@ -27,8 +27,6 @@ function onPlay() {
 useHead(() => ({
     title: recipe.value?.title ? `${recipe.value.title} - Recipes` : 'Recipe',
 }))
-console.log('slug:', slug.value)
-console.log('recipe:', recipe.value)
 
 </script>
 

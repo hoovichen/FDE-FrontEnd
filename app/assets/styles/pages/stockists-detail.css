@@ -1,346 +1,228 @@
-/* ==============================
-   Page: Stockist Detail
-   Warm brown / soft shadow / rounded blocks
-   Only scopes to .stockist-* & .stockist-detail*
-============================== */
-
-:root {
-  --stockd-accent: rgba(120, 75, 40, 1);
-  --stockd-accent-2: rgba(120, 75, 40, 0.14);
-  --stockd-ink: rgba(35, 24, 18, 1);
-  --stockd-muted: rgba(35, 24, 18, 0.62);
-  --stockd-border: rgba(120, 75, 40, 0.12);
-  --stockd-surface: rgba(255, 251, 246, 1);
-  --stockd-card: rgba(255, 245, 236, 1);
-  --stockd-shadow: 0 12px 32px rgba(20, 10, 5, 0.10);
-  --stockd-shadow-soft: 0 10px 22px rgba(20, 10, 5, 0.08);
-  --stockd-radius-lg: 20px;
-  --stockd-radius-md: 14px;
-}
-
-/* Page */
 .stockist-detail {
-  padding: clamp(24px, 6vw, 56px) 0;
+  width: 100%;
+  padding: clamp(34px, 6vw, 74px) 0 clamp(70px, 9vw, 112px);
+  background: var(--fdg-color-white);
+  color: var(--fdg-color-ink);
+  font-family: var(--fdg-font-family);
 }
 
-/* Back button */
+.stockist-detail .container {
+  width: min(1180px, calc(100% - 72px));
+  max-width: none;
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
 .stockist-back {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 999px;
+  gap: 8px;
+  margin-bottom: 22px;
+  padding: 8px 14px;
+  border: 1px solid rgba(16, 21, 17, .14);
+  border-radius: var(--fdg-radius-pill);
+  color: var(--fdg-color-ink);
+  background: var(--fdg-color-white);
   text-decoration: none;
-  color: var(--stockd-ink);
-  background: rgba(255, 245, 236, 0.85);
-  border: 1px solid rgba(120, 75, 40, 0.14);
-  box-shadow: 0 10px 18px rgba(20, 10, 5, 0.08);
-  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-  margin-bottom: 16px;
-}
-
-.stockist-back:hover {
-  transform: translateY(-1px);
-  background: rgba(255, 245, 236, 1);
-  box-shadow: 0 14px 26px rgba(20, 10, 5, 0.12);
+  font-size: 12px;
+  font-weight: 760;
 }
 
 .stockist-back__icon {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1;
-  opacity: 0.9;
 }
 
-/* Hero */
 .stockist-hero {
-  width: min(980px, 100%);
-  margin: 0 auto 18px;
-  text-align: left;
+  max-width: 860px;
+  margin: 0 0 22px;
+}
+
+.stockist-eyebrow {
+  margin: 0 0 12px;
+  color: var(--fdg-color-olive);
+  font-size: 12px;
+  font-weight: 820;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
 .stockist-title {
-  font-size: clamp(26px, 4vw, 40px);
-  line-height: 1.14;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  color: var(--stockd-ink);
-  margin: 0 0 8px;
+  margin: 0;
+  color: var(--fdg-color-ink);
+  font-size: clamp(34px, 5vw, 64px);
+  font-weight: 420;
+  line-height: 1.02;
+  letter-spacing: 0;
 }
 
 .stockist-sub {
-  margin: 0;
-  color: var(--stockd-muted);
+  margin: 12px 0 0;
+  color: var(--fdg-color-muted);
+  font-size: 16px;
   line-height: 1.6;
 }
 
-/* Layout: similar spirit to contact-grid, but scoped */
 .stockist-grid {
-  width: min(1120px, 92%);
-  margin: 18px auto 0;
   display: grid;
-  grid-template-columns: 1.25fr 0.95fr;
-  gap: 26px;
-  align-items: start;
+  grid-template-columns: minmax(0, 1.25fr) minmax(340px, .75fr);
+  border: 1px solid rgba(16, 21, 17, .08);
 }
 
-/* Left media */
 .stockist-media {
-  display: grid;
-  gap: 14px;
+  min-width: 0;
+  background: #f8faf8;
 }
 
-/* Photo block */
-.stockist-photo {
-  margin: 0;
-  border-radius: var(--stockd-radius-lg);
-  overflow: hidden;
-  background: rgba(0,0,0,0.04);
-  border: 1px solid rgba(120, 75, 40, 0.10);
-  box-shadow: var(--stockd-shadow);
-}
-
-.stockist-photo img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  display: block;
-}
-
-/* (Optional future) Map block style, prepared for your mapImage idea */
+.stockist-photo,
 .stockist-map {
   margin: 0;
-  border-radius: var(--stockd-radius-lg);
+  min-height: 100%;
   overflow: hidden;
-  border: 1px solid rgba(120, 75, 40, 0.10);
-  background: rgba(0,0,0,0.04);
-  box-shadow: var(--stockd-shadow-soft);
 }
 
 .stockist-map__link {
   position: relative;
   display: block;
-  text-decoration: none;
+  min-height: 100%;
   color: inherit;
+  text-decoration: none;
+  overflow: hidden;
 }
 
+.stockist-photo img,
 .stockist-map__link img {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  min-height: min(520px, 48vw);
+  height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform .28s ease;
+}
+
+.stockist-map__link:hover img {
+  transform: scale(1.03);
 }
 
 .stockist-map__badge {
   position: absolute;
-  left: 14px;
-  bottom: 14px;
-  padding: 8px 10px;
-  border-radius: 999px;
+  right: 18px;
+  bottom: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  border-radius: var(--fdg-radius-pill);
+  padding: 0 13px;
+  color: var(--fdg-color-ink);
+  background: rgba(255, 255, 255, .9);
+  border: 1px solid rgba(16, 21, 17, .12);
   font-size: 12px;
-  font-weight: 800;
-  color: #fff;
-  background: rgba(0,0,0,.55);
-  backdrop-filter: blur(6px);
+  font-weight: 820;
+  backdrop-filter: blur(8px);
 }
 
-/* Right info */
 .stockist-info {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  display: grid;
+  align-content: start;
+  background: var(--fdg-color-white);
+  border-left: 1px solid rgba(16, 21, 17, .08);
 }
 
-/* Info card blocks */
-.stockist-card {
-  background: var(--stockd-card);
-  border-radius: var(--stockd-radius-lg);
-  padding: 16px 18px;
-  border: 1px solid rgba(120, 75, 40, 0.12);
-  box-shadow: var(--stockd-shadow-soft);
+.stockist-detail .stockist-card {
+  padding: clamp(18px, 2.8vw, 30px);
+  border-bottom: 1px solid rgba(16, 21, 17, .08);
 }
 
-.stockist-card__title {
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(35, 24, 18, 0.60);
+.stockist-detail .stockist-card__title {
   margin-bottom: 10px;
+  color: var(--fdg-color-ink);
+  font-size: 12px;
+  font-weight: 820;
+  letter-spacing: .06em;
+  text-transform: uppercase;
 }
 
-.stockist-card__text {
+.stockist-detail .stockist-card__text {
   margin: 0;
-  color: var(--stockd-ink);
-  line-height: 1.75;
+  color: var(--fdg-color-muted);
+  font-size: 15px;
+  line-height: 1.62;
 }
 
-/* Optional list (hours) */
-.stockist-list {
-  margin: 0;
-  padding-left: 18px;
-  color: var(--stockd-ink);
-}
-
-.stockist-list li {
-  margin: 6px 0;
-  line-height: 1.6;
-}
-
-/* Actions */
 .stockist-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 10px;
-  margin-top: 2px;
+  padding: clamp(18px, 2.8vw, 30px);
 }
 
-/* Make sure local buttons look consistent without touching global btn-primary */
 .stockist-actions .btn-primary,
 .stockist-actions .btn-ghost {
-  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border-radius: var(--fdg-radius-pill);
+  padding: 0 18px;
+  font-size: 12px;
+  font-weight: 820;
+  text-decoration: none;
 }
 
-/* If your global btn-primary is too red, we can override only inside stockist detail */
 .stockist-actions .btn-primary {
-  background: var(--stockd-accent);
-  border: 1px solid rgba(120, 75, 40, 0.25);
-  color: #fff;
-  box-shadow: 0 12px 20px rgba(20, 10, 5, 0.14);
-  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-}
-
-.stockist-actions .btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 16px 28px rgba(20, 10, 5, 0.18);
-  filter: saturate(1.05);
+  border: 1px solid var(--fdg-color-olive);
+  background: var(--fdg-color-olive);
+  color: var(--fdg-color-white);
 }
 
 .stockist-actions .btn-ghost {
-  border: 1px solid rgba(120, 75, 40, 0.18);
-  background: rgba(255,255,255,0.65);
-  color: rgba(120, 75, 40, 1);
-  font-weight: 800;
-  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+  border: 1px solid rgba(16, 21, 17, .14);
+  background: var(--fdg-color-white);
+  color: var(--fdg-color-ink);
 }
 
-.stockist-actions .btn-ghost:hover {
-  transform: translateY(-1px);
-  background: rgba(255,255,255,0.95);
-  box-shadow: 0 14px 22px rgba(20, 10, 5, 0.10);
+.stockist-detail h1:not(.stockist-title) {
+  margin: 0 0 10px;
+  color: var(--fdg-color-ink);
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 420;
+  line-height: 1.04;
 }
 
-/* ==============================
-   Stockist Map Hover / Tap UX
-   Scoped: only inside stockist detail map block
-============================== */
-
-/* 让地图块本身变成一个“可交互卡片” */
-.stockist-map__link {
-  border-radius: var(--stockd-radius-lg);
-  overflow: hidden; /* 保证放大不溢出圆角 */
-  transform: translateZ(0); /* 防止缩放抖动 */
+.stockist-detail p.muted {
+  color: var(--fdg-color-muted);
 }
 
-/* 图片：默认状态 */
-.stockist-map__link img {
-  transform: scale(1);
-  transition: transform .28s ease;
-  will-change: transform;
-}
-
-/* 增加一个柔和遮罩，hover时更“可点” */
-.stockist-map__link::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    1200px 400px at 20% 80%,
-    rgba(0,0,0,.14),
-    rgba(0,0,0,0)
-  );
-  opacity: 0;
-  transition: opacity .28s ease;
-  pointer-events: none;
-}
-
-/* badge：默认 */
-.stockist-map__badge {
-  transform: translateY(0);
-  transition: transform .28s ease, background .28s ease, box-shadow .28s ease;
-  box-shadow: 0 10px 18px rgba(0,0,0,.18);
-}
-
-/* 卡片 hover：阴影更立体 */
-.stockist-map {
-  transition: transform .22s ease, box-shadow .22s ease;
-}
-
-/* ✅ Desktop hover */
-@media (hover: hover) and (pointer: fine) {
-  .stockist-map__link:hover img {
-    transform: scale(1.04); /* 轻轻放大 */
+@media (max-width: 900px) {
+  .stockist-detail .container {
+    width: min(680px, calc(100% - 28px));
   }
 
-  .stockist-map__link:hover::after {
-    opacity: 1;
-  }
-
-  .stockist-map__link:hover .stockist-map__badge {
-    transform: translateY(-2px);
-    background: rgba(0,0,0,.62);
-    box-shadow: 0 14px 26px rgba(0,0,0,.22);
-  }
-
-  .stockist-map:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 16px 36px rgba(20, 10, 5, 0.14);
-  }
-}
-
-/* ✅ Mobile / touch：按下反馈（没有 hover 用 :active） */
-@media (hover: none) and (pointer: coarse) {
-  .stockist-map__link:active img {
-    transform: scale(1.02);
-  }
-  .stockist-map__link:active::after {
-    opacity: 1;
-  }
-  .stockist-map__link:active .stockist-map__badge {
-    transform: translateY(-1px);
-  }
-}
-
-/* ✅ 键盘可访问性：Tab 聚焦也有反馈 */
-.stockist-map__link:focus-visible {
-  outline: 2px solid rgba(120, 75, 40, 0.35);
-  outline-offset: 4px;
-  border-radius: var(--stockd-radius-lg);
-}
-
-/* ✅ 对“减少动画”用户自动降级 */
-@media (prefers-reduced-motion: reduce) {
-  .stockist-map,
-  .stockist-map__link img,
-  .stockist-map__link::after,
-  .stockist-map__badge {
-    transition: none !important;
-  }
-}
-
-
-/* Responsive */
-@media (max-width: 980px) {
   .stockist-grid {
     grid-template-columns: 1fr;
   }
-  .stockist-hero {
-    width: min(1120px, 92%);
+
+  .stockist-info {
+    border-left: 0;
+  }
+
+  .stockist-photo img,
+  .stockist-map__link img {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
   }
 }
 
 @media (max-width: 520px) {
-  .stockist-back {
-    width: 100%;
-    justify-content: center;
+  .stockist-title {
+    font-size: clamp(32px, 11vw, 46px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stockist-map__link img,
+  .stockist-photo img {
+    transition: none;
   }
 }

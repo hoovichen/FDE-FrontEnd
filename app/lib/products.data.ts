@@ -18,6 +18,17 @@ export interface ProductBase {
   featuredOrder?: number
   /** 可扩展：通用标签 */
   tags?: string[]                 // 例如 ['popular', 'new', 'bestseller']
+  specs?: {
+    ingredients?: string
+    weight?: string
+    allergenInformation?: string
+    packagingType?: string
+    packSize?: string
+    specialtyDiet?: string
+    storage?: string
+    shelfLife?: string
+    origin?: string
+  }
 }
 
 /** 仅存放不可翻译字段（name 等放到 i18n） */
@@ -30,6 +41,17 @@ export const PRODUCTS_BASE: ProductBase[] = [
     url2: 'https://www.lazada.com.my/products/fgds-pantai-remis-chilli-sauce-i4773014319-s26912325715.html',
     price: 4,
     gallery: ['/images/products/greencap.png'],
+    specs: {
+      ingredients: 'Dried chili, garlic, sugar, salt, modified starch, vinegar, permitted preservative',
+      weight: '340g',
+      allergenInformation: 'No common allergens known. Individuals sensitive to chili should consume with caution.',
+      packagingType: 'Glass Bottle',
+      packSize: '1.00KG',
+      specialtyDiet: 'No animal fat and no artificial colouring',
+      storage: 'Store chilled. For best freshness and quality, consume within 3 months after opening.',
+      shelfLife: '18 months (refer to bottle label)',
+      origin: 'Made in Malaysia'
+    }
   },
   {
     key: 'red-cap',
@@ -38,6 +60,17 @@ export const PRODUCTS_BASE: ProductBase[] = [
     url: 'https://shopee.com.my/FGD\'s-Pantai-Remis-Chilli-Sauce-%E7%81%AB%E9%BE%8D%E8%BE%A3%E6%A4%92%E9%85%B1-%E4%B8%89%E7%A7%8D%E8%BE%A3%E5%BA%A6%E5%8F%AF%E9%80%89-Sos-Chilli-i.1708308739.56054449110',
     url2: 'https://www.lazada.com.my/products/fgds-pantai-remis-chilli-sauce-i4773014319-s26906175539.html',
     price: 4,
+    specs: {
+      ingredients: 'Dried chili, garlic, sugar, salt, modified starch, vinegar, permitted preservative',
+      weight: '340g',
+      allergenInformation: 'No common allergens known. Individuals sensitive to chili should consume with caution.',
+      packagingType: 'Glass Bottle',
+      packSize: '1.00KG',
+      specialtyDiet: 'No animal fat and no artificial colouring',
+      storage: 'Store chilled. For best freshness and quality, consume within 3 months after opening.',
+      shelfLife: '18 months (refer to bottle label)',
+      origin: 'Made in Malaysia'
+    }
   },
   {
     key: 'yellow-cap',
@@ -46,6 +79,17 @@ export const PRODUCTS_BASE: ProductBase[] = [
     url: 'https://shopee.com.my/FGD\'s-Pantai-Remis-Chilli-Sauce-%E7%81%AB%E9%BE%8D%E8%BE%A3%E6%A4%92%E9%85%B1-%E4%B8%89%E7%A7%8D%E8%BE%A3%E5%BA%A6%E5%8F%AF%E9%80%89-Sos-Chilli-i.1708308739.56054449110',
     url2: 'https://www.lazada.com.my/products/fgds-pantai-remis-chilli-sauce-i4773014319-s26912325714.html',
     price: 4,
+    specs: {
+      ingredients: 'Dried chili, garlic, sugar, salt, modified starch, vinegar, permitted preservative',
+      weight: '340g',
+      allergenInformation: 'No common allergens known. Individuals sensitive to chili should consume with caution.',
+      packagingType: 'Glass Bottle',
+      packSize: '1.00KG',
+      specialtyDiet: 'No animal fat and no artificial colouring',
+      storage: 'Store chilled. For best freshness and quality, consume within 3 months after opening.',
+      shelfLife: '18 months (refer to bottle label)',
+      origin: 'Made in Malaysia'
+    }
   },
   {
     key: 'sky-pepper',
@@ -54,7 +98,18 @@ export const PRODUCTS_BASE: ProductBase[] = [
     url: 'https://shopee.com.my/FDG\'s-Brid\'s-Eye-Chilli-Sauce-%E7%81%AB%E9%BE%8D%E6%8C%87%E5%A4%A9%E6%A4%92%E8%BE%A3%E6%A4%92%E9%85%B1-Sos-Chilli-Padi-yellow-cap-i.1708308739.49854468963',
     url2: 'https://www.lazada.com.my/products/pdp-i4772897649-s26913424201.html',
     featuredHome: true,
-    featuredOrder: 3
+    featuredOrder: 3,
+    specs: {
+      ingredients: 'Chilli padi, garlic, salt, sugar, vinegar, preservative',
+      weight: '340g',
+      allergenInformation: 'No common allergens known. Individuals sensitive to chili should consume with caution.',
+      packagingType: 'Glass Bottle',
+      packSize: '1.00KG',
+      specialtyDiet: 'No animal fat and no artificial colouring',
+      storage: 'Store chilled. For best freshness and quality, consume within 3 months after opening.',
+      shelfLife: '18 months (refer to bottle label)',
+      origin: 'Made in Malaysia'
+    }
   },
   {
     key: 'ginger-garlic',
@@ -63,6 +118,17 @@ export const PRODUCTS_BASE: ProductBase[] = [
     url: 'https://shopee.com.my/Ginger-Garlic-Paste-%E7%94%9F%E5%A7%9C%E8%92%9C%E8%93%89-%E7%82%92%E8%8F%9C%E8%92%B8%E9%B1%BC-Pes-Halia-Bawang-Putih-i.1708308739.45004463355',
     url2: 'https://www.lazada.com.my/products/pdp-i4772701971-s26907680134.html',
     price: 17.8,
+    specs: {
+      ingredients: 'Ginger, garlic, salt, sugar, monosodium glutamate',
+      weight: '500g',
+      allergenInformation: 'No',
+      packagingType: 'Glass Jar',
+      packSize: '1.00KG',
+      specialtyDiet: 'No animal fat and no artificial colouring',
+      storage: 'Store chilled. For best freshness and quality, consume within 3 months after opening.',
+      shelfLife: '18 months (refer to bottle label)',
+      origin: 'Made in Malaysia'
+    }
   },
   {
     key: 'sambal-shrimp',
@@ -72,7 +138,18 @@ export const PRODUCTS_BASE: ProductBase[] = [
     url2: 'https://www.lazada.com.my/products/pdp-i4772309686-s26898423098.html',
     price: 9,
     featuredHome: true,
-    featuredOrder: 2
+    featuredOrder: 2,
+    specs: {
+      ingredients: 'Onion, garlic, lemongrass, chili, dried shrimp, salt, sugar, preservatives',
+      weight: '300g',
+      allergenInformation: 'Contains crustaceans and fish, and products derived from them.',
+      packagingType: 'Glass Jar',
+      packSize: '1.00KG',
+      specialtyDiet: 'No animal fat and no artificial colouring',
+      storage: 'Store chilled. For best freshness and quality, consume within 3 months after opening.',
+      shelfLife: '18 months (refer to bottle label)',
+      origin: 'Made in Malaysia'
+    }
   },
   {
     key: 'cripy-anchovy',
@@ -80,6 +157,17 @@ export const PRODUCTS_BASE: ProductBase[] = [
     url: 'https://shopee.com.my/Crispy-Anchovy-Chilli-%E9%A6%99%E8%84%86%E9%93%B6%E9%B1%BC%E4%BB%94-%E9%85%8DNasiLemak-i.1708308739.53504422683',
     url2: 'https://www.lazada.com.my/products/pdp-i4772699037-s26898098441.html',
     price: 12,
+    specs: {
+      ingredients: 'Palm oil, chili, shallot, anchovy, sugar, pepper, Sichuan pepper, monosodium glutamate',
+      weight: '190g',
+      allergenInformation: 'Contains crustaceans and fish, and products derived from them.',
+      packagingType: 'Glass Jar',
+      packSize: '0.900KG',
+      specialtyDiet: 'No animal fat and no artificial colouring',
+      storage: 'Store at room temperature, away from direct sunlight.',
+      shelfLife: '18 months (refer to package label)',
+      origin: 'Made in Malaysia'
+    }
   },
   {
     key: 'cripy-prawn',
@@ -89,7 +177,18 @@ export const PRODUCTS_BASE: ProductBase[] = [
     url2: 'https://www.lazada.com.my/products/pdp-i4772531076-s26897567604.html',
     price: 11,
     featuredHome: true,
-    featuredOrder: 1
+    featuredOrder: 1,
+    specs: {
+      ingredients: 'Palm oil, chili, shallot, garlic, dried shrimp, sugar, salt, monosodium glutamate, pepper',
+      weight: '150g approximately',
+      allergenInformation: 'Contains crustaceans and fish, and products derived from them.',
+      packagingType: 'Glass Jar',
+      packSize: '0.850KG',
+      specialtyDiet: 'No animal fat and no artificial colouring',
+      storage: 'Store chilled. For best freshness and quality, consume within 3 months after opening.',
+      shelfLife: '18 months (refer to bottle label)',
+      origin: 'Made in Malaysia'
+    }
   },
 ]
 

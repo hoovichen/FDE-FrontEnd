@@ -11,7 +11,7 @@ const props = defineProps<{
   ui: FaqUiText
 }>()
 
-const openGroup = ref<FaqCategoryKey | null>(null)
+const openGroup = ref<FaqCategoryKey | null>(FAQ_CATEGORY_ORDER[0] ?? null)
 const groupQuery = ref<Partial<Record<FaqCategoryKey, string>>>({})
 
 function toggleGroup(cat: FaqCategoryKey) {

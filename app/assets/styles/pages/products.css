@@ -1,213 +1,265 @@
-/* ===== Products Page (pages/products.vue) ===== */
-
 .page-products {
-  width: min(1200px, 94%);
-  margin-inline: auto;
-  padding: 32px 0 64px;
+  width: 100%;
+  padding: clamp(34px, 6vw, 78px) 0 clamp(64px, 9vw, 116px);
+  background: var(--fdg-color-white);
+  color: var(--fdg-color-ink);
+  font-family: var(--fdg-font-family);
 }
 
 .page-products__header {
+  width: min(1240px, calc(100% - 72px));
+  margin: 0 auto clamp(28px, 5vw, 60px);
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 20px;
+  gap: 22px;
+}
+
+.page-products__eyebrow {
+  margin: 0 0 10px;
+  color: var(--fdg-color-olive);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
 .page-products__title {
-  font-size: clamp(24px, 3.4vw, 36px);
-  font-weight: 800;
+  margin: 0;
+  color: var(--fdg-color-ink);
+  font-size: clamp(36px, 5.8vw, 82px);
+  font-weight: 420;
+  line-height: .98;
+  letter-spacing: 0;
+}
+
+.page-products__desc {
+  max-width: 420px;
+  margin: 18px 0 0;
+  color: var(--fdg-color-muted);
+  font-size: 16px;
+  line-height: 1.55;
 }
 
 .page-products__sort {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  flex: 0 0 auto;
 }
 
 .page-products__select {
-  border: 1px solid var(--color-border, #e6e6e6);
-  background: #fff;
-  border-radius: 10px;
-  padding: 10px 16px;
-  font-weight: 600;
+  min-width: 178px;
+  border: 1px solid var(--fdg-color-border);
+  background: var(--fdg-color-white);
+  border-radius: 0;
+  padding: 11px 14px;
+  color: var(--fdg-color-ink);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
 }
 
-/* ---- Desktop Grid ---- */
+.page-products__content {
+  width: min(1240px, calc(100% - 72px));
+  margin-inline: auto;
+  overflow: hidden;
+}
+
 .page-products__content .grid {
   display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  border-top: 1px solid rgba(16, 21, 17, .08);
 }
 
-@media (max-width: 1024px) {
-  .page-products__content .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ---- Mobile Rail (horizontal carousel showing half cards) ---- */
-.page-products__content .rail {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .page-products__content .grid {
-    display: none;
-  }
-
-  .page-products__content .rail {
-    display: flex;
-    gap: 14px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-
-    /* 让左右各露出半卡：左右留内边距 */
-    padding: 0 12%;
-    margin: 6px 0 8px;
-  }
-
-  .page-products__content .rail::-webkit-scrollbar {
-    height: 0;
-  }
-
-  .page-products__content .rail .product-card {
-    flex: 0 0 76%;
-    /* 可见 1 主卡 + 两边各半卡 */
-    scroll-snap-align: center;
-  }
-}
-
-/* ---- Card ---- */
 .page-products .product-card {
-  display: block;
-  background: #fff;
-  border-radius: 16px;
-  text-decoration: none;
+  min-width: 0;
+  height: 100%;
+  display: grid;
+  grid-template-rows: clamp(370px, 34vw, 520px) 196px;
   color: inherit;
-  border: 1px solid var(--color-border, #eee);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, .05);
-  transition: transform .18s ease, box-shadow .18s ease;
+  text-decoration: none;
+  background: var(--fdg-color-white);
+  border-right: 1px solid rgba(16, 21, 17, .08);
+  transition: background-color .18s ease;
+}
+
+.page-products .product-card:nth-child(4n) {
+  border-right: 0;
 }
 
 .page-products .product-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, .08);
+  background: #f8faf8;
 }
 
-.page-products .product-card img {
-  max-height: 240px;
+.page-products .card__image-wrapper {
+  position: relative;
+  background: linear-gradient(90deg, #edf2f1, #f8f9f6);
+  overflow: hidden;
+}
+
+.page-products .product-card:nth-child(even) .card__image-wrapper {
+  background: linear-gradient(90deg, #f7f8f5, #eef2ef);
+}
+
+.page-products .card__image-clip {
+  position: relative;
+  display: block;
   width: 100%;
+  height: 100%;
+  padding: clamp(26px, 3.6vw, 54px) clamp(20px, 3vw, 44px) 18px;
+  box-sizing: border-box;
+}
+
+.page-products .card__main-NuxtImg,
+.page-products .card__main-img {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  width: auto;
+  height: calc(100% - clamp(26px, 3.6vw, 54px) - 18px);
+  max-width: calc(100% - clamp(40px, 6vw, 88px));
   object-fit: contain;
-  padding-top: 1%;
+  object-position: center bottom;
+  transform: translateX(-50%);
+  transition: transform .22s ease;
+}
+
+.page-products .product-card:hover .card__main-NuxtImg,
+.page-products .product-card:hover .card__main-img {
+  transform: translate(-50%, -4px);
 }
 
 .page-products .card__body {
-  padding: 14px 14px 16px;
+  display: grid;
+  grid-template-rows: 46px 66px 20px;
+  align-content: start;
+  min-height: 0;
+  padding: 16px 16px 28px;
+  text-align: center;
 }
 
 .page-products .card__title {
-  text-align: center;
-  font-weight: 700;
-  line-height: 1.3;
+  display: -webkit-box;
+  margin: 0;
+  color: var(--fdg-color-ink);
+  font-size: clamp(13px, 1vw, 16px);
+  font-weight: 560;
+  line-height: 1.35;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .page-products .card__summary {
-  text-align: center;
-  margin-top: 6px;
-  color: var(--color-muted, #666);
-  font-size: 0.95rem;
+  display: -webkit-box;
+  min-height: 52px;
+  height: 52px;
+  max-width: 25ch;
+  margin: 8px auto 0;
+  color: var(--fdg-color-muted);
+  font-size: 12px;
+  line-height: 1.45;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
 .page-products .card__price {
-  text-align: center;
-  margin-top: 10px;
+  align-self: end;
+  margin: 0;
+  color: var(--fdg-color-olive);
+  font-size: 12px;
   font-weight: 800;
-  color: var(--color-brand, #af1311);
 }
 
-/* 1) 外层：允许浮层超出主图裁剪区域 */
-.page-products .card__image-wrapper {
-  position: relative;
-  /* 允许旧包装浮层在主图外延伸 */
-  overflow: visible;
-  border-radius: 12px;
-  /* 与卡片圆角和谐 */
-}
+@media (max-width: 1080px) {
+  .page-products__content .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 
-/* 2) 只裁主图的容器（把 overflow 放在内层） */
-.page-products .card__image-clip {
-  overflow: hidden;
-  border-radius: inherit;
-}
+  .page-products .product-card:nth-child(4n) {
+    border-right: 1px solid rgba(16, 21, 17, .08);
+  }
 
-/* 主图维持原来的写法 */
-.page-products .card__main-img {
-  margin-top: 10px;
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
-
-/* 3) ——“旧站风格”的右下角小预览 + 标签 —— */
-/* 小盒子（白底、有阴影） */
-.page-products .old-version-preview {
-  position: absolute;
-  right: 30px;
-  bottom: 15px;
-  width: 75px;
-  height: 80px;
-  background: #fff;
-  border-radius: 8px;
-  padding: 5px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.181);
-  z-index: 2;
-  pointer-events: none;
-}
-
-.page-products .old-version-preview img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* 文字标签：位于小盒子下方，向外“探出”一点 */
-.page-products .old-version-label {
-  position: absolute;
-  bottom: -20px;
-  /* 关键：往外探出，不会被裁 */
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.219);
-  color: #fff;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 0.7em;
-  white-space: nowrap;
-  line-height: 1.2;
-  pointer-events: none;
-  /* 同上，不拦截点击 */
-}
-
-/* 4) 交互细节：悬停轻微放大小图（桌面端） */
-@media (hover: hover) {
-  .page-products .card:hover .old-version-preview {
-    transform: translateY(-1px);
-    transition: transform .18s ease;
+  .page-products .product-card:nth-child(3n) {
+    border-right: 0;
   }
 }
 
-/* 5) 移动端调整尺寸，防止拥挤 */
-@media (max-width: 768px) {
-  .page-products .old-version-preview {
-    bottom: 8px;
-    right: 25px;
+@media (max-width: 760px) {
+  .page-products {
+    padding-top: 30px;
   }
 
-  .page-products .old-version-label {
-    bottom: -18px;
-    font-size: 0.66rem;
+  .page-products__header {
+    width: min(680px, calc(100% - 28px));
+    display: grid;
+    gap: 18px;
+    margin-bottom: 30px;
+  }
+
+  .page-products__title {
+    font-size: clamp(34px, 14vw, 56px);
+  }
+
+  .page-products__desc {
+    margin-top: 12px;
+    font-size: 14px;
+  }
+
+  .page-products__select {
+    width: 100%;
+  }
+
+  .page-products__content .grid {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .page-products__content {
+    width: 100%;
+  }
+
+  .page-products__content .grid::-webkit-scrollbar {
+    height: 0;
+  }
+
+  .page-products .product-card,
+  .page-products .product-card:nth-child(2n),
+  .page-products .product-card:nth-child(3n),
+  .page-products .product-card:nth-child(4n) {
+    flex: 0 0 100%;
+    grid-template-rows: minmax(360px, calc(100vh - 250px)) 158px;
+    border-right: 0;
+    scroll-snap-align: start;
+  }
+
+  .page-products .card__image-clip {
+    padding: 22px 22px 10px;
+  }
+
+  .page-products .card__main-NuxtImg,
+  .page-products .card__main-img {
+    bottom: 10px;
+    height: min(calc(100% - 32px), 320px);
+    max-height: 320px;
+    max-width: calc(100% - 44px);
+  }
+
+  .page-products .card__body {
+    grid-template-rows: 40px 56px 18px;
+    padding: 12px 22px 28px;
+  }
+}
+
+@media (max-width: 370px) {
+  .page-products .card__title {
+    font-size: 12px;
   }
 }

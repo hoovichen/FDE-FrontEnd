@@ -16,7 +16,7 @@ html {
 
 body {
   margin: 0;
-  font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: var(--fdg-font-family);
   color: var(--color-text);
   background: var(--color-bg);
 }

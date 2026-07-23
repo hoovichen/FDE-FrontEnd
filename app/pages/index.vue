@@ -17,8 +17,5 @@ onMounted(() => {
 <template>
   <Analytics />
   <SpeedInsights />
-  <HeroSection />
-  <SectionRecipes />
-  <SectionProducts />
-  <SectionBlog />
+  <HomeRedesign />
 </template>
