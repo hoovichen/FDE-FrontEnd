@@ -7,6 +7,7 @@ const l = computed<LangCode>(() => (lang.value as LangCode) || 'en')
 const ui = computed(() => HOME_REDESIGN_TEXT[l.value].support)
 const links = computed(() => [
   { to: '/about', label: ui.value.about },
+  { to: '/reviews', label: ui.value.reviews },
   { to: `/faq/${l.value}`, label: ui.value.faq },
   { to: `/blog/${l.value}`, label: ui.value.blog },
 ])

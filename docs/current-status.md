@@ -1,6 +1,6 @@
 # FDE-FrontEnd Current Status
 
-Last reviewed: 2026-07-23
+Last reviewed: 2026-07-24
 
 ## Executive Summary
 
@@ -38,6 +38,7 @@ The current build is deployable. `pnpm type-check` and `pnpm build` pass locally
 - `/about`
 - `/products`
 - `/products/:key`
+- `/reviews`
 - `/recipes`
 - `/recipes/:slug`
 - `/blog`
@@ -66,6 +67,13 @@ Products:
 - Product translations live in `app/locales/products.i18n.ts`.
 - Product UI strings live in `app/locales/products.ui.ts`.
 - Product images and marketplace URLs are hardcoded in frontend data.
+
+Reviews / Customer proof:
+- Lightweight marketplace review excerpts live in `app/lib/reviews.data.ts`.
+- Review page UI strings live in `app/locales/reviews.ts`.
+- `/reviews` presents selected Shopee/Lazada written feedback as customer proof, grouped by product.
+- Homepage and product detail pages link into the review page with a light proof section/preview.
+- Important SEO decision: Shopee/Lazada marketplace reviews are displayed visually with source context only. They are not emitted as `Review` or `AggregateRating` JSON-LD because they are third-party marketplace reviews, not first-party site-collected reviews.
 
 Recipes:
 - Recipe data and helpers live under `app/lib/recipes*` and `app/locales/recipes*`.
@@ -109,6 +117,46 @@ The frontend repository currently has no authenticated admin UI and no CMS write
 - CORS defaults include local frontend origins and can be extended with `CORS_ORIGINS`.
 
 Recommended direction: add a website/CMS boundary inside FDG OS rather than letting the public portal directly mutate operational ERP tables.
+
+## Blog CMS Planning Update
+
+A focused Blog CMS operating plan has been added at `docs/blog-cms-operating-plan.md`.
+
+Current decision:
+
+- FDG-OS should own Blog editing, translation, publish status, permissions, revisions and audit logs.
+- The Nuxt portal on Vercel should remain the public read/render surface.
+- Published Blog content should be fetched from FDG-OS public read APIs during server-side rendering/runtime, with current Git markdown kept as migration fallback.
+- SEO depends on server-rendered article HTML, metadata, sitemap and content quality; CMS only reduces publishing friction.
+- First implementation should be Blog-only. Media library, product public profiles, stockists, recipes and FAQ remain later phases.
+
+## Marketplace Reviews / Customer Proof - 2026-07-24
+
+Implemented:
+
+- New lightweight `/reviews` route.
+- New review data source:
+  - `app/lib/reviews.data.ts`
+- New multilingual review UI copy:
+  - `app/locales/reviews.ts`
+- New homepage proof section:
+  - `app/components/HomeCustomerProof.vue`
+- Review entry points:
+  - Homepage proof section after the shop CTA.
+  - Homepage resource links.
+  - Footer utility links.
+  - Product detail preview for products with curated review excerpts.
+- Review CSS:
+  - `app/assets/styles/pages/reviews.css`
+  - Supporting homepage and product detail styles.
+- Sitemap now includes `/reviews`.
+
+Design/SEO policy:
+
+- Reviews are treated as curated marketplace proof, not a standalone rating system.
+- The page remains editorial and lightweight to match the current Instagram-style direction.
+- The site still does not directly sell products; marketplace checkout remains the purchase path.
+- Do not add `Review` or `AggregateRating` structured data from Shopee/Lazada excerpts unless the business later collects first-party reviews directly on `firedragonmy.com` and can meet Google review snippet requirements.
 
 ## Deployment Status
 

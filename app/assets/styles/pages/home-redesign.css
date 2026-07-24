@@ -176,6 +176,102 @@
   margin-top: clamp(48px, 7vw, 92px);
 }
 
+.home-proof {
+  display: grid;
+  grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+  gap: clamp(28px, 5vw, 82px);
+  padding: clamp(60px, 8vw, 110px) clamp(22px, 5vw, 72px);
+  background: var(--fdg-color-cream);
+  border-top: 1px solid rgba(16, 21, 17, .08);
+  border-bottom: 1px solid rgba(16, 21, 17, .08);
+}
+
+.home-proof__intro {
+  align-self: center;
+}
+
+.home-proof__eyebrow {
+  margin: 0 0 14px;
+  color: var(--fdg-color-olive);
+  font-size: 12px;
+  font-weight: 820;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.home-proof__title {
+  max-width: 680px;
+  margin: 0;
+  color: var(--fdg-color-ink);
+  font-size: clamp(31px, 4.4vw, 60px);
+  font-weight: 420;
+  line-height: 1.06;
+  letter-spacing: 0;
+}
+
+.home-proof__text {
+  max-width: 540px;
+  margin: 22px 0 0;
+  color: var(--fdg-color-muted);
+  font-size: clamp(15px, 1.5vw, 19px);
+  line-height: 1.58;
+}
+
+.home-proof__link {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  border: 1px solid rgba(16, 21, 17, .14);
+  border-radius: var(--fdg-radius-pill);
+  padding: 0 24px;
+  color: var(--fdg-color-ink);
+  font-size: 12px;
+  font-weight: 760;
+  text-decoration: none;
+}
+
+.home-proof__link:hover {
+  background: var(--fdg-color-white);
+}
+
+.home-proof__notes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgba(16, 21, 17, .1);
+}
+
+.home-proof-note {
+  display: grid;
+  align-content: space-between;
+  min-height: 270px;
+  padding: clamp(20px, 3vw, 34px);
+  border-right: 1px solid rgba(16, 21, 17, .1);
+  border-bottom: 1px solid rgba(16, 21, 17, .1);
+}
+
+.home-proof-note:last-child {
+  border-right: 0;
+}
+
+.home-proof-note__meta,
+.home-proof-note__by {
+  margin: 0;
+  color: var(--fdg-color-olive);
+  font-size: 12px;
+  font-weight: 760;
+  line-height: 1.4;
+}
+
+.home-proof-note blockquote {
+  margin: 20px 0;
+  color: var(--fdg-color-ink);
+  font-size: clamp(17px, 1.8vw, 23px);
+  font-weight: 420;
+  line-height: 1.38;
+}
+
 .home-text-link {
   color: var(--fdg-color-olive);
   text-decoration: none;
@@ -415,9 +511,19 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .home-proof,
   .home-split,
   .home-split--reverse {
     grid-template-columns: 1fr;
+  }
+
+  .home-proof__notes {
+    grid-template-columns: 1fr;
+  }
+
+  .home-proof-note {
+    min-height: auto;
+    border-right: 0;
   }
 
   .home-resources {

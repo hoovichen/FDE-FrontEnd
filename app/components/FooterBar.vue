@@ -13,6 +13,7 @@ const cta = computed(() => HOME_REDESIGN_TEXT[l.value].footerCta)
 const utilityLinks = computed(() => [
   { to: '/about', label: t.value.links.about },
   { to: `/blog/${l.value}`, label: t.value.links.blog },
+  { to: '/reviews', label: t.value.links.reviews },
   { to: `/faq/${l.value}`, label: t.value.links.faq },
   { to: '/terms', label: t.value.links.terms },
   { to: '/privacy-policy', label: t.value.links.privacy },

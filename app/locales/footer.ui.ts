@@ -7,6 +7,7 @@ export interface FooterUiText {
   links: {
     blog: string
     about: string
+    reviews: string
     stockists: string
     faq: string
     privacy: string
@@ -23,6 +24,7 @@ export const FOOTER_UI: Record<LangCode, FooterUiText> = {
     links: {
       blog: '博客',
       about: '关于我们',
+      reviews: '顾客反馈',
       stockists: '线下合作门店',
       faq: '常见问题',
       privacy: '隐私政策',
@@ -37,6 +39,7 @@ export const FOOTER_UI: Record<LangCode, FooterUiText> = {
     links: {
       blog: 'BLOG',
       about: 'ABOUT',
+      reviews: 'REVIEWS',
       stockists: 'STOCKISTS',
       faq: 'FAQ',
       privacy: 'PRIVACY POLICY',
@@ -51,6 +54,7 @@ export const FOOTER_UI: Record<LangCode, FooterUiText> = {
     links: {
       blog: 'BLOG',
       about: 'TENTANG KAMI',
+      reviews: 'ULASAN',
       stockists: 'KEDAI / STOCKISTS',
       faq: 'FAQ',
       privacy: 'POLISI PRIVASI',

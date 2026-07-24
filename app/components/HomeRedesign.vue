@@ -12,6 +12,7 @@ const ui = computed(() => HOME_REDESIGN_TEXT[l.value])
     <HomeEditorialHero />
     <HomeFeaturedProducts />
     <HomeQuoteCta />
+    <HomeCustomerProof />
     <HomeSplitFeature
       :heading="ui.recipes.heading"
       :text="ui.recipes.text"

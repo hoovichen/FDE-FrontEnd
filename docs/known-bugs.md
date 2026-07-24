@@ -1,6 +1,6 @@
 # Known Bugs And Technical Risks
 
-Last reviewed: 2026-07-23
+Last reviewed: 2026-07-24
 
 ## P1
 
@@ -45,6 +45,18 @@ Recommended fix:
 
 - Choose one canonical host.
 - Update `SEO_BASE`, `nuxt.config.ts`, sitemap, robots, route rules, and Vercel domain redirects together.
+
+### Product structured data still needs merchant policy review
+
+Google Search Console has reported optional/improvement warnings around merchant/product structured data such as `shippingDetails`, `hasMerchantReturnPolicy`, `aggregateRating`, and `review`.
+
+Impact: these are not current render blockers, but they can affect rich-result eligibility.
+
+Recommended fix:
+
+- Decide whether the portal should emit merchant `Offer` data while checkout happens on Shopee/Lazada instead of the website itself.
+- Add shipping/return fields only if the business can state accurate policy terms for the website context.
+- Do not populate `aggregateRating` or `review` using Shopee/Lazada excerpts. Those reviews are now displayed visually on `/reviews`, but they remain third-party marketplace reviews.
 
 ### Blog API returns an incorrect `to` field
 

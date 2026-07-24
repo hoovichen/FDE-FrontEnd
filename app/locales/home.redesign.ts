@@ -37,6 +37,7 @@ export const HOME_REDESIGN_TEXT: Record<LangCode, {
     heading: string
     text: string
     about: string
+    reviews: string
     faq: string
     blog: string
   }
@@ -84,6 +85,7 @@ export const HOME_REDESIGN_TEXT: Record<LangCode, {
       heading: 'Need the story, details, or a quick answer?',
       text: 'Keep the main navigation simple, but leave a quieter path for people who want to know more before buying.',
       about: 'Our story',
+      reviews: 'Customer notes',
       faq: 'FAQ',
       blog: 'Stories',
     },
@@ -131,6 +133,7 @@ export const HOME_REDESIGN_TEXT: Record<LangCode, {
       heading: '想了解故事、产品细节，或快速找到答案？',
       text: '主导航保持简洁，但为想深入了解品牌与购买问题的用户保留安静入口。',
       about: '品牌故事',
+      reviews: '顾客反馈',
       faq: '常见问题',
       blog: '故事记录',
     },
@@ -178,6 +181,7 @@ export const HOME_REDESIGN_TEXT: Record<LangCode, {
       heading: 'Perlu cerita, maklumat, atau jawapan ringkas?',
       text: 'Navigasi utama kekal ringkas, dengan laluan yang lebih tenang untuk pelanggan yang mahu tahu lebih lanjut.',
       about: 'Kisah kami',
+      reviews: 'Nota pelanggan',
       faq: 'FAQ',
       blog: 'Cerita',
     },

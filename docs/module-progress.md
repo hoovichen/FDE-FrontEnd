@@ -1,6 +1,6 @@
 # Portal Module Progress
 
-Last reviewed: 2026-07-23
+Last reviewed: 2026-07-24
 
 ## Status Legend
 
@@ -19,6 +19,7 @@ Last reviewed: 2026-07-23
 | About | Partial | Rebuilt as an SEO-oriented editorial brand story page with Pantai Remis origin copy, timeline, values, internal links, and real imagery. | Review final company story wording and add richer structured data if About becomes an SEO landing page. |
 | Products list | Partial | Local data, sorting, marketplace links, product images, JSON-LD, centered editorial product wall, fixed-height product card slots, image containment, and mobile one-product snap browsing. JSON-LD now uses the configured site URL rather than placeholder URLs. | Move product content to a content source/API and decide final multilingual URL strategy. |
 | Product detail | Partial | Product detail surface has been redesigned with compact desktop first-view CTAs, right-aligned mobile back button, spreadsheet-derived specs, descriptions, highlights, serving suggestions, ingredients, allergens, packaging, and diet fields. | Decide whether product details should remain overlay-style or become fully crawlable standalone pages. |
+| Reviews / customer proof | Partial | New lightweight `/reviews` route displays curated Shopee/Lazada written feedback, grouped by product. Homepage, footer, resource links, and product detail previews now link to it. Reviews are not emitted as `Review` or `AggregateRating` JSON-LD to avoid third-party review SEO risk. | Add a backend-managed review/proof content model later if FDG OS owns marketplace proof, screenshot assets, consent/source notes, and publishing approval. |
 | Blog list | Done/Partial | API-backed markdown listing works for `zh/en/bm`. Filtering and sorting exist. Page style has been aligned to the new editorial design direction. Designed cover images now render uncropped, and article titles show in full. | Move publish workflow to CMS/backend and fix API contract path field. |
 | Blog detail | Done/Partial | Markdown rendering and BlogPosting JSON-LD exist. Detail style has been aligned to the new editorial design direction. Cover images render uncropped. | Add preview/draft/published states, author, updated date, and hreflang metadata. |
 | Blog publishing | Not Started | Publishing requires code/markdown commit. | Add FDG OS CMS module or a headless CMS integration. |

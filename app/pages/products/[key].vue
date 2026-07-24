@@ -5,6 +5,8 @@ import { SEO_BASE } from '~/lib/seo.base'
 import { useLanguage } from '~/composables/useLanguage'
 import type { LangCode } from '~/lib/products.data'
 import { PRODUCTS_UI_TEXT } from '~/locales/products.ui'
+import { getReviewsForProduct } from '~/lib/reviews.data'
+import { REVIEWS_UI } from '~/locales/reviews'
 
 const route = useRoute()
 const router = useRouter()
@@ -18,6 +20,7 @@ if (!detail.value) router.replace('/products')
 const { lang } = useLanguage()
 const l = computed<LangCode>(() => (lang.value as LangCode) || 'en')
 const ui = computed(() => PRODUCTS_UI_TEXT[l.value])
+const reviewUi = computed(() => REVIEWS_UI[l.value])
 
 // SEO
 // 基础 meta
@@ -149,6 +152,7 @@ const specRows = computed(() => {
     { label: labels.value.specialtyDiet, value: specs.specialtyDiet }
   ].filter(row => row.value)
 })
+const reviewPreview = computed(() => getReviewsForProduct(key, 1))
 </script>
 
 <template>
@@ -195,6 +199,12 @@ const specRows = computed(() => {
               <ul>
                 <li v-for="item in primaryHighlights" :key="item">{{ item }}</li>
               </ul>
+            </section>
+
+            <section v-if="reviewPreview.length" class="pdetail-proof" aria-labelledby="pdetail-proof-title">
+              <h3 id="pdetail-proof-title">{{ reviewUi.detailTitle }}</h3>
+              <p>{{ reviewPreview[0].quote }}</p>
+              <NuxtLink to="/reviews">{{ reviewUi.detailLink }}</NuxtLink>
             </section>
           </div>
 
