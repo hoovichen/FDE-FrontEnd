@@ -98,7 +98,7 @@ export const PRODUCTS_BASE: ProductBase[] = [
     url: 'https://shopee.com.my/FDG\'s-Brid\'s-Eye-Chilli-Sauce-%E7%81%AB%E9%BE%8D%E6%8C%87%E5%A4%A9%E6%A4%92%E8%BE%A3%E6%A4%92%E9%85%B1-Sos-Chilli-Padi-yellow-cap-i.1708308739.49854468963',
     url2: 'https://www.lazada.com.my/products/pdp-i4772897649-s26913424201.html',
     featuredHome: true,
-    featuredOrder: 3,
+    featuredOrder: 2,
     specs: {
       ingredients: 'Chilli padi, garlic, salt, sugar, vinegar, preservative',
       weight: '340g',
@@ -138,7 +138,7 @@ export const PRODUCTS_BASE: ProductBase[] = [
     url2: 'https://www.lazada.com.my/products/pdp-i4772309686-s26898423098.html',
     price: 9,
     featuredHome: true,
-    featuredOrder: 2,
+    featuredOrder: 4,
     specs: {
       ingredients: 'Onion, garlic, lemongrass, chili, dried shrimp, salt, sugar, preservatives',
       weight: '300g',
@@ -157,6 +157,8 @@ export const PRODUCTS_BASE: ProductBase[] = [
     url: 'https://shopee.com.my/Crispy-Anchovy-Chilli-%E9%A6%99%E8%84%86%E9%93%B6%E9%B1%BC%E4%BB%94-%E9%85%8DNasiLemak-i.1708308739.53504422683',
     url2: 'https://www.lazada.com.my/products/pdp-i4772699037-s26898098441.html',
     price: 12,
+    featuredHome: true,
+    featuredOrder: 3,
     specs: {
       ingredients: 'Palm oil, chili, shallot, anchovy, sugar, pepper, Sichuan pepper, monosodium glutamate',
       weight: '190g',

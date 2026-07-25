@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import { HOME_REDESIGN_TEXT, type LangCode } from '~/locales/home.redesign'
 import { useLanguage } from '~/composables/useLanguage'
-import { useProductsList } from '~/composables/useProducts'
+import { useFeaturedProducts } from '~/composables/useProducts'
 
 const { lang } = useLanguage()
 const l = computed<LangCode>(() => (lang.value as LangCode) || 'en')
 const ui = computed(() => HOME_REDESIGN_TEXT[l.value].featured)
-const { sorted } = useProductsList()
-
-const products = computed(() => sorted.value.slice(0, 4))
+const { featured: products } = useFeaturedProducts()
 </script>
 
 <template>
@@ -38,4 +36,3 @@ const products = computed(() => sorted.value.slice(0, 4))
     </div>
   </section>
 </template>
-

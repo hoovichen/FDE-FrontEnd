@@ -55,13 +55,14 @@
   display: grid;
   min-height: 100%;
   place-items: center;
-  padding: clamp(26px, 4vw, 54px);
+  padding: clamp(18px, 3vw, 34px);
   background: linear-gradient(90deg, #edf2f1, #f8f9f6);
 }
 
 .pdetail-image img {
-  width: 100%;
-  height: min(52vh, 460px);
+  width: auto;
+  height: min(68vh, 620px);
+  max-width: 100%;
   object-fit: contain;
   object-position: center;
 }
@@ -381,13 +382,13 @@
 
   .pdetail-image {
     min-height: 0;
-    aspect-ratio: 1 / .9;
-    padding: 50px 18px 10px;
+    aspect-ratio: 4 / 5;
+    padding: 52px 12px 12px;
   }
 
   .pdetail-image img {
     height: 100%;
-    max-height: 350px;
+    max-height: none;
   }
 
   .pdetail-info {

@@ -1,6 +1,6 @@
 # Portal Module Progress
 
-Last reviewed: 2026-07-24
+Last reviewed: 2026-07-25
 
 ## Status Legend
 
@@ -13,12 +13,12 @@ Last reviewed: 2026-07-24
 
 | Module | Current Status | Notes | Recommended Next Step |
 | --- | --- | --- | --- |
-| Home page | Partial | Homepage has been rebuilt into the current editorial/Instagram-style design direction. Mobile product section now uses horizontal one-product snap browsing. | Continue design-team review, then refine imagery/copy. |
+| Home page | Partial | Homepage has been rebuilt into the current editorial/Instagram-style design direction. Mobile product section now uses horizontal one-product snap browsing. Featured product media now uses 4:5 photo framing for the new retouched product photography. | Continue design-team review, then refine imagery/copy. |
 | Header/navigation | Partial | Simplified Home/Catalog/Contact navigation, language selector, and mobile menu are implemented. Active route only checks exact paths. | Verify multilingual route behavior and improve active states after subpage redesign. |
 | Footer | Partial | Stockists CTA and minimal legal/social footer are implemented. Footer utility links now expose About, Blog, FAQ, Terms, and Privacy. Social icons use raw `img` tags to avoid Nuxt image optimization issues with `.ico` assets. | Legally review final Terms/Privacy wording before production reliance. |
 | About | Partial | Rebuilt as an SEO-oriented editorial brand story page with Pantai Remis origin copy, timeline, values, internal links, and real imagery. | Review final company story wording and add richer structured data if About becomes an SEO landing page. |
-| Products list | Partial | Local data, sorting, marketplace links, product images, JSON-LD, centered editorial product wall, fixed-height product card slots, image containment, and mobile one-product snap browsing. JSON-LD now uses the configured site URL rather than placeholder URLs. | Move product content to a content source/API and decide final multilingual URL strategy. |
-| Product detail | Partial | Product detail surface has been redesigned with compact desktop first-view CTAs, right-aligned mobile back button, spreadsheet-derived specs, descriptions, highlights, serving suggestions, ingredients, allergens, packaging, and diet fields. | Decide whether product details should remain overlay-style or become fully crawlable standalone pages. |
+| Products list | Partial | Local data, sorting, marketplace links, product images, JSON-LD, centered editorial product wall, 4:5 product photo framing, image containment, and mobile one-product snap browsing. JSON-LD now uses the configured site URL rather than placeholder URLs. | Move product content to a content source/API and decide final multilingual URL strategy. |
+| Product detail | Partial | Product detail surface has been redesigned with compact desktop first-view CTAs, right-aligned mobile back button, 4:5-friendly product photo display, spreadsheet-derived specs, descriptions, highlights, serving suggestions, ingredients, allergens, packaging, and diet fields. | Decide whether product details should remain overlay-style or become fully crawlable standalone pages. |
 | Reviews / customer proof | Partial | New lightweight `/reviews` route displays curated Shopee/Lazada written feedback, grouped by product. Homepage, footer, resource links, and product detail previews now link to it. Reviews are not emitted as `Review` or `AggregateRating` JSON-LD to avoid third-party review SEO risk. | Add a backend-managed review/proof content model later if FDG OS owns marketplace proof, screenshot assets, consent/source notes, and publishing approval. |
 | Blog list | Done/Partial | API-backed markdown listing works for `zh/en/bm`. Filtering and sorting exist. Page style has been aligned to the new editorial design direction. Designed cover images now render uncropped, and article titles show in full. | Move publish workflow to CMS/backend and fix API contract path field. |
 | Blog detail | Done/Partial | Markdown rendering and BlogPosting JSON-LD exist. Detail style has been aligned to the new editorial design direction. Cover images render uncropped. | Add preview/draft/published states, author, updated date, and hreflang metadata. |

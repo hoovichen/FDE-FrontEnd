@@ -1,6 +1,6 @@
 # FDE-FrontEnd Current Status
 
-Last reviewed: 2026-07-24
+Last reviewed: 2026-07-25
 
 ## Executive Summary
 
@@ -74,6 +74,12 @@ Reviews / Customer proof:
 - `/reviews` presents selected Shopee/Lazada written feedback as customer proof, grouped by product.
 - Homepage and product detail pages link into the review page with a light proof section/preview.
 - Important SEO decision: Shopee/Lazada marketplace reviews are displayed visually with source context only. They are not emitted as `Review` or `AggregateRating` JSON-LD because they are third-party marketplace reviews, not first-party site-collected reviews.
+
+Product photography:
+- Most product images in `public/images/products/*.png` have been updated to strict retouched product photography at `1080x1350` (4:5).
+- Ginger Garlic Paste still uses the older image while waiting for a new shoot.
+- Product image paths in `app/lib/products.data.ts` remain unchanged, so routing and product data references are not affected.
+- Product listing, homepage featured products, product detail, and review product media have been adjusted to 4:5 image containers so the new photography displays as product photos instead of small cutout-style objects in oversized backgrounds.
 
 Recipes:
 - Recipe data and helpers live under `app/lib/recipes*` and `app/locales/recipes*`.
@@ -157,6 +163,25 @@ Design/SEO policy:
 - The page remains editorial and lightweight to match the current Instagram-style direction.
 - The site still does not directly sell products; marketplace checkout remains the purchase path.
 - Do not add `Review` or `AggregateRating` structured data from Shopee/Lazada excerpts unless the business later collects first-party reviews directly on `firedragonmy.com` and can meet Google review snippet requirements.
+
+## Product Photography Display Pass - 2026-07-25
+
+Implemented:
+
+- Confirmed updated product PNG paths still match current product data.
+- Confirmed new product photography uses a consistent `1080x1350` 4:5 format for most products.
+- Updated product media presentation from cutout-style bottom alignment to centered 4:5 photo framing in:
+  - `app/assets/styles/pages/products.css`
+  - `app/assets/styles/pages/home-redesign.css`
+  - `app/assets/styles/pages/keyproducts.css`
+  - `app/assets/styles/pages/reviews.css`
+- Ginger Garlic Paste remains compatible with the same container while its final product photo is pending.
+
+Verification:
+
+- `pnpm type-check`: passed
+- `pnpm build`: passed
+- Existing Browserslist warning remains unchanged.
 
 ## Deployment Status
 
