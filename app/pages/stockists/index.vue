@@ -118,7 +118,7 @@ useSeoMeta({
                                         target="_blank" rel="noopener" :aria-label="`${ui.openMaps} · ${s.name}`">
                                         <img :src="s.image" :alt="s.name" loading="lazy" decoding="async" />
                                     </a>
-                                    <StockistMapPreview v-else-if="s.mapQuery || s.address" :stockist="s" :label="ui.openMaps" />
+                                    <StockistMapPreview v-else :stockist="s" :label="ui.openMaps" :pending-label="ui.pinPending" />
 
                                     <div class="stockist-card__body">
                                         <div class="stockist-card__top">
@@ -142,7 +142,7 @@ useSeoMeta({
                                         <div class="stockist-card__actions">
                                             <NuxtLink :to="detailRoute(s.key)" class="stockist-card__detail"
                                                 :aria-label="`${ui.viewDetails} · ${s.name}`">{{ ui.viewDetails }}</NuxtLink>
-                                            <a class="stockist-card__maps" :href="buildMapsHref(s)" target="_blank"
+                                            <a v-if="s.mapUrl || s.mapQuery" class="stockist-card__maps" :href="buildMapsHref(s)" target="_blank"
                                                 rel="noopener" @click.stop>
                                                 {{ ui.openMaps }}
                                             </a>

@@ -498,6 +498,8 @@ export const STOCKISTS_BASE: StockistBase[] = [
     state: "Perak",
     city: "Ipoh",
     address: "17, Lorong Kledang Timur 10A, Bandar Baru Menglembu, 31450 Ipoh, Perak",
+    mapQuery: "4.5739568,101.0448738",
+    mapUrl: "https://www.google.com/maps/place/Choice+Mini+Market+%E4%BD%B3%E9%80%89%E8%BF%B7%E4%BD%A0%E5%B8%82%E5%9C%BA/@4.5739568,101.0448738,17z/data=!3m1!4b1!4m6!3m5!1s0x31caebc3c543d6c5:0x56dfe696b7f0f342!8m2!3d4.5739568!4d101.0448738!16s%2Fg%2F11bw82l746",
   },
   {
     key: "kedai-ubat-kan-fatt-tronoh",
@@ -506,6 +508,8 @@ export const STOCKISTS_BASE: StockistBase[] = [
     state: "Perak",
     city: "Tronoh",
     address: "37, Jalan Baru, 31750 Tronoh, Perak",
+    mapQuery: "4.4231386,100.9868441",
+    mapUrl: "https://www.google.com/maps/place/Kan+Fatt+Kedai+Ubat/@4.4231386,100.9868441,17z/data=!3m1!4b1!4m6!3m5!1s0x31cae766a8c968c7:0x59aed874a9249f53!8m2!3d4.4231386!4d100.9868441!16s%2Fg%2F11b6j70s_s",
   },
   {
     key: "yong-loon-trading-sekinchan",
@@ -522,6 +526,8 @@ export const STOCKISTS_BASE: StockistBase[] = [
     state: "Selangor",
     city: "Tanjong Sepat",
     address: "Lot 2926, Kampung Tanjung Sepat Darat, 42800 Tanjong Sepat, Selangor",
+    mapQuery: "2.6735976,101.5696941",
+    mapUrl: "https://www.google.com/maps/place/Arowana+Malayan+Food+Industries+Sdn+Bhd/@2.6735976,101.5696941,17z/data=!3m1!4b1!4m6!3m5!1s0x31cd96ebffffffff:0xed0dd495758bcde9!8m2!3d2.6735976!4d101.5696941!16s%2Fg%2F1ttp7td8",
   },
   {
     key: "sin-weng-fai-peanut-candy-ipoh",
@@ -530,6 +536,8 @@ export const STOCKISTS_BASE: StockistBase[] = [
     state: "Perak",
     city: "Ipoh",
     address: "69 & 69A, Jalan Yau Tet Shin, 30300 Ipoh, Perak",
+    mapQuery: "4.5938172,101.0847374",
+    mapUrl: "https://www.google.com/maps/place/Sin+Weng+Fai+Peanut+Candy+Shop/@4.5938172,101.0847374,17z/data=!3m1!4b1!4m6!3m5!1s0x31caec6484eaba15:0xb0c56f7a81c441fc!8m2!3d4.5938172!4d101.0847374!16s%2Fg%2F11csbrmwj5",
   },
   {
     key: "88-fresh-fruit-and-flower-chemor",
@@ -546,6 +554,8 @@ export const STOCKISTS_BASE: StockistBase[] = [
     state: "Selangor",
     city: "Klang",
     address: "20, Jalan Rodat 3/KU5, Bandar Bukit Raja, 41050 Klang, Selangor",
+    mapQuery: "3.0857223,101.442724",
+    mapUrl: "https://www.google.com/maps/place/Kl+Fresh+Market/@3.0857223,101.442724,17z/data=!3m1!4b1!4m6!3m5!1s0x31cc538f841d5c67:0xe6082b771af36597!8m2!3d3.0857223!4d101.442724!16s%2Fg%2F11p9cl5m25",
   },
   {
     key: "sisu-frozen-food-menglembu",
@@ -554,6 +564,8 @@ export const STOCKISTS_BASE: StockistBase[] = [
     state: "Perak",
     city: "Ipoh",
     address: "13-6, Jalan Kledang Timur 1, Bandar Baru Menglembu, 31450 Ipoh, Perak",
+    mapQuery: "4.5732209,101.0498854",
+    mapUrl: "https://www.google.com/maps/place/Sisu+Frozen+Food+(Ipoh)/@4.5732209,101.0498854,17z/data=!3m1!4b1!4m6!3m5!1s0x31caebda22764207:0x260b0f27043b8a98!8m2!3d4.5732209!4d101.0498854!16s%2Fg%2F11llwn8gvp",
   },
   {
     key: "kedai-ikan-masin-kim-neng-bukit-mertajam",
@@ -562,6 +574,8 @@ export const STOCKISTS_BASE: StockistBase[] = [
     state: "Pulau Pinang",
     city: "Bukit Mertajam",
     address: "1, Lorong Rozhan 3, Kawasan Perniagaan Jalan Rozhan, Alma, 14000 Bukit Mertajam, Pulau Pinang",
+    mapQuery: "5.3317302,100.4796085",
+    mapUrl: "https://www.google.com/maps/place/Kim+Neng+Trading/@5.3317302,100.4796085,17z/data=!3m1!4b1!4m6!3m5!1s0x304ac84c2fe0ea3d:0xe8fcbc5421aa7fd5!8m2!3d5.3317302!4d100.4796085!16s%2Fg%2F1wf4qvzt",
   },
   {
     key: "mr-dongping-frozen-food-ipoh",
@@ -570,6 +584,8 @@ export const STOCKISTS_BASE: StockistBase[] = [
     state: "Perak",
     city: "Ipoh",
     address: "27, Jalan Lapangan Perdana 1, Panorama Lapangan Perdana, 31350 Ipoh, Perak",
+    mapQuery: "4.5479289,101.0982653",
+    mapUrl: "https://www.google.com/maps/place/Mr.+Dongping+Frozen+Food+%E5%87%8D%E5%93%81%E5%85%88%E7%94%9F/@4.5479289,101.0982653,17z/data=!3m1!4b1!4m6!3m5!1s0x31caef41e006de7d:0x393b71aebdda0ac2!8m2!3d4.5479289!4d101.0982653!16s%2Fg%2F11xp9ssc7t",
   },
   {
     key: "zenith-food-enterprise-simpang-ampat",
@@ -578,6 +594,8 @@ export const STOCKISTS_BASE: StockistBase[] = [
     state: "Pulau Pinang",
     city: "Simpang Ampat",
     address: "73, Jalan Kendi, Taman Merak Jaya, 14100 Simpang Ampat, Pulau Pinang",
+    mapQuery: "5.267904,100.471306",
+    mapUrl: "https://www.google.com/maps?q=5.267904,100.471306",
   },
   {
     key: "leow-family-grocery-seri-botani",
@@ -586,6 +604,8 @@ export const STOCKISTS_BASE: StockistBase[] = [
     state: "Perak",
     city: "Ipoh",
     address: "17 & 17A, Seri Palma A/3, Bandar Seri Botani, 31350 Ipoh, Perak",
+    mapQuery: "4.5370305,101.1061699",
+    mapUrl: "https://www.google.com/maps/place/Leow+grocery+store/@4.5370305,101.1061699,17z/data=!3m1!4b1!4m6!3m5!1s0x31caef0004af0989:0x1b3f549363710dc2!8m2!3d4.5370305!4d101.1061699!16s%2Fg%2F11zdmft5qr",
   },
   {
     key: "mei-grocer-subang-murni",
@@ -599,11 +619,12 @@ export const STOCKISTS_BASE: StockistBase[] = [
   },
   {
     key: "mei-grocer-ara-damansara",
-    name: "Mei Grocer @ Ara Damansara",
+    name: "Mei Grocer @ Taipan 2, Ara Damansara",
     active: true,
     state: "Selangor",
     city: "Petaling Jaya",
     address: "G-G-5, Block G, Taipan 2, Jalan PJU 1A/3, Ara Damansara, 47301 Petaling Jaya, Selangor",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=G-G-5%2C%20Block%20G%2C%20Taipan%202%2C%20Jalan%20PJU%201A%2F3%2C%20Ara%20Damansara%2C%2047301%20Petaling%20Jaya%2C%20Selangor",
+    mapQuery: "3.1190606,101.5779135",
+    mapUrl: "https://www.google.com/maps/place/Mei+Grocer+@+Taipan+2,+Ara+Damansara/data=!4m5!3m4!1s0x31cc4f00164e96f5:0xc17241437f20d3ca!8m2!3d3.1190606!4d101.5779135",
   },
 ]

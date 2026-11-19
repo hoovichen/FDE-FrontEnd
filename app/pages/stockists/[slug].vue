@@ -50,7 +50,7 @@ useSeoMeta({
                     <figure v-if="stockist.image" class="stockist-photo">
                         <img :src="stockist.image" :alt="stockist.name" loading="lazy" decoding="async" />
                     </figure>
-                    <StockistMapPreview v-else-if="stockist.mapQuery || stockist.address" :stockist="stockist" :label="ui.openMaps" />
+                    <StockistMapPreview v-else :stockist="stockist" :label="ui.openMaps" :pending-label="ui.pinPending" />
                 </aside>
 
                 <div class="stockist-info">
@@ -76,7 +76,7 @@ useSeoMeta({
                     </div>
 
                     <div class="stockist-actions">
-                        <a class="btn-primary" :href="buildMapsHref(stockist)" target="_blank" rel="noopener">
+                        <a v-if="stockist.mapUrl || stockist.mapQuery" class="btn-primary" :href="buildMapsHref(stockist)" target="_blank" rel="noopener">
                             {{ ui.openMaps }}
                         </a>
 

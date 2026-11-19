@@ -2,19 +2,21 @@
 import { buildMapsHref } from '~/lib/stockists/stockists.helpers'
 import type { StockistBase } from '~/lib/stockists/stockists.types'
 
-const props = defineProps<{ stockist: StockistBase; label: string }>()
+const props = defineProps<{ stockist: StockistBase; label: string; pendingLabel: string }>()
 const embedUrl = computed(() => {
-    const query = props.stockist.mapQuery || props.stockist.address || props.stockist.name
+    const query = props.stockist.mapQuery
+    if (!query) return undefined
     return `https://maps.google.com/maps?${new URLSearchParams({ q: query, t: 'm', z: '16', output: 'embed' })}`
 })
 </script>
 
 <template>
     <div class="stockist-map-preview">
-        <iframe :src="embedUrl" :title="`${label} · ${stockist.name}`" loading="lazy"
+        <iframe v-if="embedUrl" :src="embedUrl" :title="`${label} · ${stockist.name}`" loading="lazy"
             referrerpolicy="strict-origin-when-cross-origin" />
-        <a :href="buildMapsHref(stockist)" :aria-label="`${label} · ${stockist.name}`"
+        <a v-if="embedUrl" :href="buildMapsHref(stockist)" :aria-label="`${label} · ${stockist.name}`"
             :title="label" target="_blank" rel="noopener" />
+        <span v-else class="stockist-pin-pending">{{ pendingLabel }}</span>
     </div>
 </template>
 
@@ -24,6 +26,15 @@ const embedUrl = computed(() => {
     min-height: 200px;
     height: 100%;
     background: #edf2f1;
+}
+
+.stockist-pin-pending {
+    display: grid;
+    position: absolute;
+    inset: 0;
+    place-items: center;
+    text-align: center;
+    padding: 12px;
 }
 
 .stockist-map-preview iframe {
