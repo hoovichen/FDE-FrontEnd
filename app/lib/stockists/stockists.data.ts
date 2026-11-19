@@ -587,4 +587,22 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Ipoh",
     address: "17 & 17A, Seri Palma A/3, Bandar Seri Botani, 31350 Ipoh, Perak",
   },
+  {
+    key: "mei-grocer-subang-murni",
+    name: "Mei Grocer @ Taman Subang Murni, Subang 2",
+    active: true,
+    state: "Selangor",
+    city: "Shah Alam",
+    address: "Taman Subang Murni, Subang 2, Shah Alam, Selangor",
+    mapUrl: "https://www.google.com/maps/place/Mei+Grocer+@+Taman+Subang+Murni,+Subang+2/@3.1625907,101.5440036,20.46z/data=!4m14!1m7!3m6!1s0x31cc4f55c6f7469f:0x559827078af27dcf!2z5a6c5bq355yB!8m2!3d3.1625573!4d101.5443203!16s%2Fg%2F11hpx1zl5z!3m5!1s0x31cc4f0061af402d:0xff82d1339293eb18!8m2!3d3.1626467!4d101.5443238!16s%2Fg%2F11yvh2ll8q",
+  },
+  {
+    key: "mei-grocer-ara-damansara",
+    name: "Mei Grocer @ Ara Damansara",
+    active: true,
+    state: "Selangor",
+    city: "Petaling Jaya",
+    address: "G-G-5, Block G, Taipan 2, Jalan PJU 1A/3, Ara Damansara, 47301 Petaling Jaya, Selangor",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=G-G-5%2C%20Block%20G%2C%20Taipan%202%2C%20Jalan%20PJU%201A%2F3%2C%20Ara%20Damansara%2C%2047301%20Petaling%20Jaya%2C%20Selangor",
+  },
 ]
