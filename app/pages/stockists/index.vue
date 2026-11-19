@@ -129,7 +129,7 @@ useSeoMeta({
                                                     <span v-if="s.state">{{ s.state }}</span>
                                                 </div>
                                             </div>
-                                            <div class="stockist-card__code muted">#{{ s.code }}</div>
+                                            <div v-if="s.code" class="stockist-card__code muted">#{{ s.code }}</div>
                                         </div>
 
                                         <div class="stockist-card__meta muted">

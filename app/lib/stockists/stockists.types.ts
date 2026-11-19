@@ -4,8 +4,8 @@ export interface StockistBase {
     /** 稳定主键（用于前端 key / 未来 DB id 映射） */
     key: string
 
-    /** Excel: Customer Code */
-    code: string
+    /** Legacy listing code */
+    code?: string
 
     /** 店名 */
     name: string
