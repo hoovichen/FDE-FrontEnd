@@ -113,11 +113,12 @@ useSeoMeta({
                             <h3 class="stockists-cityTitle">{{ city }}</h3>
 
                             <div class="stockists-list">
-                                <NuxtLink v-for="s in items" :key="s.key" class="stockist-card" :to="detailRoute(s.key)"
-                                    :aria-label="`Open stockist: ${s.name}`">
-                                    <div class="stockist-card__media" v-if="s.image || s.mapImage">
+                                <article v-for="s in items" :key="s.key" class="stockist-card">
+                                    <a v-if="s.image || s.mapImage" class="stockist-card__media" :href="buildMapsHref(s)"
+                                        target="_blank" rel="noopener" :aria-label="`${ui.openMaps} · ${s.name}`">
                                         <img :src="s.image || s.mapImage" :alt="s.name" loading="lazy" decoding="async" />
-                                    </div>
+                                    </a>
+                                    <StockistMapPreview v-else-if="s.address" :stockist="s" :label="ui.openMaps" />
 
                                     <div class="stockist-card__body">
                                         <div class="stockist-card__top">
@@ -139,14 +140,15 @@ useSeoMeta({
                                         </div>
 
                                         <div class="stockist-card__actions">
-                                            <span class="stockist-card__detail">{{ ui.viewDetails }}</span>
+                                            <NuxtLink :to="detailRoute(s.key)" class="stockist-card__detail"
+                                                :aria-label="`${ui.viewDetails} · ${s.name}`">{{ ui.viewDetails }}</NuxtLink>
                                             <a class="stockist-card__maps" :href="buildMapsHref(s)" target="_blank"
                                                 rel="noopener" @click.stop>
                                                 {{ ui.openMaps }}
                                             </a>
                                         </div>
                                     </div>
-                                </NuxtLink>
+                                </article>
                             </div>
                         </div>
                     </div>

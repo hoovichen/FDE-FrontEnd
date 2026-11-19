@@ -32,6 +32,7 @@ export interface StockistBase {
 
     /** 直接放 Google Maps 链接（最省事） */
     mapUrl?: string
+    mapQuery?: string
 
     /** 店面截图 / 地图截图（建议放 public/images/stockists/...） */
     image?: string

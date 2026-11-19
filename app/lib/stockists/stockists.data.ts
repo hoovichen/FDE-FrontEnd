@@ -594,6 +594,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     state: "Selangor",
     city: "Shah Alam",
     address: "Taman Subang Murni, Subang 2, Shah Alam, Selangor",
+    mapQuery: "3.1626467,101.5443238",
     mapUrl: "https://www.google.com/maps/place/Mei+Grocer+@+Taman+Subang+Murni,+Subang+2/@3.1625907,101.5440036,20.46z/data=!4m14!1m7!3m6!1s0x31cc4f55c6f7469f:0x559827078af27dcf!2z5a6c5bq355yB!8m2!3d3.1625573!4d101.5443203!16s%2Fg%2F11hpx1zl5z!3m5!1s0x31cc4f0061af402d:0xff82d1339293eb18!8m2!3d3.1626467!4d101.5443238!16s%2Fg%2F11yvh2ll8q",
   },
   {

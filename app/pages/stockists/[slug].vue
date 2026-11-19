@@ -58,6 +58,7 @@ useSeoMeta({
                     <figure v-else-if="stockist.image" class="stockist-photo">
                         <img :src="stockist.image" :alt="stockist.name" loading="lazy" decoding="async" />
                     </figure>
+                    <StockistMapPreview v-else-if="stockist.address" :stockist="stockist" :label="ui.openMaps" />
                 </aside>
 
                 <div class="stockist-info">
