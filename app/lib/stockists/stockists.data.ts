@@ -518,6 +518,8 @@ export const STOCKISTS_BASE: StockistBase[] = [
     state: "Selangor",
     city: "Sekinchan",
     address: "75, Jalan Ria, 45400 Sekinchan, Selangor",
+    mapQuery: "3.508621,101.102759",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=3.508621%2C101.102759",
   },
   {
     key: "arowana-malayan-food-tanjong-sepat",
