@@ -47,18 +47,10 @@ useSeoMeta({
 
             <div class="stockist-grid">
                 <aside class="stockist-media">
-                    <figure v-if="stockist.mapImage" class="stockist-map">
-                        <a :href="buildMapsHref(stockist)" target="_blank" rel="noopener" class="stockist-map__link">
-                            <img :src="stockist.mapImage" :alt="`${stockist.name} map`" loading="lazy"
-                                decoding="async" />
-                            <span class="stockist-map__badge">{{ ui.openMaps }}</span>
-                        </a>
-                    </figure>
-
-                    <figure v-else-if="stockist.image" class="stockist-photo">
+                    <figure v-if="stockist.image" class="stockist-photo">
                         <img :src="stockist.image" :alt="stockist.name" loading="lazy" decoding="async" />
                     </figure>
-                    <StockistMapPreview v-else-if="stockist.address" :stockist="stockist" :label="ui.openMaps" />
+                    <StockistMapPreview v-else-if="stockist.mapQuery || stockist.address" :stockist="stockist" :label="ui.openMaps" />
                 </aside>
 
                 <div class="stockist-info">

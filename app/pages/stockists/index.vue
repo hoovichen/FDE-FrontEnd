@@ -114,11 +114,11 @@ useSeoMeta({
 
                             <div class="stockists-list">
                                 <article v-for="s in items" :key="s.key" class="stockist-card">
-                                    <a v-if="s.image || s.mapImage" class="stockist-card__media" :href="buildMapsHref(s)"
+                                    <a v-if="s.image" class="stockist-card__media" :href="buildMapsHref(s)"
                                         target="_blank" rel="noopener" :aria-label="`${ui.openMaps} · ${s.name}`">
-                                        <img :src="s.image || s.mapImage" :alt="s.name" loading="lazy" decoding="async" />
+                                        <img :src="s.image" :alt="s.name" loading="lazy" decoding="async" />
                                     </a>
-                                    <StockistMapPreview v-else-if="s.address" :stockist="s" :label="ui.openMaps" />
+                                    <StockistMapPreview v-else-if="s.mapQuery || s.address" :stockist="s" :label="ui.openMaps" />
 
                                     <div class="stockist-card__body">
                                         <div class="stockist-card__top">

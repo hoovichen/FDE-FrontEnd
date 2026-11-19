@@ -34,7 +34,6 @@ export interface StockistBase {
     mapUrl?: string
     mapQuery?: string
 
-    /** 店面截图 / 地图截图（建议放 public/images/stockists/...） */
+    /** 店面照片 */
     image?: string
-    mapImage?: string
 }

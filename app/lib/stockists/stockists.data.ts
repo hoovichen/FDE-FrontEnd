@@ -12,7 +12,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Ipoh",
     address: "71/73, Persiaran Kledang Timur 21, Bandar Baru Menglembu, Ipoh, 31400, Ipoh, Perak, 31450",
     mapUrl: "https://maps.app.goo.gl/TdU7UCbMpcXojLKcA",
-    mapImage: "/images/Map/stockists-map/300-0002.jpg",
+    mapQuery: "4.574914,101.0490455",
   },
   {
     key: "sepetang-local-product-centre-300-0003",
@@ -25,7 +25,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Kuala Sepetang",
     address: "28gf, Jalan Trump, Kampung Kuala Sepetang, 34650 Kuala Sepetang, Perak",
     mapUrl: "https://maps.app.goo.gl/MyMCJkYw6Tp89o3E8",
-    mapImage: "/images/Map/stockists-map/300-0003.jpg",
+    mapQuery: "4.8368115,100.6288337",
   },
   {
     key: "yan-chang-trading-sdn-bhd-300-0004",
@@ -38,7 +38,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Ipoh",
     address: "23, Lorong Taman 11, Taman Pertama, 30100 Ipoh, Perak",
     mapUrl: "https://maps.app.goo.gl/h2m8kLkCQbpQPYXy7",
-    mapImage: "/images/Map/stockists-map/300-0004.jpg"
+    mapQuery: "4.5992839,101.0590541"
   },
   {
     key: "pasar-mini-lima-puluh-sen-300-0006",
@@ -50,7 +50,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Pantai Remis",
     address: "Taman Pantai Mas,34900 Pantai Remis. Perak.",
     mapUrl: "https://maps.app.goo.gl/DGG5kB75oQmqntTX8",
-    mapImage: "/images/Map/stockists-map/300-0006.jpg"
+    mapQuery: "4.4511727,100.6273375"
   },
   {
     key: "sin-weng-heong-foodstuff-manufacturer-300-0008",
@@ -63,7 +63,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Ipoh",
     address: "64-66, Jalan Mustapha Al-Bakri, Taman Jubilee, 30300 Ipoh, Perak",
     mapUrl: "https://maps.app.goo.gl/dcXv3YL4mqyyxxLw7",
-    mapImage: "/images/Map/stockists-map/300-0008.jpg"
+    mapQuery: "4.5948623,101.0848822"
   },
   {
     key: "weng-keat-marketing-300-0009",
@@ -76,7 +76,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Ipoh",
     address: "No.38,Lorong Taman 10, Taman Pertama,30100 Ipoh.Perak",
     mapUrl: "https://maps.app.goo.gl/usq7f5XYDUw2rPmKA",
-    mapImage: "/images/Map/stockists-map/300-0009.jpg"
+    mapQuery: "4.5995115,101.0575717"
   },
   {
     key: "yin-onn-trading-300-0010",
@@ -89,7 +89,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Malim Nawar",
     address: "Perak, Malim Nawar, Main Road, 31700 Malim Nawar, Perak",
     mapUrl: "https://maps.app.goo.gl/pvqAnQXLtUwoN7GP7",
-    mapImage: "/images/Map/stockists-map/300-0010.jpg"
+    mapQuery: "4.3505768,101.1158446"
   },
   {
     key: "joo-hong-chan-300-0011",
@@ -102,7 +102,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Kuala Kurau",
     address: "125, A190, 34350 Kuala Kurau, Perak",
     mapUrl: "https://maps.app.goo.gl/L99QGjtEkc3j8QDDA",
-    mapImage: "/images/Map/stockists-map/300-0011.jpg"
+    mapQuery: "5.0202504,100.4317717"
   },
   {
     key: "chan-food-enterprise-300-0012",
@@ -114,7 +114,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Gopeng",
     address: "Taman Gopeng Baru, 31600 Gopeng, Perak",
     mapUrl: "https://maps.app.goo.gl/B9AcH8PxMRGwFK2U9",
-    mapImage: "/images/Map/stockists-map/300-0012.jpg"
+    mapQuery: "4.4653378,101.1678466"
   },
   {
     key: "pasaraya-chuan-kee-sdn-bhd-300-0013",
@@ -127,7 +127,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Ipoh",
     address: "No. 70, Jalan Ng Weng Hup, Buntong, 30100 Ipoh, Perak",
     mapUrl: "https://maps.app.goo.gl/HT637sd8PXXJhr7A7",
-    mapImage: "/images/Map/stockists-map/300-0013.jpg"
+    mapQuery: "4.6015918,101.0613234"
   },
   {
     key: "wong-sheng-mini-market-300-0015",
@@ -140,7 +140,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Gopeng",
     address: "288A, Jalan Berkat, Gopeng Jaya, Gopeng, 31600, Gopeng, Perak",
     mapUrl: "https://maps.app.goo.gl/TK4yriEXuLggCVhk9",
-    mapImage: "/images/Map/stockists-map/300-0015.jpg"
+    mapQuery: "4.4652501,101.1683108"
   },
   {
     key: "mun-hor-enterprise-300-0016",
@@ -152,7 +152,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Chenderiang",
     address: "21, A19, 35300 Chenderiang, Perak",
     mapUrl: "https://maps.app.goo.gl/s6Wa9UAhk7HgAUHb8",
-    mapImage: "/images/Map/stockists-map/300-0016.jpg"
+    mapQuery: "4.2647569,101.2373272"
   },
   {
     key: "perniagaan-sin-ing-ang-300-0017",
@@ -164,7 +164,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Pantai Remis",
     address: "34900 Pantai Remis.Perak",
     mapUrl: "https://maps.app.goo.gl/Vjen5ABBUew6FntVA",
-    mapImage: "/images/Map/stockists-map/300-0017.jpg"
+    mapQuery: "4.4537947,100.6285465"
   },
   {
     key: "pantai-leong-roasted-prok-300-0018",
@@ -177,7 +177,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Pantai Remis",
     address: "153, Hala Pantai Baru 6, Taman Pantai Baru, 34900 Pantai Remis, Perak",
     mapUrl: "https://maps.app.goo.gl/5ZehK1aghH3dxhpF8",
-    mapImage: "/images/Map/stockists-map/300-0018.jpg"
+    mapQuery: "4.4399817,100.6231394"
   },
   {
     key: "sun-yen-choon-chan-enterprise-300-0019",
@@ -189,7 +189,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Pantai Remis",
     address: "34900 Pantai Remis, Perak",
     mapUrl: "https://www.google.com/maps/@4.4538461,100.6284223,3a,75y,308.69h,88.56t/data=!3m10!1e1!3m8!1scPiZKIT53TIRumTTTWswmQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D1.439097139865737%26panoid%3DcPiZKIT53TIRumTTTWswmQ%26yaw%3D308.6923180239494!7i16384!8i8192!9m2!1b1!2i36?entry=ttu&g_ep=EgoyMDI2MDExOS4wIKXMDSoASAFQAw%3D%3D",
-    mapImage: "/images/Map/stockists-map/300-0019.jpg",
+    mapQuery: "4.4538461,100.6284223",
   },
   {
     key: "sin-loong-fatt-trading-sdn-bhd-300-0020",
@@ -202,7 +202,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Ipoh",
     address: "147, Jalan Pengkalan Barat, Taman Shatin Baru, 31650 Ipoh, Perak",
     mapUrl: "https://maps.app.goo.gl/kQeSUu4Njh9c1WwZ6",
-    mapImage: "/images/Map/stockists-map/300-0020.jpg"
+    mapQuery: "4.5544146,101.0748373"
   },
   {
     key: "yee-seet-fear-300-0021",
@@ -214,7 +214,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Ipoh",
     address: "6, Jalan Foo Choo Choon, Taman Jubilee, 30300 Ipoh, Perak",
     mapUrl: "https://maps.app.goo.gl/Hggqj39s1ov5DHc8A",
-    mapImage: "/images/Map/stockists-map/300-0021.jpg"
+    mapQuery: "4.5967321,101.0820984"
   },
   {
     key: "greenleaf-eco-life-venture-300-0022",
@@ -227,7 +227,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Nibong Tebal",
     address: "83, Jalan Rajawali, Taman Berjaya, 14300 Nibong Tebal, Pulau Pinang",
     mapUrl: "https://maps.app.goo.gl/q7WggBEE1G3BceGJ8",
-    mapImage: "/images/Map/stockists-map/300-0022.jpg"
+    mapQuery: "5.1743095,100.4735541"
   },
   {
     key: "zhing-liang-heng-trading-300-0024",
@@ -240,7 +240,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Simpang Ampat",
     address: "MY Pulau Pinang Simpang Ampat Taman Merak Jaya, 99, Jalan Kendi, Kaw Perniagaan14100 Simpang Ampat, Pulau Pinang",
     mapUrl: "https://maps.app.goo.gl/XwBCfFhn4Q75byHv6",
-    mapImage: "/images/Map/stockists-map/300-0024.jpg"
+    mapQuery: "5.2671026,100.4716989"
   },
   {
     key: "ayam-lt-mart-enterprise-300-0025",
@@ -253,7 +253,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Simpang Ampat",
     address: "NO11&11A, Jalan Kendi, Taman Merak Jaya, 14110 Simpang Ampat, Pulau Pinang",
     mapUrl: "https://maps.app.goo.gl/g9ch8RChVZkRN1w4A",
-    mapImage: "/images/Map/stockists-map/300-0025.jpg"
+    mapQuery: "5.2717853,100.4687551"
   },
   {
     key: "thye-chuan-chan-sdn-bhd-300-0026",
@@ -266,7 +266,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Bukit Mertajam",
     address: "19, Lorong Industri Alma 2, Kawasan Industri Alma, 14000 Bukit Mertajam, Pulau Pinang",
     mapUrl: "https://maps.app.goo.gl/5234owxk7BuhR7Ln7",
-    mapImage: "/images/Map/stockists-map/300-0026.jpg"
+    mapQuery: "5.3276274,100.4796656"
   },
   {
     key: "yik-kun-mini-market-300-0027",
@@ -279,7 +279,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Bukit Mertajam",
     address: "No. 56 58, & 60, Jalan Impian Ria, Taman Impian Ria, 14000 Bukit Mertajam, Penang",
     mapUrl: "https://maps.app.goo.gl/TWhZbGpMsJsttSr36",
-    mapImage: "/images/Map/stockists-map/300-0027.jpg"
+    mapQuery: "5.3106482,100.48239"
   },
   {
     key: "tuck-soon-300-t001",
@@ -292,7 +292,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Ipoh",
     address: "49, Jalan Wira Jaya, Desa Perwira, 31350 Ipoh, Perak",
     mapUrl: "https://maps.app.goo.gl/9qqWtUxH3APpon8g7",
-    mapImage: "/images/Map/stockists-map/300-T001.jpg"
+    mapQuery: "4.577414,101.1301989"
   },
   {
     key: "pasar-mini-low-teong-ghee-300-0031",
@@ -305,7 +305,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Pantai Remis",
     address: "No.15A, Jalan Pantai Makmur 2, Taman Pantai Makmur, 34900 Pantai Remis, Perak",
     mapUrl: "https://maps.app.goo.gl/XrBmsBnTQWvMoYJM9",
-    mapImage: "/images/Map/stockists-map/300-0031.jpg"
+    mapQuery: "4.4421714,100.6265176"
   },
   {
     key: "i-one-mart-300-0032",
@@ -317,7 +317,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Ipoh",
     address: "Taman Panglima, 31350 Ipoh, Perak",
     mapUrl: "https://maps.app.goo.gl/aE6XezUAViG3SeUS6",
-    mapImage: "/images/Map/stockists-map/300-0032.jpg"
+    mapQuery: "4.5692339,101.1377627"
   },
   {
     key: "cold-delight-m-sdn-bhd-300-0033",
@@ -330,7 +330,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Klang",
     address: "No. 45, Batu 2 1, 2, Jln Meru, Kawasan 19, 41050 Klang, Selangor",
     mapUrl: "https://maps.app.goo.gl/NjyXmdbp1d5TThZv5",
-    mapImage: "/images/Map/stockists-map/300-0033.jpg"
+    mapQuery: "3.0651766,101.4512826"
   },
   {
     key: "old-jetty-trading-300-0034",
@@ -343,7 +343,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Kuala Selangor",
     address: "T-24, Pasir Penambang, 45000 Kuala Selangor, Selangor",
     mapUrl: "https://maps.app.goo.gl/kkvC995GCqpoHosD6",
-    mapImage: "/images/Map/stockists-map/300-0034.jpg"
+    mapQuery: "3.3478335,101.2517371"
   },
   {
     key: "bh-fresh-mart-300-0035",
@@ -356,7 +356,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Shah Alam",
     address: "No 21-G, Jalan Setia Indah X U 13/X, Setia Alam, Seksyen, U13 Shah Alam, 40170 Shah Alam, Selangor",
     mapUrl: "https://maps.app.goo.gl/r4RpkrXX2SZLmHGJA",
-    mapImage: "/images/Map/stockists-map/300-0035.jpg"
+    mapQuery: "3.0989944,101.4611123"
   },
   {
     key: "big-hia-mart-enterprise-300-0036",
@@ -369,7 +369,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Shah Alam",
     address: "Jalan Setia Prima M U13/M, Setia Alam, 40170 Shah Alam, Selangor",
     mapUrl: "https://maps.app.goo.gl/Wa9UXQx5LUQZRdTk9",
-    mapImage: "/images/Map/stockists-map/300-0036.jpg"
+    mapQuery: "3.0986879,101.4450326"
   },
   {
     key: "uni-sprit-sdn-bhd-300-0037",
@@ -381,7 +381,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Sekinchan",
     address: "173, Jalan Sungai Labu, Taman Seri Sekinchan, 45400 Sekinchan, Selangor",
     mapUrl: "https://maps.app.goo.gl/Byfqh2yRFFLQBkNn9",
-    mapImage: "/images/Map/stockists-map/300-0037.jpg"
+    mapQuery: "3.5066203,101.0977243"
   },
   {
     key: "hup-lee-chan-sdn-bhd-300-0038",
@@ -394,7 +394,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Klang",
     address: "25 & 27, Jalan Pasar Baru 2, Off Jalan Meru, 41050, Klang, Selangor",
     mapUrl: "https://maps.app.goo.gl/kuUYYDxpcTyGtf8b6",
-    mapImage: "/images/Map/stockists-map/300-0038.jpg"
+    mapQuery: "3.0711332,101.4507461"
   },
   {
     key: "pasaraya-nam-teck-300-0039",
@@ -407,7 +407,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Klang",
     address: "167,169, 171 BATU, 2, Jln Meru, Taman Bunga Melor, 41050 Klang, Selangor",
     mapUrl: "https://maps.app.goo.gl/YPYaWZsFiobHvs2T6",
-    mapImage: "/images/Map/stockists-map/300-0039.jpg"
+    mapQuery: "3.067765,101.4505894"
   },
   {
     key: "satu-enam-lapan-lock-siew-moy-sdn-bhd-300-0040",
@@ -420,7 +420,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Kuala Selangor",
     address: "No 100, Jalan Feri Lama, Pasir Penambang, 45000 Kuala Selangor, Selangor",
     mapUrl: "https://maps.app.goo.gl/2mTW8QNuuRyjWgjn6",
-    mapImage: "/images/Map/stockists-map/300-0040.jpg"
+    mapQuery: "3.3481391,101.2517374"
   },
   {
     key: "lai-hin-enterprise-300-0041",
@@ -433,7 +433,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Kuala Selangor",
     address: "4500, 3, Jalan Bagan Sungai Yu, Pasir Pelembang, 45000 Kuala Selangor, Selangor",
     mapUrl: "https://maps.app.goo.gl/H4erMT6bcTTGRACu6",
-    mapImage: "/images/Map/stockists-map/300-0041.jpg"
+    mapQuery: "3.3521049,101.2491531"
   },
 
   {
@@ -447,7 +447,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Sekinchan",
     address: "10D, Jalan Menteri, Pekan Sekinchan, 45400 Sekinchan, Selangor",
     mapUrl: "https://maps.app.goo.gl/q8rgsqTXzY8N3Xn88",
-    mapImage: "/images/Map/stockists-map/300-L001.jpg"
+    mapQuery: "3.5068001,101.1068143"
   },
 
   {
@@ -460,7 +460,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Ipoh",
     address: "Laluan Lapangan Permata 2, Taman Song Choon, 31350 Ipoh, Perak",
     mapUrl: "https://maps.app.goo.gl/6JcV7563faMhMPrM8",
-    mapImage: "/images/Map/stockists-map/300-0042.jpg"
+    mapQuery: "4.5524959,101.1070524"
   },
   {
     key: "farmers-fresh-meat-retail-shop-sdn-bhd-hq-300-0043",
@@ -473,7 +473,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
     city: "Ipoh",
     address: "66, Laluan Perusahaan Kledang 1, Kawasan Perindustrian Menglembu, 31450 Ipoh, Perak",
     mapUrl: "https://maps.app.goo.gl/cSRqo1XziDRdPdyy9",
-    mapImage: "/images/Map/stockists-map/300-0043.jpg"
+    mapQuery: "4.5765015,101.0423682"
   },
   {
     key: "wing-hooi-store-batu-gajah",
