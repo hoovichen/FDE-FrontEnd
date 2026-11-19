@@ -478,7 +478,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
   {
     key: "wing-hooi-store-batu-gajah",
     name: "Wing Hooi Store",
-    active: true,
+    active: false,
     state: "Perak",
     city: "Batu Gajah",
     address: "215, Kampung Baru Chenderong, 31000 Batu Gajah, Perak",
@@ -486,7 +486,7 @@ export const STOCKISTS_BASE: StockistBase[] = [
   {
     key: "kwong-soon-cheong-langkap",
     name: "Kedai Runcit Kwong Soon Cheong",
-    active: true,
+    active: false,
     state: "Perak",
     city: "Langkap",
     address: "8, Jalan Besar, 36700 Langkap, Perak",
@@ -545,7 +545,9 @@ export const STOCKISTS_BASE: StockistBase[] = [
     active: true,
     state: "Perak",
     city: "Chemor",
-    address: "10, Jalan Sri Klebang A/15, Bandar Baru Sri Klebang, 31200 Chemor, Perak",
+    address: "24 & 26, Jalan Sri Klebang A/15, Bandar Baru Sri Klebang, 31200 Chemor, Perak",
+    mapQuery: "4.6956427,101.1207447",
+    mapUrl: "https://www.google.com/maps/place/88+Fresh+Fruit+%26+Flower/@4.6956427,101.1207447,17z/data=!3m1!4b1!4m6!3m5!1s0x31ca9313591d3da7:0xcb219228c802afa5!8m2!3d4.6956427!4d101.1207447!16s%2Fg%2F11fn6cl84d",
   },
   {
     key: "kl-fresh-market-klang",
